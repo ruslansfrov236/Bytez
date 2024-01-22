@@ -1,0 +1,62 @@
+﻿@model List<ConnectionInfo>
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Connection</h4>
+            <a class="card-description" style="display:block;  margin:20px 0" asp-controller="ConnectionInfo" asp-action="Create" asp-area="Admin">
+                Add connection
+            </a>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+
+                        <th> Image </th>
+                        <th> Title</th>
+                        <th> Create Date </th>
+                        <th> Update Date </th>
+                        <th> Details  </th>
+                        <th> Update  </th>
+
+                        <th> Delete  </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var connection in Model)
+                        {
+                            <tr>
+
+
+                                <td>
+                                    <img src="~/ui/assets/image/@connection.FilePath " style="width:80px; height:80px; object-fit:cover; border-radius:10px" />
+                                </td>
+                                <td>@connection.Title</td>
+                                <td> @connection.CreatedDate</td>
+                                <td> @connection.UpdatedDate</td>
+
+                                <td> <a href="/admin/connection/@connection.Id">Details </a></td>
+                                <td>
+                                    <a  href="/admin/connection/update/@connection.Id">
+                                        Update
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <form method="post" asp-controller="ConnectionInfo" asp-action="Delete" asp-area="Admin" asp-route-id="@connection.Id">
+
+                                        <button class="btn btn-link"> Delete</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

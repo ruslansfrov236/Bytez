@@ -1,0 +1,95 @@
+﻿@using bytez.business.Dto.Product
+@model ProductUpdateVM
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Title">Name</label>
+                    <input asp-for="UpdateProductDto.Title" type="text" class="form-control" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Images">File upload</label>
+                    <input asp-for="UpdateProductDto.Images"  name="img[]" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.ProductFile">Profile Product Image </label>
+                    <input asp-for="UpdateProductDto.ProductFile" name="img[]" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Price">Price</label>
+                    <input asp-for="UpdateProductDto.Price" class="form-control" placeholder="Price">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.CategoryId">Category</label>
+                    <select asp-for="UpdateProductDto.CategoryId" class="form-control" asp-items="@Model.Category.Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name })">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.BrandsId">Model</label>
+                    <select asp-for="UpdateProductDto.BrandsId" class="form-control" asp-items="@Model.BrandModel.Select(b => new SelectListItem() { Value = b.Id.ToString(), Text = b.Name })">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Discount">Discount</label>
+                    <select asp-for="UpdateProductDto.Discount" class="form-control" asp-items="Html.GetEnumSelectList<Discount>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.ProductMemory"></label>
+                    <select asp-for="UpdateProductDto.ProductMemory" class="form-control" asp-items="Html.GetEnumSelectList<ProductMemory>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.ProductRam"></label>
+                    <select asp-for="UpdateProductDto.ProductRam" class="form-control" asp-items="Html.GetEnumSelectList<ProductRam>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.ColorId">Color</label>
+                    <select asp-for="UpdateProductDto.ColorId" class="form-control" asp-items="@Model.Color.Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.ColorName })">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Stock">Stock</label>
+                    <input asp-for="UpdateProductDto.Stock" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Higlist"></label>
+                    <input asp-for="UpdateProductDto.Higlist" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Stock">Stock</label>
+                    <input asp-for="UpdateProductDto.Stock" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UpdateProductDto.Description">Description</label>
+                    <textarea asp-for="UpdateProductDto.Description" class="form-control" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+   
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+      CKEDITOR.replace('Description');
+
+    </script>
+}

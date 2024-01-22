@@ -1,0 +1,26 @@
+﻿@using bytez.business.Dto.Login
+@model CreateRegistrationDto
+
+<div class="account">
+   
+    <div class="account-container">
+        <div class="account-content">
+            <h3 class="account-title">
+                create an account
+
+            </h3>
+            <p class="account-text"> Welcome To Bytez</p>
+        </div>
+        <form class="account-form" asp-controller="Account" asp-action="Registration" method="post">
+            <input  asp-for="@Model.Name"  class="name" />
+            <input  asp-for="@Model.Email" class="email"/>
+            <input type="password" asp-for="@Model.Password" class="password" />
+            <input type="password" asp-for="@Model.ConfirmPassword" class="password" />
+            <button type="submit" class="btn-inverse-dark">Continue</button>
+        </form>
+        <div class="account-registration">
+            <p>Don’t have account? <a href="/login"> Login</a></p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,93 @@
+﻿@using bytez.business.Dto.Product
+@model ProductCreateVM
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Title">Name</label>
+                    <input asp-for="@Model.CreateProductDto.Title" type="text" class="form-control" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Images">File upload</label>
+                    <input asp-for="@Model.CreateProductDto.Images"  multiple  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.ProductFile "></label>
+                    <input asp-for="@Model.CreateProductDto.ProductFile" multiple class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Price">Price</label>
+                    <input asp-for="@Model.CreateProductDto.Price" class="form-control" placeholder="Price">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.CategoryId">Category</label>
+                    <select asp-for="@Model.CreateProductDto.CategoryId" class="form-control" asp-items="@Model.Category.Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name })">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.BrandsId">Model</label>
+                    <select asp-for="@Model.CreateProductDto.BrandsId" class="form-control" asp-items="@Model.BrandModel.Select(b => new SelectListItem() { Value = b.Id.ToString(), Text = b.Name })">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Discount">Discount</label>
+                    <select asp-for="@Model.CreateProductDto.Discount" class="form-control" asp-items="Html.GetEnumSelectList<Discount>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.ProductMemory"></label>
+                    <select asp-for="@Model.CreateProductDto.ProductMemory" class="form-control" asp-items="Html.GetEnumSelectList<ProductMemory>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.ProductRam"></label>
+                    <select asp-for="@Model.CreateProductDto.ProductRam" class="form-control" asp-items="Html.GetEnumSelectList<ProductRam>()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.ColorId">Color</label>
+                    <select asp-for="@Model.CreateProductDto.ColorId" class="form-control" asp-items="@Model.Color.Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.ColorName })">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Stock">Stock</label>
+                    <input asp-for="@Model.CreateProductDto.Stock" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Higlist"></label>
+                    <label asp-for="@Model.CreateProductDto.Description">Description</label>
+                    <textarea asp-for="@Model.CreateProductDto.Higlist" class="form-control" rows="4"></textarea>
+                </div>
+               
+                <div class="form-group">
+                    <label asp-for="@Model.CreateProductDto.Description">Description</label>
+                    <textarea asp-for="@Model.CreateProductDto.Description" class="form-control" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('CreateProductDto.Description');
+        CKEDITOR.replace('CreateProductDto.Higlist');
+    </script>
+}

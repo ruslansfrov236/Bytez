@@ -1,0 +1,24 @@
+﻿@using bytez.business.Dto.ProducColor;
+
+
+@model UpdateProductColorDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample"  method="post" >
+                <div class="form-group">
+                    <label asp-for="@Model.ColorName">Name</label>
+                    <input asp-for="@Model.ColorName" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light" asp-controller="BrandModel" asp-action="Index" asp-aria="Admin">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+

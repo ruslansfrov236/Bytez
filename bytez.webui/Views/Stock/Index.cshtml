@@ -1,0 +1,71 @@
+﻿@using bytez.webui.ViewModel
+@model StockIndexVM
+
+<div class="stock-container">
+
+       
+        <div class="content-stock">
+            <div class="filter">
+                <form method="get" asp-action="Index" asp-controller="Stock" class="filter-form">
+                    <div class="filter-product">
+                    <h3 class="filter-title">Filter</h3>
+                        <div class="content-filter">
+                            
+                            <div class="filter-category">
+                                <label asp-for="@Model.ProductWhereDto.CategoryId">Category</label>
+                            <select asp-for="@Model.ProductWhereDto.CategoryId" class="form-category" asp-items="@Model.Category.Select(a=> new SelectListItem(){Text=a.Name , Value=a.Id.ToString()})"></select>
+                            </div>
+                            <div class="filter-price">
+                            <label >Price</label>
+                              <div class="filterPrice">
+                                <input asp-for="@Model.ProductWhereDto.minValue" class="form-price" placeholder="From" />
+                                <input asp-for="@Model.ProductWhereDto.maxValue" class="form-price" placeholder="To" />
+                              </div>
+                               
+                            </div>
+                        <div class="filter-brand">
+                            <label asp-for="@Model.ProductWhereDto.BrandsId">Brand Model</label>
+                            <select asp-for="@Model.ProductWhereDto.BrandsId" class="form-category" asp-items="@Model.BrandModel.Select(a=> new SelectListItem(){Text=a.Name , Value=a.Id.ToString()})"></select>
+                        </div>
+                        <div class="filter-discount">
+
+                           @*  @foreach (var discount in  Model.ProductWhereDto.)
+                            {
+                                <input asp-for="@discount" class="form discount" />
+                            } *@
+                            
+                       
+                           
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row-stock">
+                @foreach(var content in Model.Products)
+                {
+                    <div class="recommended-card">
+                        <div class="recommended-card-content">
+                            <p class="recommended-discount">
+                                @{
+                                    int discountValue = (int)content.Discount;
+                                }
+                                <span>@discountValue% off</span>
+                            </p>
+                            <img src="~/ui/assets/image/@content.ProfileProduct" alt="Product Image" />
+                            <button type="button" class="btn-heart"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="recommended-card-body">
+                            <h3 class="recommended-price">@content.Price $</h3>
+                            <h4 class="recommended-title">@(content.Title.Length > 25 ? content.Title.Substring(0, 25) + "..." : content.Title) </h4>
+                            @(content.Description.Length > 30 ? Html.Raw(content.Description.Substring(0, 30) + "...") : Html.Raw(content.Description))
+                        </div>
+                    </div>
+               
+                }
+         
+
+
+        </div>
+    </div>
+</div>

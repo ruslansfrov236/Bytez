@@ -1,0 +1,16 @@
+﻿@model List<About>
+
+@foreach(var about in Model)
+{
+    <div class="about-container">
+
+     <ul  class="url">
+        <li><a></a></li>/
+            <li><a>About</a></li>
+     </ul>
+     <div class="about-image">
+         <img src="/ui//assets/image/@about.FilePath"/>
+     </div>
+    @Html.Raw(about.Description)
+</div>
+}

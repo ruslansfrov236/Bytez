@@ -1,0 +1,48 @@
+﻿@using bytez.business.Dto.Header
+
+
+@model UpdateHeaderDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title"  class="form-control" id="exampleInputName1" >
+                </div>
+                <div class="form-group">
+                    <img src="~/ui/assets/image/@Model.FilePath" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
+                   
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="@Model.FilePath" />
+                    <label asp-for="File"></label>
+                    <input asp-for="File"  class="form-control" id="exampleInputName1" >
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description"  class="form-control" id="exampleInputName1" ></textarea>
+                </div>
+
+             
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+   
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+      CKEDITOR.replace('Description');
+
+    </script>
+}

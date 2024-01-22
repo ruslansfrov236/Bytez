@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\ui\assets\js\fetch.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\ui\assets\js\fetch.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\bytez.business\bytez.business.csproj" />
+    <ProjectReference Include="..\bytez.data\bytez.data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\ui\assets\js\fetch.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+  
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
+  
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

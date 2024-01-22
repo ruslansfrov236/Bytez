@@ -1,0 +1,162 @@
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.exe
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.business.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.data.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entity.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Humanizer.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.business.pdb
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.data.pdb
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entity.pdb
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.AssemblyReference.cache
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfoInputs.cache
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfo.cs
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.CoreCompileInputs.cache
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cache
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cs
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.bytez.webui.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.build.bytez.webui.props
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.bytez.webui.props
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.bytez.webui.props
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\scopedcss\bundle\bytez.webui.styles.css
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\refint\bytez.webui.dll
+C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.exe
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.business.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.data.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entity.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.business.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.data.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entity.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.AssemblyReference.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfoInputs.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.CoreCompileInputs.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.bytez.webui.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.build.bytez.webui.props
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.bytez.webui.props
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.bytez.webui.props
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\scopedcss\bundle\bytez.webui.styles.css
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\refint\bytez.webui.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\appsettings.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\package-lock.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.staticwebassets.runtime.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.deps.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.runtimeconfig.json
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.CopyComplete
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.genruntimeconfig.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\ref\bytez.webui.dll

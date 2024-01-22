@@ -1,0 +1,43 @@
+﻿@using bytez.business.Dto.Header
+
+
+@model CreateHeaderDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" method="POST" asp-controller="Header" asp-action="Create" asp-area="Admin" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title"  class="form-control" id="exampleInputName1" >
+                </div>
+                <div class="form-group">
+                    <label asp-for="File"></label>
+                    <input asp-for="File"  class="form-control" id="exampleInputName1">
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Descripton"></label>
+                    <textarea asp-for="Descripton"  class="form-control" id="exampleInputName1" rows="4"></textarea>
+                </div>
+
+             
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+   
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+      CKEDITOR.replace('Descripton');
+
+    </script>
+}
+

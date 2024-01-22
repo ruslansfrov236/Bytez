@@ -1,0 +1,29 @@
+@using bytez.webui.ViewModel
+
+<style>
+    .content:nth-child(3){
+            display:none;
+    }
+</style>
+@model HomeIndexVM
+ @{
+   
+<div class="headers">
+   
+        @foreach (var header in Model.Headers)
+        {
+          
+            <div class="content" >
+                <h1 class="content-title">
+                    @header.Title
+                </h1>
+                <div class="content-body">
+                    @Html.Raw(header.Descripton)
+                    <img src="~/ui/assets/image/@header.FilePath" alt="">
+                </div>
+            </div>
+            
+        }
+  
+</div>
+  }

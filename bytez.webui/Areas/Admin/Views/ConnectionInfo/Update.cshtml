@@ -1,0 +1,49 @@
+﻿@using bytez.business.Dto.ConnectionInfo
+
+
+
+
+
+@model  UpdateConnectionInfoDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample " asp-controller="ConnectionInfo" asp-action="Update" asp-area="Admin" asp-route-id="@Model.id" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <img src="~/ui/assets/image/@Model.FilePath" style="width:100px; height:100px; objet-fit:cover; border-radius:5px" />
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="@Model.File"></label>
+                    <input type="hidden" asp-for="@Model.FilePath" />
+                    <input asp-for="@Model.File" class="form-control" id="exampleInputName1">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Title"></label>
+                    <input asp-for="@Model.Title" class="form-control" id="exampleInputName1"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description"></label>
+                    <textarea asp-for="@Model.Description" type="text" class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('Description');
+
+    </script>
+}

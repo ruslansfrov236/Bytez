@@ -1,0 +1,20 @@
+﻿@using bytez.business.Dto.ProducColor
+@model CreateProductColorDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" asp-controller="ProductColor" asp-action="Create" asp-area="Admin" method="post">
+                <div class="form-group">
+                    <label asp-for="ColorName"></label>
+                    <input asp-for="ColorName" class="form-control" placeholder="Name">
+                    <span asp-validation-for="ColorName"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>    </div>
+</div>
