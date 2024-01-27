@@ -1,0 +1,54 @@
+﻿@using bytez.business.Dto.Blog
+
+@model UpdateBlogDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create Connection</p>
+            <form class="forms-sample" asp-controller="ConnectionInfo" asp-action="Create" asp-area="Admin" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <img src="~/ui/assets/image/@Model.FilePath" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
+
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="File"></label>
+                    <input type="hidden" asp-for="@Model.FilePath" />
+                    <input asp-for="File" class="form-control" id="exampleInputName1">
+                    <span asp-validation-for="File"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" id="exampleInputName1" />
+                    <span asp-validation-for="Title"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContentInformation"></label>
+                    <input asp-for="ContentInformation" class="form-control" id="exampleInputName1" />
+                    <span asp-validation-for="ContentInformation"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
+                    span asp-validation-for="Description"> </span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('Description');
+
+    </script>
+}

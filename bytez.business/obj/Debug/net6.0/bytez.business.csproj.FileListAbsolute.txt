@@ -27,6 +27,7 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.bu
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.AssemblyInfoInputs.cache
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.AssemblyInfo.cs
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.csproj.CoreCompileInputs.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.sourcelink.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.csproj.CopyComplete
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.business\obj\Debug\net6.0\refint\bytez.business.dll

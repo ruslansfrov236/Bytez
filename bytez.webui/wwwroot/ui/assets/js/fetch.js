@@ -1,27 +1,15 @@
-       
-var fetchApi =  async  ()=> {
-    try {
+const drapdown = document.querySelector(".drapdown");
+const userLink = document.querySelector(".user-link");
+
+const DrapdownContent = () => {
    
-        var apiUrl = Stock/Index;
+    const computedStyle = getComputedStyle(drapdown);
 
-       
-        var response = await fetch(apiUrl);
-
-       
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        var responseData = await response.text();
-
-        console.log(responseData);
-    } catch (error) {
-        console.error('Error fetching data:', error);
+    if (computedStyle.display === "none") {
+        drapdown.style.display = "flex";
+    } else {
+        drapdown.style.display = "none";
     }
-}
+};
 
-fetchApi();
-
-var filterProduct = () => {
-
-}
+userLink.addEventListener("click", DrapdownContent);

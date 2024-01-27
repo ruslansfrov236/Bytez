@@ -1,5 +1,6 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.Product;
+using bytez.business.ViewModels.ProductVM;
 using bytez.entity.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

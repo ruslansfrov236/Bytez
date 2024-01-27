@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using bytez.webui.ViewModel
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,29 +11,55 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav>
-        <div class="navbar">
-            <a><img src="~/ui/assets/image/logo.png" alt="logo" /> </a>
+<nav>
+    <div class="navbar">
+        <a href="#"><img src="~/ui/assets/image/logo.png" alt="logo" /></a>
 
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/store">Store</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-
-        </div>
-        <ul class="social-menu">
-            <li><a href=""><img src="~/ui/assets/image/Search.png" /></a></li>
-            <li><a href=""><img src="~/ui/assets/image/cart-shopping.png" /></a></li>
-            <li><a href=""><img src="~/ui/assets/image/User.png" /></a>
-                <ul class="drapdown">
-                    <li><a href="/login"></ab></li>
-                </ul>
-            </li>
-
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
-    </nav>
+    </div>
+
+    <ul class="social-menu">
+        <li><a href="#"><img src="~/ui/assets/image/Search.png" /></a></li>
+        <li><a href="#"><img src="~/ui/assets/image/cart-shopping.png" /></a></li>
+        <li class="user-item">
+            <a class="user-link"><img src="~/ui/assets/image/User.png" /></a>
+            <ul class="drapdown">
+                @{
+                    if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a class="login" href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <ul class="submenu">
+                                <li>
+                                    <a>@User.Identity.Name</a>
+                                    <p> @((User.Identity as ClaimsIdentity)?.FindFirst(ClaimTypes.Email)?.Value)</p>
+                                </li>
+                                <li><a href="/order">Order</a></li>
+                                <li><a href="/cart">Cart</a></li>
+                                <li><a href="/wishlist">Wishlist</a></li>
+                                <li>
+                                    <form asp-controller="Account" asp-action="Logout" method="post">
+                                        <button type="submit">Log Out</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+</nav>
+
     <main>
         <div class="container">
 

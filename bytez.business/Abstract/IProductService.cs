@@ -1,4 +1,6 @@
 ﻿using bytez.business.Dto.Product;
+using bytez.business.ViewModels.ProductVM;
+using bytez.business.ViewModels.StockVM;
 using bytez.entity.Entities;
 
 namespace bytez.business.Abstract
@@ -8,7 +10,7 @@ namespace bytez.business.Abstract
     {
         Task<List<Product>> GetProductsAsync();
         Task<Product> GetByIdAsync(string id);
-        Task<List<Product>> GetWhereProduct(ProductWhereDto model );
+        Task<List<Product>> GetWhereProduct(StockIndexVM  model );
 
         Task<Product> GetLikesProduct(string id );
         Task<bool> Create(ProductCreateVM model);

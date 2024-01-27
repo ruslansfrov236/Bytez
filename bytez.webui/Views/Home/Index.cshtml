@@ -6,7 +6,7 @@
         {
             @await Html.PartialAsync("_headerNotLogin")
         }
-        else
+        else if(User.Identity.IsAuthenticated)
         {
             @await Html.PartialAsync("_headerLogin")
         }
@@ -61,7 +61,7 @@
         }
     </div>
 
-
+</div>
 
     <div class="recommended">
 
@@ -92,4 +92,4 @@
             }
         </div>
 
-
+ </div>

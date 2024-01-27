@@ -1,11 +1,13 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.About;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
 {
     [Area(nameof(Admin))]
+    [Authorize(Roles = nameof(Admin))]
     public class AboutController : Controller
     {
 

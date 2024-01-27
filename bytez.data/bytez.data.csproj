@@ -29,8 +29,4 @@
     <ProjectReference Include="..\bytez.entity\bytez.entity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstract\Новая папка\" />
-  </ItemGroup>
-
 </Project>

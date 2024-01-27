@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace bytez.entity.Entities.Identity
 {
-    public class AppRole: IdentityRole<string>
+    public class AppRole: IdentityRole
     {
-        public RoleModel RoleModel { get; set; }
+       public RoleModel RoleModel { get; set; }
     }
 }
     

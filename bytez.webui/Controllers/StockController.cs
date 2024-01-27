@@ -1,6 +1,6 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.Product;
-using bytez.webui.ViewModel;
+using bytez.business.ViewModels.StockVM;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Controllers
@@ -20,7 +20,7 @@ namespace bytez.webui.Controllers
 
         }
 
-        public async Task<IActionResult> Index(ProductWhereDto model)
+        public async Task<IActionResult> Index(StockIndexVM model)
         {
             var product = await _productService.GetWhereProduct(model);
             var category = await _categoryService.GetCategoryAsync();

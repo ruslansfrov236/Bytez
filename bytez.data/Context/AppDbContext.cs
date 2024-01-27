@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace bytez.data.Context
 {
-    public class AppDbContext : IdentityDbContext<AppUser, IdentityRole  , string>
+    public class AppDbContext : IdentityDbContext<AppUser, IdentityRole , string>
     {
        
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -25,6 +25,8 @@ namespace bytez.data.Context
         public DbSet<BrandModel>? Brand { get; set; }
         public DbSet<Category>? Categories { get; set; }
         public DbSet<ConnectionInfo>? ConnectionInfos { get; set; }
+
+        public DbSet<Blog>? Blogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();

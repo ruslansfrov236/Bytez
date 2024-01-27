@@ -1,5 +1,7 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.Product;
+using bytez.business.ViewModels.ProductVM;
+using bytez.business.ViewModels.StockVM;
 using bytez.data.Abstract;
 using bytez.entity.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -127,7 +129,7 @@ namespace bytez.business.Concrete
             var product = await _productReadRepository.GetByIdAsync(id);
             if (product != null)
                 product.isProductLike = true;
-
+            await _productWriteRepository.SaveAsync();
             return product;
         }
 
@@ -142,21 +144,29 @@ namespace bytez.business.Concrete
             return product;
         }
 
-        public async Task<List<Product>> GetWhereProduct( ProductWhereDto model)
+        public async Task<List<Product>> GetWhereProduct(StockIndexVM model)
         {
-            var product = await _productReadRepository
-                                                     .GetWhere(a => model == null ? 
-                                                      (   a.Price >= model.minValue && a.Price <= model.maxValue) || 
-                                                               a.CategoryId == Guid.Parse(model.CategoryId)
-                                                               || a.ColorId == Guid.Parse(model.ColorId) 
-                                                               || a.BrandsId == Guid.Parse(model.BrandsId) :true)
+            var query = _productReadRepository.GetAll().Include(p => p.Color)
+                                                       .Include(a => a.Brands)
+                                                       .Include(t => t.Category)
+                                                       .Where(pr =>
+                 model.ProductWhereDto != null ? ((model.ProductWhereDto == null ||
+                 (model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
+                 (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue)) &&
+                (model.ProductWhereDto.BrandsId == null  || Guid.Parse(model.ProductWhereDto.BrandsId) == pr.BrandsId) &&
+                (model.ProductWhereDto.ColorId == null || Guid.Parse(model.ProductWhereDto.ColorId) == pr.ColorId) &&
+                (model.ProductWhereDto.CategoryId == null  || Guid.Parse(model.ProductWhereDto.CategoryId) == pr.CategoryId) &&
+                (model.ProductWhereDto.Discount == null || model.ProductWhereDto.Discount == pr.Discount)): true
+            );
 
-                                                     .ToListAsync();
-
-            return product;
+            var products = await query.ToListAsync();
+            return products;
         }
 
-      
+
+
+
+
 
         public async Task<bool> Update(ProductUpdateVM model)
         {

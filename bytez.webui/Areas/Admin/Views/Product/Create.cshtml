@@ -1,4 +1,5 @@
-﻿@using bytez.business.Dto.Product
+﻿@using bytez.business.ViewModels.ProductVM
+
 @model ProductCreateVM
 
 
@@ -35,27 +36,32 @@
                 <div class="form-group">
                     <label asp-for="@Model.CreateProductDto.BrandsId">Model</label>
                     <select asp-for="@Model.CreateProductDto.BrandsId" class="form-control" asp-items="@Model.BrandModel.Select(b => new SelectListItem() { Value = b.Id.ToString(), Text = b.Name })">
+                        <option value="">BrandModel</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="@Model.CreateProductDto.Discount">Discount</label>
                     <select asp-for="@Model.CreateProductDto.Discount" class="form-control" asp-items="Html.GetEnumSelectList<Discount>()">
+                        <option value="">Discount</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.CreateProductDto.ProductMemory"></label>
                     <select asp-for="@Model.CreateProductDto.ProductMemory" class="form-control" asp-items="Html.GetEnumSelectList<ProductMemory>()">
+                        <option value="">Product Memory</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.CreateProductDto.ProductRam"></label>
                     <select asp-for="@Model.CreateProductDto.ProductRam" class="form-control" asp-items="Html.GetEnumSelectList<ProductRam>()">
+                        <option value="">Product Ram</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.CreateProductDto.ColorId">Color</label>
                     <select asp-for="@Model.CreateProductDto.ColorId" class="form-control" asp-items="@Model.Color.Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.ColorName })">
+                        <option value="">Color</option>
                     </select>
                 </div>
 

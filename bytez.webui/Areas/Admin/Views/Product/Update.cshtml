@@ -1,4 +1,5 @@
-﻿@using bytez.business.Dto.Product
+﻿@using bytez.business.ViewModels.ProductVM
+
 @model ProductUpdateVM
 
 <div class="col-12 grid-margin stretch-card">
@@ -11,10 +12,17 @@
                     <label asp-for="UpdateProductDto.Title">Name</label>
                     <input asp-for="UpdateProductDto.Title" type="text" class="form-control" placeholder="Name">
                 </div>
+                <div class="form-group">
+                    <img src="~/ui/assets/image/@Model.UpdateProductDto.FilePath" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
 
+                </div>
                 <div class="form-group">
                     <label asp-for="UpdateProductDto.Images">File upload</label>
                     <input asp-for="UpdateProductDto.Images"  name="img[]" class="form-control">
+                </div>
+                <div class="form-group">
+                    <img src="~/ui/assets/image/@Model.UpdateProductDto.ProfileProduct" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
+
                 </div>
                 <div class="form-group">
                     <label asp-for="UpdateProductDto.ProductFile">Profile Product Image </label>

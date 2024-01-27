@@ -1,22 +1,30 @@
 ﻿@using bytez.business.Dto.Login
+
+
 @model Login
+
+
 <div class="account">
 
     <div class="account-container">
         <div class="account-content">
             <h3 class="account-title">
                 existing member
-               
             </h3>
             <p class="account-text"> Welcome Back!</p>
         </div>
-        <form class="account-form" asp-controller="Account"  asp-action="Login" method="post">
-            <input type="email" asp-for="Email" placeholder="Enter your email" class="email" />
-            <input type="password" asp-for="Password" placeholder="Enter your password" class="password" />
-            <button type="submit" class="btn-inverse-dark">Continue</button>
+        <form class="account-form" asp-controller="Account" asp-action="Login" method="post">
+            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+
+            <input asp-for="Email" placeholder="Enter your email" class="email" />
+            <span asp-validation-for="Email"></span>
+            <input asp-for="Password" placeholder="Enter your password" class="password" />
+            <div>
+                <button type="submit" class="btn-inverse-dark">Continue</button>
+            </div>
         </form>
         <div class="account-registration">
-            <p>Don’t have account? <a href="/register"> Register Now</a></p>
+            <p>Don’t have an account? <a href="/register"> Register Now</a></p>
         </div>
     </div>
 </div>

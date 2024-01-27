@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using bytez.entity.Entities;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 
 namespace bytez.data
 {
@@ -23,13 +24,14 @@ namespace bytez.data
             service.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 6;
-                options.Password.RequireUppercase = true;
                 options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
                 options.Password.RequireDigit = true;
-                options.User.RequireUniqueEmail = true;
+            
             })
               .AddEntityFrameworkStores<AppDbContext>();
-
+           
             service.AddScoped<IProductReadRepository, ProductReadRepository>();
             service.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             service.AddScoped<IProductColorReadRepository, ProductColorReadRepository>();
@@ -50,73 +52,26 @@ namespace bytez.data
             service.AddScoped<IHeaderReadRepository, HeaderReadRepository>();
             service.AddScoped<IConnectionInfoWriteReposItory, ConnectionWriteRepository>();
             service.AddScoped<IConnectionInfoReadReposItory, ConnectionReadRepository>();
+            service.AddScoped<IBlogWriteRepository, BlogWriteRepository>();
+            service.AddScoped<IBlogReadRepository, BlogReadRepository>();
+
         }
-
-        public static async Task AddConfigureRoleAsync(this IApplicationBuilder app)
+        public static void AddCookieRegistration(this IServiceCollection service)
         {
-
-            using (var scope = app.ApplicationServices.CreateScope())
+            service.ConfigureApplicationCookie(options =>
             {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-                // Define roles
-                var roles = new[] { "Admin", "Manager" };
-
-                foreach (var roleName in roles)
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+                options.AccessDeniedPath = "/account/accessdenied";
+                options.SlidingExpiration = false;
+                options.ExpireTimeSpan = TimeSpan.FromDays(365);
+                options.Cookie = new CookieBuilder
                 {
-                    var roleExists = await roleManager.RoleExistsAsync(roleName);
-                    if (!roleExists)
-                    {
-                        await roleManager.CreateAsync(new IdentityRole(roleName));
-
-                    }
-                }
-
-
-            }
-        }
-
-        public static async Task AddConfigureUserAdminAsync(this IApplicationBuilder app)
-        {
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-                var email = "admin@bytez.com";
-                var password = "876.Rac.";
-                var identityUser = await userManager.FindByEmailAsync(email);
-                if (identityUser == null)
-                {
-                    var user = new IdentityUser();
-                    user.UserName = email;
-                    user.Email = email;
-                    await userManager.CreateAsync(user, password);
-                    await userManager.AddToRoleAsync(user, "Admin");
-
-
-                }
-
-            }
-        }
-        public static async Task AddConfigureUserManagerAsync(this IApplicationBuilder app)
-        {
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-                var email = "manager@bytez.com";
-                var password = "876.Raeec.";
-                var identityUser = await userManager.FindByEmailAsync(email);
-                if (identityUser == null)
-                {
-                    var user = new IdentityUser();
-                    user.UserName = email;
-                    user.Email = email;
-                    await userManager.CreateAsync(user, password);
-                    await userManager.AddToRoleAsync(user, "Manager");
-
-
-                }
-
-            }
+                    HttpOnly = true,
+                    Name = ".Bytez.Security.Cookie",
+                    SameSite = SameSiteMode.Strict
+                };
+            });
         }
     }
 }

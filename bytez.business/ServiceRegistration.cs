@@ -23,7 +23,7 @@ namespace bytez.business
             service.AddScoped<IBrandModelService, BrandModelService>();
             service.AddScoped<IHeaderService, HeaderService>();
             service.AddScoped<IConnectionInfoService, ConnectionInfoService>();
-
+            service.AddScoped<IBlogService, BlogService>();
 
             service.AddScoped<IAppUserService, AppUserService>();
        

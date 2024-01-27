@@ -1,7 +1,10 @@
 
 using bytez.business;
 using bytez.data;
+using bytez.entity.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static bytez.data.ServiceRegistration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +12,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDataRegistration();
 builder.Services.AddBusinessRegistration();
+builder.Services.AddCookieRegistration();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -246,6 +250,15 @@ app.MapAreaControllerRoute(
 #endregion
 
 #region Ui Controller
+#region Store 
+app.MapControllerRoute(
+    name: "store",
+    pattern: "store",
+    defaults: new {Controller="Stock", Action="Index"}
+    );
+
+#endregion
+
 #region Account 
 app.MapControllerRoute(
     name: "register",
@@ -269,7 +282,14 @@ app.MapControllerRoute(
 
 
 
-app.AddConfigureRoleAsync();
-app.AddConfigureUserAdminAsync();
-app.AddConfigureUserManagerAsync();
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+using (var scope = scopeFactory.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetService<UserManager<AppUser>>();
+    var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+    await DbInitializer.SeedAsync(userManager, roleManager);
+    
+}
+
+
 app.Run();
