@@ -2,7 +2,10 @@
 
 
 @model Login
+@{
+    var returnUrl = Context.Request.Query["ReturnUrl"].ToString();
 
+}
 
 <div class="account">
 
@@ -14,7 +17,7 @@
             <p class="account-text"> Welcome Back!</p>
         </div>
         <form class="account-form" asp-controller="Account" asp-action="Login" method="post">
-            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+               <input type="hidden" asp-for="@Model.ReturnUrl" value="@returnUrl">
 
             <input asp-for="Email" placeholder="Enter your email" class="email" />
             <span asp-validation-for="Email"></span>
