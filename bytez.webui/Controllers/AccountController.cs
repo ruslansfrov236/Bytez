@@ -24,7 +24,7 @@ namespace bytez.webui.Controllers
        => View(new Login() { ReturnUrl=ReturnUrl});
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Login model , string? ReturnUrl = null)
+        public async Task<IActionResult> Login(Login model )
         {
             if (!ModelState.IsValid)
             {
@@ -45,7 +45,7 @@ namespace bytez.webui.Controllers
                         if (userRoles.Contains("Admin") || userRoles.Contains("Manager"))
                         {
                            
-                                return Redirect(ReturnUrl );
+                                return Redirect(model.ReturnUrl );
                            
                            
                         }
