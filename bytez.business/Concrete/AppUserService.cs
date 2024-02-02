@@ -5,7 +5,10 @@ using bytez.business.Dto.Login;
 using bytez.data.Context;
 using bytez.entity.Entities;
 using bytez.entity.Entities.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace bytez.business.Concrete
 {
@@ -14,31 +17,40 @@ namespace bytez.business.Concrete
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly AppDbContext _context;
-        private readonly RoleManager<IdentityRole> _roleManager; 
-        public AppUserService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext context, RoleManager<IdentityRole> roleManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+      
+        public AppUserService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext context, RoleManager<IdentityRole> roleManager )
         {
+            
+
             _userManager = userManager;
             _context = context;
             _signInManager = signInManager;
             _roleManager = roleManager;
+          
         }
-        public async Task LoginAsync(Login model)
+
+       
+
+        public async Task<bool> LoginAsync(LoginDto model)
         {
-           
-            var emailUser = await _userManager.FindByEmailAsync(model.Email);
-            AppUser? user = new();
 
-            if (emailUser != null )
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
             {
-                user = emailUser;
+              
+                return false;
+                
             }
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+
+            if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, false);
-
+                return true;
             }
-
+           return   false;
         }
 
 
@@ -57,6 +69,7 @@ namespace bytez.business.Concrete
             if (model.Password != model.ConfirmPassword)
             {
                 return default;
+               
             }
 
             var user = new AppUser

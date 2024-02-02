@@ -5,7 +5,8 @@ namespace bytez.business.Abstract
 {
     public interface IAppUserService
     {
-        Task LoginAsync(Login model);
+        Task<bool> LoginAsync(LoginDto model);
+       
         Task<AppUser> RegistrationAsync(CreateRegistrationDto model);
 
         Task LogOutAsync();

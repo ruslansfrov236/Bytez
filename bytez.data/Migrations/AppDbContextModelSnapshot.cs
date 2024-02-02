@@ -61,6 +61,7 @@ namespace bytez.data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -603,7 +604,9 @@ namespace bytez.data.Migrations
 
                     b.HasOne("bytez.entity.Entities.Identity.AppUser", "User")
                         .WithMany("Baskets")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Orders");
 

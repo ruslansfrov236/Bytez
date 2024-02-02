@@ -5,9 +5,9 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Create</h4>
-            <p class="card-description">Create Connection</p>
-            <form class="forms-sample" asp-controller="ConnectionInfo" asp-action="Create" asp-area="Admin" enctype="multipart/form-data" method="post">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update Blog</p>
+            <form class="forms-sample"  enctype="multipart/form-data" method="post">
                 <div class="form-group">
                     <img src="~/ui/assets/image/@Model.FilePath" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
 
@@ -32,7 +32,7 @@
                 <div class="form-group">
                     <label asp-for="Description"></label>
                     <textarea asp-for="Description" class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
-                    span asp-validation-for="Description"> </span>
+                    <span asp-validation-for="Description"> </span>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>

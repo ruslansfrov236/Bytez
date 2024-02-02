@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace E_Commerce.Webui.Areas.Admin.Controllers
 {
     [Area(nameof(Admin))]
-    [Authorize(Roles = "Admin, Manager")]
+    [Authorize(Roles = "Admin ,  Manager")]
     public class DashboardController : Controller
     {
         public IActionResult Index()

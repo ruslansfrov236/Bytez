@@ -1,6 +1,7 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.Category;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -14,6 +15,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         {
             _categoryService = categoryService;
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
 
@@ -21,16 +23,18 @@ namespace bytez.webui.Areas.Admin.Controllers
 
             return View(categories);
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var categories = await _categoryService.GetCategoryByIdAsync(id);
             if (categories == null) return NotFound();
             return View(categories);
         }
-
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Create()
         => View(new CreateCategoryDto());
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateCategoryDto model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -47,6 +51,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var category = await _categoryService.GetCategoryByIdAsync(id);
@@ -56,12 +61,14 @@ namespace bytez.webui.Areas.Admin.Controllers
             return View(updateCategoryDto);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateCategoryDto model)
         {
             await _categoryService.Update(model);
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Delete(string id)
         {
             var category = await _categoryService.GetCategoryByIdAsync(id);

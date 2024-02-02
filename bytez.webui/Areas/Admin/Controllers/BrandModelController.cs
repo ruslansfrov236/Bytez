@@ -1,6 +1,7 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.BrandModel;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -14,6 +15,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         {
             _brandModelService = brandModelService;
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
             List<BrandModel> brandModels = await _brandModelService.GetBrandsAsync();
@@ -21,16 +23,18 @@ namespace bytez.webui.Areas.Admin.Controllers
             return View(brandModels);
 
         }
-
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var brandModels = await _brandModelService.GetBrandByIdAsync(id);
             if (brandModels == null) return NotFound();
             return View(brandModels);
         }
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create()
         => View();
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateBrandModelDto model)
         {
             var brandsModel = await _brandModelService.GetBrandsAsync();
@@ -43,7 +47,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             await _brandModelService.Create(model);
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var brandModels = await _brandModelService.GetBrandByIdAsync(id);
@@ -58,6 +62,7 @@ namespace bytez.webui.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UpdateBrandModelDto model)
         {
             await _brandModelService.Update(model);
@@ -66,6 +71,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Delete(string id)
         {
             var brandModels = await _brandModelService.GetBrandByIdAsync(id);

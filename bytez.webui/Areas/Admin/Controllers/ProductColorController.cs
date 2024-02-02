@@ -1,6 +1,7 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.ProducColor;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -16,11 +17,13 @@ namespace bytez.webui.Areas.Admin.Controllers
             _productColorService= productColorService;
                
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
             List<ProductColor> productColors= await _productColorService.GetProductColorsAsync();
             return View(productColors);
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var color = await _productColorService.GetProductColorByIdAsync(id);
@@ -28,9 +31,11 @@ namespace bytez.webui.Areas.Admin.Controllers
             return View(color);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create()
         => View();
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateProductColorDto model)
         {
          
@@ -40,6 +45,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var color = await _productColorService.GetProductColorByIdAsync(id);
@@ -50,6 +56,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id, UpdateProductColorDto model)
         {
             if (id != model.id) return BadRequest();
@@ -59,6 +66,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Delete(string id)
         {
             var color = await _productColorService.GetProductColorByIdAsync(id);

@@ -14400,6 +14400,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ui\assets\image\6be9aa7a-535b-46c7-ae1c-69307e8610c6_e38d1234b2e7e5f941c0c5cab9b23623.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ui\assets\image\6e3a1a2c-3e8f-457b-bb0f-dce5799f7e8c_image.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>bytez.webui</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/bytez.webui</BasePath>
+      <RelativePath>ui/assets/image/6e3a1a2c-3e8f-457b-bb0f-dce5799f7e8c_image.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ui\assets\image\6e3a1a2c-3e8f-457b-bb0f-dce5799f7e8c_image.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ui\assets\image\6e9f079e-0204-4639-9ca9-b18828973313_f2fa01a2f80313229f6f4d3182ee0d34.png))">
       <SourceType>Package</SourceType>
       <SourceId>bytez.webui</SourceId>

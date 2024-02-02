@@ -17,7 +17,7 @@ namespace bytez.business.Dto.Blog
         public string? Description { get; set; }
         [Required]
         public string? ContentInformation { get; set; }
-        [Required]
+   
         public string? FilePath { get; set; }
         [NotMapped]
         public IFormFile? File { get; }

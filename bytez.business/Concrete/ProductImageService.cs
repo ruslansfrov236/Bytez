@@ -3,6 +3,8 @@ using bytez.business.Dto.ProductImage;
 using bytez.data.Abstract;
 using bytez.entity.Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace bytez.business.Concrete
@@ -12,16 +14,20 @@ namespace bytez.business.Concrete
         readonly private IProductImageReadRepository _productImageReadRepository;
         readonly private IProductImageWriteRepository _productImageWriteRepository;
 
-        public ProductImageService(IProductImageReadRepository productImageReadRepository , IProductImageWriteRepository productImageWriteRepository )
+        public ProductImageService(IProductImageReadRepository productImageReadRepository , IProductImageWriteRepository productImageWriteRepository  )
         {
+           
             _productImageReadRepository = productImageReadRepository;
             _productImageWriteRepository = productImageWriteRepository;
-            
+           
+
+
         }
         public bool CheckSize(IFormFile file, int maxSize)
         {
             if (file.Length / 1024 < maxSize)
             {
+
                
                 return false;
             }
@@ -49,12 +55,15 @@ namespace bytez.business.Concrete
             if (file == null || file.Length == 0)
             {
 
+             
                 return false;
+
             }
 
 
             if (!file.ContentType.StartsWith("image/"))
             {
+            
                 return false;
             }
 
@@ -63,31 +72,14 @@ namespace bytez.business.Concrete
             var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
             if (!allowedExtensions.Contains(fileExtension))
             {
+              
                 return false;
-
             }
 
             return true;
         }
 
-        public async Task ShowCaseImage(ShowCaseDto model)
-        {
-            var image = await _productImageReadRepository.GetByIdAsync(model.id);
-             image.ShowCase = model.showCase;
-            if (image.ShowCase==true && image.Products != null)
-            {
-                image.Products.FilePath = image.FilePath;
-            }
-
-            _productImageWriteRepository.Update(image);
-          await  _productImageWriteRepository.SaveAsync();
-           
-        }
-
-        public Task ShowCaseImage(string id, ShowCaseDto model)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public async Task<string> UploadAsync(IFormFile file)
         {

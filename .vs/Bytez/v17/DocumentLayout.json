@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.webui\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|solutionrelative:bytez.webui\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.business\\concrete\\approleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|solutionrelative:bytez.business\\concrete\\approleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.business\\abstract\\iapproleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|solutionrelative:bytez.business\\abstract\\iapproleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.business\\abstract\\iaboutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|solutionrelative:bytez.business\\abstract\\iaboutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.webui\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|solutionrelative:bytez.webui\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.webui\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D442C97-A702-4D4A-A1BD-2C565D6050FF}|bytez.webui\\bytez.webui.csproj|solutionrelative:bytez.webui\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|c:\\users\\\u0430\u0441\u0435\u0440\\downloads\\bytez\\bytez\\bytez.business\\dto\\login\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFD1EB-A5AC-4583-B1A4-D3CAD217AAD9}|bytez.business\\bytez.business.csproj|solutionrelative:bytez.business\\dto\\login\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "bytez.webui\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "bytez.webui\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T17:39:59.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppRoleService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Concrete\\AppRoleService.cs",
+              "RelativeDocumentMoniker": "bytez.business\\Concrete\\AppRoleService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Concrete\\AppRoleService.cs",
+              "RelativeToolTip": "bytez.business\\Concrete\\AppRoleService.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAABoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T12:50:29.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAppRoleService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Abstract\\IAppRoleService.cs",
+              "RelativeDocumentMoniker": "bytez.business\\Abstract\\IAppRoleService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Abstract\\IAppRoleService.cs",
+              "RelativeToolTip": "bytez.business\\Abstract\\IAppRoleService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAIwA0AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T12:49:20.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAboutService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Abstract\\IAboutService.cs",
+              "RelativeDocumentMoniker": "bytez.business\\Abstract\\IAboutService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Abstract\\IAboutService.cs",
+              "RelativeToolTip": "bytez.business\\Abstract\\IAboutService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T12:49:19.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Dto\\Login\\LoginDto.cs",
+              "RelativeDocumentMoniker": "bytez.business\\Dto\\Login\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.business\\Dto\\Login\\LoginDto.cs",
+              "RelativeToolTip": "bytez.business\\Dto\\Login\\LoginDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T12:42:04.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "bytez.webui\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "bytez.webui\\Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-28T12:41:11.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "bytez.webui\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0441\u0435\u0440\\Downloads\\Bytez\\Bytez\\bytez.webui\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "bytez.webui\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T12:41:01.329Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -73,6 +73,16 @@ C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net
 C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.dll
 C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\refint\bytez.webui.dll
 C:\Users\rusla\OneDrive\İş masası\ProgramFile\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.AssemblyReference.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfoInputs.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.CoreCompileInputs.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cache
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cs
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.sourcelink.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\appsettings.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\package-lock.json
@@ -82,6 +92,7 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.runtimeconfig.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.webui.pdb
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Ardalis.GuardClauses.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -90,6 +101,11 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.A
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -111,6 +127,7 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.I
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Nobly.Extensions.ModelStateDictionary.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\System.Drawing.Common.dll
@@ -137,16 +154,6 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entit
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.business.pdb
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.data.pdb
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\bytez.entity.pdb
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.AssemblyReference.cache
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfoInputs.cache
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.AssemblyInfo.cs
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.csproj.CoreCompileInputs.cache
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cache
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.RazorAssemblyInfo.cs
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.sourcelink.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\staticwebassets\msbuild.bytez.webui.Microsoft.AspNetCore.StaticWebAssets.props
@@ -161,4 +168,3 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\refint\byte
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.pdb
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.genruntimeconfig.cache
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\obj\Debug\net6.0\ref\bytez.webui.dll
-C:\Users\Асер\Downloads\Bytez\Bytez\bytez.webui\bin\Debug\net6.0\Ardalis.GuardClauses.dll

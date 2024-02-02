@@ -3,7 +3,9 @@ using bytez.business.Dto.Product;
 using bytez.business.ViewModels.ProductVM;
 using bytez.business.ViewModels.StockVM;
 using bytez.data.Abstract;
+using bytez.data.Context;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace bytez.business.Concrete
@@ -16,8 +18,12 @@ namespace bytez.business.Concrete
         readonly private IProductImageService _productImageService;
         readonly private IProductImageReadRepository _productImageReadRepository;
         readonly private IProductImageWriteRepository _productImageWriteRepository;
-
-        public ProductService(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository, IProductImageService productImageService,IProductImageWriteRepository productImageWriteRepository , IProductImageReadRepository productImageReadRepository)
+        readonly private AppDbContext _context;
+        public ProductService(IProductReadRepository productReadRepository
+                            , IProductWriteRepository productWriteRepository,
+                              IProductImageService productImageService, 
+                              IProductImageWriteRepository productImageWriteRepository,
+                              IProductImageReadRepository productImageReadRepository)
         {
             _productImageService = productImageService;
             _productReadRepository = productReadRepository;
@@ -26,19 +32,19 @@ namespace bytez.business.Concrete
             _productImageReadRepository = productImageReadRepository;
 
         }
-        public async Task<bool> Create(ProductCreateVM model)    
+        public async Task<bool> Create(ProductCreateVM model)
         {
-            var uplaodFile = await  _productImageReadRepository.GetAll()
-                                                                .Include(p=>p.Products)
+            var uplaodFile = await _productImageReadRepository.GetAll()
+                                                                .Include(p => p.Products)
                                                                .ToListAsync();
 
             _productImageService.IsImage(model.CreateProductDto.ProductFile);
-            _productImageService.CheckSize(model.CreateProductDto.ProductFile , 250);
+            _productImageService.CheckSize(model.CreateProductDto.ProductFile, 250);
             var newProductImage = await _productImageService.UploadAsync(model.CreateProductDto.ProductFile);
 
             Product product = new Product()
             {
-                
+
                 Title = model.CreateProductDto.Title,
                 Avg = model.CreateProductDto.Avg,
                 BrandsId = model.CreateProductDto.BrandsId,
@@ -46,15 +52,15 @@ namespace bytez.business.Concrete
                 Discount = model.CreateProductDto.Discount,
                 ProductMemory = model.CreateProductDto.ProductMemory,
                 ProductRam = model.CreateProductDto.ProductRam,
-                ProfileProduct=newProductImage,
-                Higlist=model.CreateProductDto.Higlist,
+                ProfileProduct = newProductImage,
+                Higlist = model.CreateProductDto.Higlist,
                 ColorId = model.CreateProductDto.ColorId,
                 Description = model.CreateProductDto.Description,
                 Stock = model.CreateProductDto.Stock,
                 FilePath = uplaodFile.FirstOrDefault()?.FilePath,
-                Price =model.CreateProductDto.Price
+                Price = model.CreateProductDto.Price
             };
-            //product create metodun product id ni qaytarmalidi ki burda istifade edile bilsin productImagede
+
             await _productWriteRepository.AddAsync(product);
             foreach (var files in model.CreateProductDto.Images)
             {
@@ -68,7 +74,7 @@ namespace bytez.business.Concrete
                 await _productImageWriteRepository.AddAsync(new ProductImage
                 {
                     FilePath = newFile,
-                    ProductsId= product.Id
+                    ProductsId = product.Id
 
                 });
 
@@ -113,9 +119,9 @@ namespace bytez.business.Concrete
                 .GetWhere(p => (int)p.Discount == (int)Discount.FiftyPercentOff)
                 .ToListAsync();
 
-           
 
-            return product; 
+
+            return product;
         }
 
 
@@ -135,33 +141,40 @@ namespace bytez.business.Concrete
 
         public async Task<List<Product>> GetProductsAsync()
         {
-            var product = await _productReadRepository.GetAll()
-                                                       .Include(b => b.Brands)
-                                                       .Include(c => c.Category)
-                                                       .Include(d => d.Color)
-                                                       .ToListAsync();
+            var products = await _productReadRepository.GetAll()
+                .Include(p => p.Color)
+                .Include(a => a.Brands)
+                .Include(t => t.Category)
+                .Include(pi => pi.ProductImages)
+                .ToListAsync();
 
-            return product;
+            return products;
         }
 
         public async Task<List<Product>> GetWhereProduct(StockIndexVM model)
         {
-            var query = _productReadRepository.GetAll().Include(p => p.Color)
-                                                       .Include(a => a.Brands)
-                                                       .Include(t => t.Category)
-                                                       .Where(pr =>
-                 model.ProductWhereDto != null ? ((model.ProductWhereDto == null ||
-                 (model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
-                 (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue)) &&
-                (model.ProductWhereDto.BrandsId == null  || Guid.Parse(model.ProductWhereDto.BrandsId) == pr.BrandsId) &&
-                (model.ProductWhereDto.ColorId == null || Guid.Parse(model.ProductWhereDto.ColorId) == pr.ColorId) &&
-                (model.ProductWhereDto.CategoryId == null  || Guid.Parse(model.ProductWhereDto.CategoryId) == pr.CategoryId) &&
-                (model.ProductWhereDto.Discount == null || model.ProductWhereDto.Discount == pr.Discount)): true
-            );
+            if (model.ProductWhereDto == null)
+            {
+                return await _productReadRepository.GetAll()
+                                                    .Include(p=>p.Brands)
+                                                    .Include(p=>p.Category)
+                                                    .Include(p=>p.Color)
+                                                    .ToListAsync();
+            }
 
-            var products = await query.ToListAsync();
-            return products;
+            return await _productReadRepository.GetAll().Include(p => p.Brands)
+                                                    .Include(p => p.Category)
+                                                    .Include(p => p.Color).Where(pr=>
+                    ((model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
+                    (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue)) &&
+                    (model.ProductWhereDto.BrandsId == null || pr.BrandsId == Guid.Parse(model.ProductWhereDto.BrandsId)) &&
+                    (model.ProductWhereDto.ColorId == null || pr.ColorId == Guid.Parse(model.ProductWhereDto.ColorId)) &&
+                    (model.ProductWhereDto.CategoryId == null || pr.CategoryId == Guid.Parse(model.ProductWhereDto.CategoryId))
+                )
+                .ToListAsync();
         }
+
+
 
 
 
@@ -172,36 +185,36 @@ namespace bytez.business.Concrete
         {
             var product = await _productReadRepository.GetByIdAsync(model.UpdateProductDto.id);
             var extension = "\\wwwroot\\ui\\assets\\image\\";
-     
+
             var path2 = Path.Combine(Directory.GetCurrentDirectory(), extension, product.ProfileProduct);
-            var  images = _productImageReadRepository.GetAll();
+            var images = _productImageReadRepository.GetAll();
             if (product != null)
 
 
                 _productImageService.Delete(path2);
-            
+
             if (model.UpdateProductDto.ProductFile != null)
             {
-                _productImageService.CheckSize(model.UpdateProductDto.ProductFile,250);
+                _productImageService.CheckSize(model.UpdateProductDto.ProductFile, 250);
                 _productImageService.IsImage(model.UpdateProductDto.ProductFile);
                 var newProductImage = await _productImageService.UploadAsync(model.UpdateProductDto.ProductFile);
                 product.ProfileProduct = newProductImage;
             }
 
             if (model.UpdateProductDto.Images != null)
+            {
+                foreach (var file in model.UpdateProductDto.Images)
                 {
-                    foreach (var file in model.UpdateProductDto.Images)
-                    {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), extension, file.Name);
                     _productImageService.Delete(path);
-                        _productImageService.CheckSize(file, 250);
-                        _productImageService.IsImage(file);
-                        var newFile = await _productImageService.UploadAsync(file);
-                    await    _productImageWriteRepository.AddAsync(new ProductImage { FilePath = newFile ,ProductsId=product.Id });
+                    _productImageService.CheckSize(file, 250);
+                    _productImageService.IsImage(file);
+                    var newFile = await _productImageService.UploadAsync(file);
+                    await _productImageWriteRepository.AddAsync(new ProductImage { FilePath = newFile, ProductsId = product.Id });
 
-                    }
-                    product.FilePath = images.FirstOrDefault()?.FilePath;
                 }
+                product.FilePath = images.FirstOrDefault()?.FilePath;
+            }
 
             product.Title = model.UpdateProductDto.Title;
             product.Avg = model.UpdateProductDto.Avg;

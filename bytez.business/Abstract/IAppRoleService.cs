@@ -1,4 +1,5 @@
-﻿using bytez.entity.Entities.Identity;
+﻿using bytez.entity.Entities;
+using bytez.entity.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,10 @@ namespace bytez.business.Abstract
 {
     public interface IAppRoleService
     {
-        Task ConfigureRoleAsync ();    
-     
+        Task<List<AppUser>> GetAppUserROLE();
+        Task GetAppUpdateROLE(RoleModel roleModel, string id);
+
+
+
     }
 }

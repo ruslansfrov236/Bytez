@@ -12,7 +12,7 @@ namespace bytez.business.Dto.Product
     {
         public string? Title { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
+      
         public decimal Price { get; set; }
 
         [ForeignKey("ColorId")]

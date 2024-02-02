@@ -1,5 +1,6 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.ConnectionInfo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -13,13 +14,14 @@ namespace bytez.webui.Areas.Admin.Controllers
         {
             _connectionInfoService = connectionInfoService;
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
             var connectionInfos = await _connectionInfoService.GetAllConnections();
 
             return View(connectionInfos);
         }
-
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var connectionInfo = await _connectionInfoService.GetConnectionInfoById(id);
@@ -28,15 +30,18 @@ namespace bytez.webui.Areas.Admin.Controllers
 
             return View(connectionInfo);
         }
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create()
         => View();
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateConnectionInfoDto model)
         {
             await _connectionInfoService.Create(model);
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var connectionInfo = await _connectionInfoService.GetConnectionInfoById(id);
@@ -54,6 +59,7 @@ namespace bytez.webui.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateConnectionInfoDto model)
         {
             
@@ -61,6 +67,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             var connectionInfo = await _connectionInfoService.GetConnectionInfoById(id);

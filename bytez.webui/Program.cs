@@ -28,8 +28,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 #region Admin Controller
 #region  Color
 app.MapAreaControllerRoute(
@@ -231,11 +231,70 @@ app.MapAreaControllerRoute(
 
     name: "areas",
     areaName: "admin",
-    pattern: "admin/contactInfo",
-    defaults: new { Controller = "ContactInfo", Action = "Index" }
+    pattern: "admin/category",
+    defaults: new { Controller = "Category", Action = "Index" }
     );
 #endregion
+#region Connection Info 
+app.MapAreaControllerRoute(
 
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/connection/update/{id}",
+    defaults: new { Controller = "ConnectionInfo", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/connection/create",
+    defaults: new { Controller = "ConnectionInfo", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/connection/details/{id}",
+    defaults: new { Controller = "ConnectionInfo", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/connection",
+    defaults: new { Controller = "ConnectionInfo", Action = "Index" }
+    );
+#endregion
+#region Blog
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/blog/update/{id}",
+    defaults: new { Controller = "Blog", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/blog/create",
+    defaults: new { Controller = "Blog", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/blog/details/{id}",
+    defaults: new { Controller = "Blog", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/blog",
+    defaults: new { Controller = "Blog", Action = "Index" }
+    );
+#endregion
 #region DashBoard 
 app.MapAreaControllerRoute(
 
@@ -256,18 +315,22 @@ app.MapControllerRoute(
     pattern: "store",
     defaults: new {Controller="Stock", Action="Index"}
     );
-
+app.MapControllerRoute(
+    name: "store",
+    pattern: "store/details/{id}",
+    defaults: new { Controller = "Stock", Action = "Details" }
+    );
 #endregion
 
 #region Account 
 app.MapControllerRoute(
     name: "register",
-    pattern: "register",
+    pattern: "account/register",
     defaults: new { Controller = "Account", Action = "Registration" }
     );
 app.MapControllerRoute(
     name: "login",
-    pattern: "login",
+    pattern: "account/login",
     defaults: new { Controller = "Account", Action = "Login" }
     );
 #endregion

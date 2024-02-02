@@ -1,6 +1,8 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.ProductImage;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace bytez.webui.Areas.Admin.Controllers
 {
@@ -8,11 +10,12 @@ namespace bytez.webui.Areas.Admin.Controllers
     public class ProductImageController : Controller
     {
         readonly private IProductImageService _productImageService;
-
+        
         public ProductImageController(IProductImageService productImageService)
         {
             _productImageService= productImageService;
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index ()
         {
             var image = await _productImageService.GetProductImages();

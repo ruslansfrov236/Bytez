@@ -63,7 +63,7 @@ namespace bytez.business.Concrete
             var extention = "\\wwwroot\\ui\\assets\\image\\";
             var path = Path.Combine(Directory.GetCurrentDirectory(), extention, connectionInfo.FilePath);
             _productImageService.Delete(path);
-            if (model.File == null)
+            if (model.File != null)
             {
                 _productImageService.IsImage(model.File);
                 _productImageService.CheckSize(model.File, 250);

@@ -8,5 +8,7 @@ namespace bytez.business.Abstract
 {
     public interface IBasketService
     {
+        Task<bool> Add(string id , int quantity);
+        Task Remove(string id);
     }
 }

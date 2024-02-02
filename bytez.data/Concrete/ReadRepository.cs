@@ -40,12 +40,12 @@ namespace bytez.data.Concrete
             return await queryable.FirstOrDefaultAsync(method);
         }
 
-        public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
+        public IQueryable<T> GetWhere(  Expression<Func<T, bool>> method, bool tracking = true)
         {
             var queryable = Table.AsQueryable();
             if (!tracking)
                 queryable = Table.AsNoTracking();
-            return queryable.Where(method);
+            return queryable.Where(method) ;
         }
     }
 }

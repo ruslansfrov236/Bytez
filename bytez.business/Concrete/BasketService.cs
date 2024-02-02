@@ -1,13 +1,116 @@
 ﻿using bytez.business.Abstract;
+using bytez.data.Abstract;
+using bytez.entity.Entities.Identity;
+using e=bytez.entity.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using bytez.entity.Entities;
 
 namespace bytez.business.Concrete
 {
-    public class BasketService:IBasketService
+    public class BasketService : IBasketService
     {
+        readonly private IOrderReadRepository _orderReadRepository;
+        readonly private IOrderWriteRepository _orderWriteRepository;
+        readonly private IProductReadRepository _productReadRepository;
+        readonly private IProductWriteRepository _productWriteRepository;
+        readonly private IBasketReadRepository _basketReadRepository;
+        readonly private IBasketWriteRepository _basketWriteRepository;
+        readonly private IProductBasketReadRepository _productBasketRead;
+        readonly private IProductBasketWriteRepository _productBasketWrite;
+        readonly private IHttpContextAccessor _httpContextAccessor;
+        readonly private UserManager<AppUser> _userManager;
+        public BasketService(IBasketReadRepository basketReadRepository,
+                             IBasketWriteRepository basketWriteRepository,
+                             UserManager<AppUser> userManager,
+                             IProductBasketReadRepository productBasketRead,
+                             IProductBasketWriteRepository productBasketWrite,
+                             IProductWriteRepository productWriteRepository,
+                             IProductReadRepository productReadRepository,
+                              IHttpContextAccessor httpContextAccessor)
+        {
+            _basketReadRepository = basketReadRepository;
+            _basketWriteRepository = basketWriteRepository;
+            _productBasketRead = productBasketRead;
+            _productBasketWrite = productBasketWrite;
+            _productReadRepository = productReadRepository;
+            _productWriteRepository = productWriteRepository;
+            _userManager = userManager;
+        }
+
+        public async Task<bool> Add(string id , int quantity)
+        {
+            var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                AppUser user = await _userManager.Users
+                    .Include(u => u.Baskets)
+                    .FirstOrDefaultAsync(u => u.UserName == username);
+
+                var product = await _productReadRepository.GetByIdAsync(id);
+
+                if (product != null)
+                {
+                    var order = await _orderReadRepository.GetSingleAsync(or => or.Name == username);
+
+                    if (order != null)
+                    {
+                        var userBasket = await _basketReadRepository.GetSingleAsync(b => b.UserId == user.Id && b.OrdersId == order.Id);
+
+                        if (userBasket == null)
+                        {
+                            userBasket = new Basket
+                            {
+                                UserId = user.Id,
+                                OrdersId = order.Id
+                            };
+
+                            await _basketWriteRepository.AddAsync(userBasket);
+                            await _basketWriteRepository.SaveAsync();
+                        }
+
+                        var productBasket = await _productBasketRead.GetSingleAsync(c => c.ProductId.ToString() == id);
+
+                        if (productBasket == null)
+                        {
+                            productBasket = new ProductBasket
+                            {
+                                BasketId = userBasket.Id,
+                                ProductId = product.Id,
+                                Quantity = quantity
+                            };
+                        }
+
+                       
+                        if (product.Stock != null && product.Stock >= productBasket.Quantity)
+                        {
+                            productBasket.Quantity++;
+                            product.Stock--;
+                          
+                           
+                            await _productWriteRepository.SaveAsync();
+                        }
+
+                        await _productBasketWrite.AddAsync(productBasket);
+                        await _productBasketWrite.SaveAsync();
+                    }
+                }
+            }
+
+
+            return true;
+        }
+
+        public Task Remove(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

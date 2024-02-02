@@ -1,6 +1,7 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Dto.Blog;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -9,12 +10,19 @@ namespace bytez.webui.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         readonly private IBlogService _blogService;
+
+        public BlogController( IBlogService blogService)
+        {
+            _blogService=blogService;
+        }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
             List<Blog> blogs = await _blogService.GetBlogListAsync();
 
             return View(blogs);
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var blog = await _blogService.GetBlogById(id);
@@ -22,9 +30,11 @@ namespace bytez.webui.Areas.Admin.Controllers
 
             return View(blog);
         }
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create()
-            => View();
+            => View(new CreateBlogDto());
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateBlogDto model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -32,13 +42,14 @@ namespace bytez.webui.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var blog = await _blogService.GetBlogById(id);
             if (blog == null) return NotFound();
             UpdateBlogDto updateBlogDto = new UpdateBlogDto()
             {
+                id= blog.Id.ToString(),
                 Title=blog.Title,
                 Description=blog.Description,
                 ContentInformation=blog.ContentInformation,
@@ -49,6 +60,7 @@ namespace bytez.webui.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateBlogDto model )
         {
             if (!ModelState.IsValid) return View(model);
@@ -59,6 +71,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Delete(string id)
         {
             var blog = await _blogService.GetBlogById(id);

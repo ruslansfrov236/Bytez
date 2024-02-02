@@ -12,10 +12,10 @@ namespace bytez.business.Dto.ConnectionInfo
     {
         public string id { get; set; }
         public string? Title { get; set; }
-        public string FilePath { get; set; }
+        public string? FilePath { get; set; }
         public string? Description { get; set; }
 
         [NotMapped]
-        public IFormFile File { get; set; }
+        public IFormFile? File { get; set; }
     }
 }

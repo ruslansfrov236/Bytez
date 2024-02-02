@@ -11,110 +11,120 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<nav>
-    <div class="navbar">
-        <a href="#"><img src="~/ui/assets/image/logo.png" alt="logo" /></a>
+    <nav>
+        <div class="navbar">
+            <a href="#"><img src="~/ui/assets/image/logo.png" alt="logo" /></a>
 
-        <ul class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/store">Store</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/store">Store</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
 
-    <ul class="social-menu">
-        <li><a href="#"><img src="~/ui/assets/image/Search.png" /></a></li>
-        <li><a href="#"><img src="~/ui/assets/image/cart-shopping.png" /></a></li>
-        <li class="user-item">
-            <a class="user-link"><img src="~/ui/assets/image/User.png" /></a>
-            <ul class="drapdown">
-                @{
-                    if (!User.Identity.IsAuthenticated)
-                    {
-                        <li><a class="login" href="/login">Login</a></li>
-                        <li><a href="/register">Register</a></li>
-                    }
-                    else
-                    {
-                        <li>
-                            <ul class="submenu">
-                                <li>
-                                    <a>@User.Identity.Name</a>
-                                    <p> @((User.Identity as ClaimsIdentity)?.FindFirst(ClaimTypes.Email)?.Value)</p>
-                                </li>
-                                <li><a href="/order">Order</a></li>
-                                <li><a href="/cart">Cart</a></li>
-                                <li><a href="/wishlist">Wishlist</a></li>
-                                <li>
-                                    <form asp-controller="Account" asp-action="Logout" method="post">
-                                        <button type="submit">Log Out</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    }
-                }
             </ul>
-        </li>
-    </ul>
-</nav>
-
-    <main>
-        <div class="container">
-
-            @RenderBody()
         </div>
-    </main>
-    <footer>
-        <section id="about">
-            <div class="about-item">
-                <h2 class="about-item-title">quick links</h2>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">Contact us</a></li>
-                    <li><a href="">Faq</a></li>
-                </ul>
-            </div>
-            <div class="about-item">
-                <h2 class="about-item-title">important policies</h2>
-                <ul>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms of Service</a></li>
-                    <li><a href="">Returns & Refunds</a></li>
-                    <li><a href="">Shipping Policy</a></li>
-                </ul>
-            </div>
-            <div class="about-item">
-                <h2 class="about-item-title">let us help you</h2>
-                <ul>
-                    <li><a href="">Customer Support</a></li>
-                    <li><a href="">Live Chat</a></li>
-                    <li><a href="">Help Center</a></li>
 
-                </ul>
-            </div>
-            <div class="about-item">
-                <h2 class="about-item-title">connect with us</h2>
-                <ul>
-                    <li><a href="">facebook</a></li>
-                    <li><a href="">twitter</a></li>
-                    <li><a href="">instagram</a></li>
+        <ul class="social-menu">
+            @{
+                if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
+                {
+                    <li><a href="#"><img src="~/ui/assets/image/Search.png" /></a></li>
+                    <li><a href="#"><img src="~/ui/assets/image/cart-shopping.png" /></a></li>
+                    <li class="user-item">
+                        <a class="user-link"><img src="~/ui/assets/image/User.png" /></a>
+                        <ul class="drapdown">
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li><a class="login" href="/account/login">Login</a></li>
+                                <li><a href="/account/register">Register</a></li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a>@User.Identity.Name</a>
+                                            <p>@((User.Identity as ClaimsIdentity)?.FindFirst(ClaimTypes.Email)?.Value)</p>
+                                        </li>
+                                        <li><a href="/order">Order</a></li>
+                                        <li><a href="/cart">Cart</a></li>
+                                        <li><a href="/wishlist">Wishlist</a></li>
+                                        <li>
+                                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                                <button type="submit">Log Out</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+                else if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                {
+                    <li><a href="/admin">Admin</a></li>
+                }
+            }
+        </ul>
 
-                </ul>
+        </nav>
+
+        <main>
+            <div class="container">
+
+                        @RenderBody()
             </div>
-            <div class="about-item">
-                <h2 class="about-item-title">Subscribe for updates and exclusive offers. *</h2>
-                <form class="about-form">
-                    <input type="email" id="email" placeholder="Enter the Email" />
-                    <button class="btn-dark">subscribe</button>
-                </form>
-            </div>
-        </section>
-    </footer>
-    <script src="~/ui/assets/js/fetch.js"></script>
-    <script src="~/ui/assets/js/add.js"></script>
-    <script src="https://kit.fontawesome.com/9df1d44044.js" crossorigin="anonymous"></script>
-</body>
-</html>
+        </main>
+        <footer>
+            <section id="about">
+                <div class="about-item">
+                    <h2 class="about-item-title">quick links</h2>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us</a></li>
+                        <li><a href="">Faq</a></li>
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h2 class="about-item-title">important policies</h2>
+                    <ul>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms of Service</a></li>
+                        <li><a href="">Returns & Refunds</a></li>
+                        <li><a href="">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h2 class="about-item-title">let us help you</h2>
+                    <ul>
+                        <li><a href="">Customer Support</a></li>
+                        <li><a href="">Live Chat</a></li>
+                        <li><a href="">Help Center</a></li>
+
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h2 class="about-item-title">connect with us</h2>
+                    <ul>
+                        <li><a href="">facebook</a></li>
+                        <li><a href="">twitter</a></li>
+                        <li><a href="">instagram</a></li>
+
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h2 class="about-item-title">Subscribe for updates and exclusive offers. *</h2>
+                    <form class="about-form">
+                        <input type="email" id="email" placeholder="Enter the Email" />
+                        <button class="btn-dark">subscribe</button>
+                    </form>
+                </div>
+            </section>
+        </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="~/ui/assets/js/fetch.js"></script>
+        <script src="~/ui/assets/js/add.js"></script>
+        <script src="https://kit.fontawesome.com/9df1d44044.js" crossorigin="anonymous"></script>
+    </body>
+    </html>

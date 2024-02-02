@@ -20,48 +20,23 @@ namespace bytez.webui.Controllers
             _signInManager=signInManager;
         }
         [HttpGet]
-        public IActionResult Login (string? ReturnUrl = null)
-       => View(new Login() { ReturnUrl=ReturnUrl});
+        public IActionResult Login ()
+       => View( new LoginDto() );
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Login model , string? ReturnUrl = null)
+
+        public async Task<IActionResult> Login(LoginDto model)
         {
+           
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+          await  _appUserService.LoginAsync(model);
 
-            var emailUsers = await _userManager.FindByEmailAsync(model.Email);
+            return Redirect(model.ReturnUrl ?? "~/");
 
-            if (emailUsers != null)
-            {
-                if (await _userManager.CheckPasswordAsync(emailUsers, model.Password))
-                {
-                    var userRoles = await _userManager.GetRolesAsync(emailUsers);
-                    var result = await _signInManager.PasswordSignInAsync(emailUsers, model.Password, true, false);
 
-                    if (result.Succeeded)
-                    {
-                        if (userRoles.Contains("Admin") || userRoles.Contains("Manager"))
-                        {
-                           
-                                return Redirect(ReturnUrl );
-                           
-                           
-                        }
-                        else if (userRoles.Contains("User"))
-                        {
-                            return Redirect("~/");
-                        }
-                    }
-                }
-            }
-            else
-            {
-                ModelState.AddModelError("Email", "Invalid email or password.");
-            }
-
-            return View(model);
         }
 
         [HttpGet]
@@ -80,7 +55,7 @@ namespace bytez.webui.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _appUserService.LogOutAsync();
-            return RedirectToAction("~/");
+            return RedirectToAction(nameof(Login));
         }
     }
 }

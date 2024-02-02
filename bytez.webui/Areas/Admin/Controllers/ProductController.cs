@@ -2,6 +2,7 @@
 using bytez.business.Dto.Product;
 using bytez.business.ViewModels.ProductVM;
 using bytez.entity.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -22,18 +23,21 @@ namespace bytez.webui.Areas.Admin.Controllers
             _colorService = colorService;
             _brandModelService = brandModelService;
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
            
             List<Product> products = await _productService.GetProductsAsync();
             return View(products);
         }
+        [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Details(string id)
         {
             var product = await _productService.GetByIdAsync(id);
 
             return View(product);
         }
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create()
         {
             var category = await _categoryService.GetCategoryAsync();
@@ -53,6 +57,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(ProductCreateVM model)
         {
             
@@ -60,7 +65,7 @@ namespace bytez.webui.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(string id)
         {
             var product = await _productService.GetByIdAsync(id);
@@ -70,6 +75,7 @@ namespace bytez.webui.Areas.Admin.Controllers
             if (product == null) return NotFound();
             UpdateProductDto productDto = new UpdateProductDto()
             {
+                id=product.Id.ToString(),
                 Title=product.Title,
                 FilePath=product.FilePath,
                 Avg=product.Avg,
@@ -97,12 +103,14 @@ namespace bytez.webui.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(ProductUpdateVM model)
         {
             await _productService.Update(model);
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+        [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Delete(string id)
         {
             var product = await _productService.GetByIdAsync(id);

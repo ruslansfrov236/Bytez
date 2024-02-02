@@ -16,6 +16,6 @@ namespace bytez.business.Abstract
         bool IsImage(IFormFile file);
         bool CheckSize(IFormFile file, int maxSize);
         void Delete(string path);
-        Task ShowCaseImage(string id, ShowCaseDto model);
+      
     }
 }

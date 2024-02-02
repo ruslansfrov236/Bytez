@@ -42,6 +42,8 @@ namespace bytez.data
             service.AddScoped<IAboutWriteRepository, AboutWriteRepository>();
             service.AddScoped<IBasketReadRepository, BasketReadRepository>();
             service.AddScoped<IBasketWriteRepository, BasketWriteRepository>();
+            service.AddScoped<IProductBasketReadRepository, ProductBasketReadRepository>();
+            service.AddScoped<IProductBasketWriteRepository, ProductBasketWriteRepository>();
             service.AddScoped<IOrderReadRepository, OrderReadRepository>();
             service.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             service.AddScoped<IBrandModelWriteRepository, BrandModelWriteRepository>();
@@ -64,7 +66,9 @@ namespace bytez.data
                 options.LogoutPath = "/account/logout";
                 options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = false;
-                options.ExpireTimeSpan = TimeSpan.FromDays(365);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+          
+
                 options.Cookie = new CookieBuilder
                 {
                     HttpOnly = true,
