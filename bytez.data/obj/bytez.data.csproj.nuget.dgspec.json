@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj": {}
+    "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj": {
+    "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj",
+        "projectUniqueName": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj",
         "projectName": "bytez.data",
-        "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj",
+        "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj",
         "packagesPath": "C:\\Users\\Асер\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\obj\\",
+        "outputPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Асер\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj": {
-                "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj"
+              "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj": {
+                "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj"
               }
             }
           }
@@ -123,14 +123,14 @@
         }
       }
     },
-    "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj": {
+    "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj",
+        "projectUniqueName": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj",
         "projectName": "bytez.entity",
-        "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj",
+        "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj",
         "packagesPath": "C:\\Users\\Асер\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\obj\\",
+        "outputPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Асер\\AppData\\Roaming\\NuGet\\NuGet.Config",

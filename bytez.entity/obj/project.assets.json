@@ -1073,11 +1073,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj",
+      "projectUniqueName": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj",
       "projectName": "bytez.entity",
-      "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\bytez.entity.csproj",
+      "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\bytez.entity.csproj",
       "packagesPath": "C:\\Users\\Асер\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.entity\\obj\\",
+      "outputPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Асер\\AppData\\Roaming\\NuGet\\NuGet.Config",

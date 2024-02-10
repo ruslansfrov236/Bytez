@@ -1,0 +1,56 @@
+﻿@using System.Globalization
+@model List<Blog>
+
+<div class="container-blog">
+    <div class="row-blog">
+        @{
+            CultureInfo englishCulture = new CultureInfo("en-US");
+        }
+
+
+        <div class="blog-image">
+
+            @foreach (var blog in Model)
+            {
+                if (!blog.isVideo)
+                {
+                    <a href="/blog/details/@blog.Id" class="image-card">
+                        <img src="~/ui/assets/image/@blog.FilePath" />
+                        <div class="blog-image-card-body">
+                            <div class="data-clock">
+                                <p><i class="fa-regular fa-calendar-days"></i> @blog.CreatedDate.ToString("MMMM, dd, yyyy", englishCulture)</p>
+                                <p><i class="fa-regular fa-clock"></i> @blog.CreatedDate.ToString("HH:mm", englishCulture)</p>
+                            </div>
+                            <h2 class="blog-image-card-title">@blog.Title</h2>
+                        </div>
+
+                    </a>
+                }
+
+            }
+        </div>
+
+
+        <div class="blog-video">
+            @foreach (var blog in Model)
+            { @if (blog.isVideo)
+                {
+                    <div class="video-card">
+                        <video width="392" height="206" controls>
+                            <source src="~/ui/assets/video/@blog.VideoPath" type="video/mp4">
+                        </video>
+                        <div class="blog-video-card-body">
+
+
+                                <h2 class="blog-video-card-title">@blog.Title</h2>
+                            </div>
+                        </div>
+
+                   
+                }
+            }
+        </div>
+
+
+    </div>
+</div>

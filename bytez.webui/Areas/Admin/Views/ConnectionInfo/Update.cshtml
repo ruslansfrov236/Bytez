@@ -20,14 +20,17 @@
                     <label asp-for="@Model.File"></label>
                     <input type="hidden" asp-for="@Model.FilePath" />
                     <input asp-for="@Model.File" class="form-control" id="exampleInputName1">
+                    <span class="text-danger" asp-validation-for="@Model.File" />
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.Title"></label>
                     <input asp-for="@Model.Title" class="form-control" id="exampleInputName1"/>
+                    <span class="text-danger" asp-validation-for="@Model.Title" />
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.Description"></label>
                     <textarea asp-for="@Model.Description" type="text" class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
+                    <span class="text-danger" asp-validation-for="@Model.Description" />
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>

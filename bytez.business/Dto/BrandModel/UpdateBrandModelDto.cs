@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace bytez.business.Dto.BrandModel
 {
     public class UpdateBrandModelDto
     {
-        public string? id {  get; set; } 
+        public string? id {  get; set; }
+        [Required]
         public string? Name { get; set; }
         public string? FilePath { get; set; }
         [NotMapped]

@@ -2,20 +2,13 @@
 @model LoginDto
 
 
-<<<<<<< HEAD
 @{
     var returnUrl = Context.Request.Query["ReturnUrl"].ToString();
-    Model.ReturnUrl = 
-!string.IsNullOrEmpty(returnUrl) ? returnUrl : string.Empty;
-}
-=======
-@model Login
-@{
-    var returnUrl = Context.Request.Query["ReturnUrl"].ToString();
+ 
 
 }
 
->>>>>>> 651f6b607ec294a06289e76cd145cc075226798a
+
 <div class="account">
 
     <div class="account-container">
@@ -25,16 +18,15 @@
             </h3>
             <p class="account-text"> Welcome Back!</p>
         </div>
-        <form class="account-form" asp-controller="Account" asp-action="Login" method="post">
-<<<<<<< HEAD
-            <input type="hidden" asp-for="ReturnUrl" value="@Model.ReturnUrl">
+        <form class="account-form" asp-controller="Account" asp-action="Login" method="post" autocomplete="on">
 
-           
-=======
+          
+
+
                <input type="hidden" asp-for="@Model.ReturnUrl" value="@returnUrl">
->>>>>>> 651f6b607ec294a06289e76cd145cc075226798a
 
-            <input asp-for="Email" placeholder="Enter your email" class="email" />
+
+            <input asp-for="Email" placeholder="Enter your email"  class="email" />
             <span asp-validation-for="Email"></span>
             <input asp-for="Password" placeholder="Enter your password" class="password" />
             <div>

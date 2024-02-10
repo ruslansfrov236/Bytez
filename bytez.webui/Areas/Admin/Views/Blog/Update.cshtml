@@ -1,39 +1,93 @@
 ﻿@using bytez.business.Dto.Blog
 
+
+
+
 @model UpdateBlogDto
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Update</h4>
-            <p class="card-description">Update Blog</p>
-            <form class="forms-sample"  enctype="multipart/form-data" method="post">
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample" asp-controller="Blog" asp-action="Update" asp-area="Admin" asp-route-id="@Model.id" enctype="multipart/form-data">
                 <div class="form-group">
-                    <img src="~/ui/assets/image/@Model.FilePath" style="width: 100px;height:100px; objet-fit:cover; border-radius:12px" />
+                    <label asp-for="@Model.Title">Name</label>
+                    <input asp-for="@Model.Title" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="@Model.Title" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ContentInformation"></label>
+                    <input asp-for="@Model.ContentInformation" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="@Model.ContentInformation" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description"></label>
+                    <textarea asp-for="@Model.Description" rows="4" class="form-control" id="exampleInputName1"></textarea>
+                </div>
+                @{
+                    <div class="form-group">
+                        <label asp-for="@Model.isVideo" >VideoChecked</label>
+                        @if (Model.isVideo)
+                        {
+                            <input asp-for="@Model.isVideo" value="@Model.isVideo" checked id="exampleInputName1" />
+                        }
+                        else
+                        {
+                            <input asp-for="@Model.isVideo" value="@Model.isVideo" id="exampleInputName1" />
+                        }
+                        <span class="text-danger" asp-validation-for="@Model.isVideo"></span>
+                    </div>
+
+                    if (!Model.isVideo)
+                    {
+                        <div class="form-group">
+                            <img src="~/ui/assets/image/@Model.FilePath" style="width:80px; height:80px; object-fit:contain; border-radius:10px" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.FormFile">File</label>
+                            <input type="hidden" asp-for="@Model.FilePath" />
+                            <input asp-for="@Model.FormFile" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.FormFile" />
+
+                        </div>
+                    }
+                }
+
+
+
+
+                
+                @{
+                    @if (Model.isVideo)
+                    {
+                        <div class="form-group">
+                            <video width="200" height="200" controls>
+                                <source src="~/ui/assets/video/@Model.VideoPath" type="video/mp4">
+
+
+
+                            </video>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.FormFile">File</label>
+                            <input type="hidden" asp-for="@Model.FilePath" />
+                            <input asp-for="@Model.FormFile" class="form-control">
+                            <span class="text-danger" asp-validation-for="@Model.FormFile" />
+
+                        </div>
+                    }
+                }
+              
+                <div class="form-group">
+                    <label asp-for="@Model.Video"></label>
+                    <input type="hidden" asp-for="@Model.VideoPath" />
+                    <input asp-for="@Model.Video" class="form-control">
+                    <span class="text-danger" asp-validation-for="@Model.Video" />
 
                 </div>
-                <div class="form-group">
 
-                    <label asp-for="File"></label>
-                    <input type="hidden" asp-for="@Model.FilePath" />
-                    <input asp-for="File" class="form-control" id="exampleInputName1">
-                    <span asp-validation-for="File"> </span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Title"></label>
-                    <input asp-for="Title" class="form-control" id="exampleInputName1" />
-                    <span asp-validation-for="Title"> </span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ContentInformation"></label>
-                    <input asp-for="ContentInformation" class="form-control" id="exampleInputName1" />
-                    <span asp-validation-for="ContentInformation"> </span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description"></label>
-                    <textarea asp-for="Description" class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
-                    <span asp-validation-for="Description"> </span>
-                </div>
+
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>
             </form>
@@ -43,7 +97,6 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidatorForm")
-
 
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 

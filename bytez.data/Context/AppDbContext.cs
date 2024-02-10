@@ -25,8 +25,15 @@ namespace bytez.data.Context
         public DbSet<BrandModel>? Brand { get; set; }
         public DbSet<Category>? Categories { get; set; }
         public DbSet<ConnectionInfo>? ConnectionInfos { get; set; }
+        public DbSet<Email>? Emails { get; set; }
+        public DbSet<Message>? Messages { get; set; } 
+        public DbSet<ContactCall>? ContactCalls { get; set; }
 
+        public DbSet<Wishlist>? Wishlists { get; set; }
+        public DbSet<ContactWall>? ContactWalls { get; set; }    
         public DbSet<Blog>? Blogs { get; set; }
+
+        public DbSet<Comment>? Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();

@@ -9680,11 +9680,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.business\\bytez.business.csproj",
+      "projectUniqueName": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.business\\bytez.business.csproj",
       "projectName": "bytez.business",
-      "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.business\\bytez.business.csproj",
+      "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.business\\bytez.business.csproj",
       "packagesPath": "C:\\Users\\Асер\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.business\\obj\\",
+      "outputPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Асер\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9701,8 +9701,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj": {
-              "projectPath": "C:\\Users\\Асер\\Downloads\\Bytez\\Bytez\\bytez.data\\bytez.data.csproj"
+            "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj": {
+              "projectPath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.data\\bytez.data.csproj"
             }
           }
         }

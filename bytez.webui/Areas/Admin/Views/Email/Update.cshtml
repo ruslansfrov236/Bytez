@@ -1,0 +1,31 @@
+﻿@using bytez.business.Dto.Email
+
+
+
+@model UpdateEmailDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <p class="card-description">Update elements</p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.EmailAddress"></label>
+                    <input asp-for="@Model.EmailAddress"  class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="@Model.EmailAddress"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+
+}

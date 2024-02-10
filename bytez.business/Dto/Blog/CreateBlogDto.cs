@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bytez.entity.Entities;
 
 namespace bytez.business.Dto.Blog
 {
@@ -13,13 +14,18 @@ namespace bytez.business.Dto.Blog
     {
         [Required]
         public string? Title { get; set; }
-        [Required]
+      
         public string? Description { get; set; }
-        [Required]
+        
         public string? ContentInformation { get; set; }
-   
-        public string? FilePath { get; set; }
+    
+        public bool isVideo { get; set; }
+        public string? VideoPath { get; set; }
         [NotMapped]
-        public IFormFile? File { get; }
+        public IFormFile? Video { get; set; }
+        public string? FilePath { get; set; }
+      
+        [NotMapped]
+        public IFormFile? FormFile { get; set; }
     }
 }

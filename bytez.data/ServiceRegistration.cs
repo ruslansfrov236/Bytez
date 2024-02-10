@@ -28,10 +28,10 @@ namespace bytez.data
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
                 options.Password.RequireDigit = true;
-            
+
             })
               .AddEntityFrameworkStores<AppDbContext>();
-           
+
             service.AddScoped<IProductReadRepository, ProductReadRepository>();
             service.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             service.AddScoped<IProductColorReadRepository, ProductColorReadRepository>();
@@ -56,6 +56,17 @@ namespace bytez.data
             service.AddScoped<IConnectionInfoReadReposItory, ConnectionReadRepository>();
             service.AddScoped<IBlogWriteRepository, BlogWriteRepository>();
             service.AddScoped<IBlogReadRepository, BlogReadRepository>();
+            service.AddScoped<IMessageReadRepository, MessageReadRepository>();
+            service.AddScoped<IMessageWriteRepository, MessageWriteRepository>();
+            service.AddScoped<IEmailWriteRepository, EmailWriteRepository>();
+            service.AddScoped<IEmailReadRepository, EmailReadRepository>();
+            service.AddScoped<IContactCallReadRepository, ContactCallReadRepository>();
+            service.AddScoped<IContactCallWriteRepository, ContactCallWriteRepository>();
+            service.AddScoped<IContactWallReadRepository, ContactWallReadRepository>();
+            service.AddScoped<IContactWallWriteRepository, ContactWallWriteRepository>();
+            service.AddScoped<IWishlistWriteRepository, WishlistWriteRepository>();
+            service.AddScoped<IWishlistReadRepository, WishlistReadRepository>();
+
 
         }
         public static void AddCookieRegistration(this IServiceCollection service)
@@ -67,15 +78,20 @@ namespace bytez.data
                 options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = false;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-          
+
+
 
                 options.Cookie = new CookieBuilder
                 {
                     HttpOnly = true,
                     Name = ".Bytez.Security.Cookie",
-                    SameSite = SameSiteMode.Strict
+                    SameSite = SameSiteMode.Strict,
+
                 };
             });
         }
+
+
+        
     }
 }

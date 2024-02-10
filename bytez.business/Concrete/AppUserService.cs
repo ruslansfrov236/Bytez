@@ -3,7 +3,7 @@
 using bytez.business.Abstract;
 using bytez.business.Dto.Login;
 using bytez.data.Context;
-using bytez.entity.Entities;
+using bytez.entity.Entities.Enum;
 using bytez.entity.Entities.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

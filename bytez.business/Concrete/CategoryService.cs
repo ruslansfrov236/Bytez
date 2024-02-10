@@ -43,8 +43,15 @@ namespace bytez.business.Concrete
         public async Task<List<Category>> GetCategoryAsync()
         {
 
-            var categories = await _categoryReadRepository
-                .GetAll().ToListAsync();
+            var categories = await _categoryReadRepository.GetAll()
+               .Include(p => p.Product).
+                Select(a => new Category()
+                                        { Id = a.Id,
+                                         Name = a.Name,
+                                         Count = a.Product.Where(p => p.CategoryId == a.Id).Count(), 
+                                         CreatedDate = a.CreatedDate,
+                                         UpdatedDate = a.UpdatedDate })
+                .ToListAsync();
 
             return categories;
         }

@@ -81,18 +81,15 @@ namespace bytez.data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ContentInformation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FilePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -101,6 +98,12 @@ namespace bytez.data.Migrations
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("VideoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isVideo")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -161,6 +164,36 @@ namespace bytez.data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("BlogId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Commenty")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.ConnectionInfo", b =>
                 {
                     b.Property<Guid>("Id")
@@ -186,6 +219,81 @@ namespace bytez.data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ConnectionInfos");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.ContactCall", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactCalls");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.ContactWall", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactWalls");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Email", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Emails");
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Header", b =>
@@ -283,6 +391,39 @@ namespace bytez.data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Message", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Order", b =>
                 {
                     b.Property<Guid>("Id")
@@ -366,9 +507,6 @@ namespace bytez.data.Migrations
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("isProductLike")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -459,6 +597,37 @@ namespace bytez.data.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Wishlist", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isWishlist")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("Wishlists");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -622,6 +791,23 @@ namespace bytez.data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Comment", b =>
+                {
+                    b.HasOne("bytez.entity.Entities.Identity.AppUser", "AppUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("bytez.entity.Entities.Blog", "Blog")
+                        .WithMany()
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Blog");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>
                 {
                     b.HasOne("bytez.entity.Entities.Category", "Category")
@@ -670,6 +856,23 @@ namespace bytez.data.Migrations
                         .IsRequired();
 
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Wishlist", b =>
+                {
+                    b.HasOne("bytez.entity.Entities.Identity.AppUser", "AppUser")
+                        .WithMany("Wishlists")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("bytez.entity.Entities.Product", "Product")
+                        .WithOne("Wishlist")
+                        .HasForeignKey("bytez.entity.Entities.Wishlist", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -736,6 +939,10 @@ namespace bytez.data.Migrations
             modelBuilder.Entity("bytez.entity.Entities.Identity.AppUser", b =>
                 {
                     b.Navigation("Baskets");
+
+                    b.Navigation("Comments");
+
+                    b.Navigation("Wishlists");
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Order", b =>
@@ -752,6 +959,8 @@ namespace bytez.data.Migrations
                     b.Navigation("ProductBaskets");
 
                     b.Navigation("ProductImages");
+
+                    b.Navigation("Wishlist");
                 });
 #pragma warning restore 612, 618
         }

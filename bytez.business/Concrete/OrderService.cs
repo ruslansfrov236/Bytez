@@ -16,7 +16,7 @@ namespace bytez.business.Concrete
             _orderWriteRepository = orderWriteRepository;
         }
 
-        public Guid Id { get; private set; }
+
 
         public async Task<bool> Create(CreateOrderDto model)
         {
@@ -27,7 +27,9 @@ namespace bytez.business.Concrete
                 Name = model.Name,
                 Address = model.Address,
                 Description = model.Description,
-                OrderCode = orderCode
+                OrderCode = orderCode,
+                
+                
             };
 
             await _orderWriteRepository.AddAsync(order);

@@ -14,13 +14,16 @@ namespace bytez.business.Dto.Blog
         public string id { get; set; }
         [Required]
         public string? Title { get; set; }
-        [Required]
+        
         public string? Description { get; set; }
-        [Required]
-        public string? ContentInformation { get; set; }
      
+        public string? ContentInformation { get; set; }
+        [Required]
+        public bool isVideo { get; set; }
+        public string? VideoPath { get; set; }
+        [NotMapped]
+        public IFormFile? Video { get; set; }
         public string? FilePath { get; set; }
         [NotMapped]
-        public IFormFile? File { get; }
-    }
-}
+        public IFormFile? FormFile { get; set; }
+    }}

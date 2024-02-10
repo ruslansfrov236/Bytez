@@ -37,6 +37,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateBrandModelDto model)
         {
+            if (!ModelState.IsValid) return View(model);
             var brandsModel = await _brandModelService.GetBrandsAsync();
             bool isReplayValue = brandsModel.Any(br => br.Name.ToLower().Trim() == model.Name.ToLower().Trim());
 
@@ -65,6 +66,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UpdateBrandModelDto model)
         {
+            if (!ModelState.IsValid) return View(model);
             await _brandModelService.Update(model);
             return RedirectToAction(nameof(Index));
 

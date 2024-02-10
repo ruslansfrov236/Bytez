@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace bytez.webui.Controllers
 {
-    [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
         readonly private IAppUserService _appUserService;
@@ -24,13 +23,8 @@ namespace bytez.webui.Controllers
        => View( new LoginDto() );
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
-
-        public async Task<IActionResult> Login(LoginDto model)
-=======
-        public async Task<IActionResult> Login(Login model )
->>>>>>> 651f6b607ec294a06289e76cd145cc075226798a
-        {
+        public async Task<IActionResult> Login(LoginDto model )
+     {
            
             if (!ModelState.IsValid)
             {
@@ -39,34 +33,7 @@ namespace bytez.webui.Controllers
           await  _appUserService.LoginAsync(model);
 
             return Redirect(model.ReturnUrl ?? "~/");
-
-
-<<<<<<< HEAD
-=======
-                    if (result.Succeeded)
-                    {
-                        if (userRoles.Contains("Admin") || userRoles.Contains("Manager"))
-                        {
-                           
-                                return Redirect(model.ReturnUrl );
-                           
-                           
-                        }
-                        else if (userRoles.Contains("User"))
-                        {
-                            return Redirect("~/");
-                        }
-                    }
-                }
-            }
-            else
-            {
-                ModelState.AddModelError("Email", "Invalid email or password.");
-            }
-
-            return View(model);
->>>>>>> 651f6b607ec294a06289e76cd145cc075226798a
-        }
+         }
 
         [HttpGet]
         public IActionResult Registration()

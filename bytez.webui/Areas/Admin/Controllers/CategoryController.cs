@@ -64,6 +64,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateCategoryDto model)
         {
+            if (!ModelState.IsValid) return View(model);
             await _categoryService.Update(model);
             return RedirectToAction(nameof(Index));
         }

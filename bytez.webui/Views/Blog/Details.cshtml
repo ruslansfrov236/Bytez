@@ -1,0 +1,17 @@
+﻿@model Blog
+
+
+<div class="container-blog">
+    <div class="card-blog">
+        <h2 class="card-blog-title">@Model.Title</h2>
+        <h4 class="card-blog-content">@Model.ContentInformation</h4>
+       <div class="card-blog-body">
+            @if (!Model.isVideo)
+            {
+                <img  src="~/ui/assets/image/@Model.FilePath" />
+            }
+            @Html.Raw(Model.Description)
+           
+       </div>
+    </div>
+</div>

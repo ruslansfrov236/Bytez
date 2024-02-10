@@ -1,36 +1,53 @@
 ﻿@using bytez.business.Dto.Blog
 
+
+
+
 @model CreateBlogDto
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Create</h4>
-            <p class="card-description">Create Blog</p>
-            <form class="forms-sample"  enctype="multipart/form-data" method="post">
-
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" asp-controller="Blog" asp-action="Create" asp-area="Admin" enctype="multipart/form-data">
                 <div class="form-group">
-
-                    <label asp-for="@Model.File"></label>
-                  
-                    <input asp-for="@Model.File" class="form-control" id="exampleInputName1">
-                    <span asp-validation-for="@Model.File"> </span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Title"></label>
-                    <input asp-for="@Model.Title" class="form-control" id="exampleInputName1" />
-                    <span asp-validation-for="@Model.Title"> </span>
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" id="exampleInputname1" placeholder="title">
+                    <span class="text-danger" asp-validation-for="Title" />
                 </div>
                 <div class="form-group">
                     <label asp-for="ContentInformation"></label>
-                    <input asp-for="ContentInformation" class="form-control" id="exampleInputName1" />
-                    <span asp-validation-for="ContentInformation"> </span>
+                    <input asp-for="ContentInformation" class="form-control" id="exampleInputname1" placeholder="content">
+                    <span class="text-danger" asp-validation-for="ContentInformation" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="@Model.Description"></label>
-                    <textarea asp-for="@Model.Description"  class="form-control" id="exampleInputName1" rows='4' placeholder="Enter the Decription"></textarea>
-                   <span asp-validation-for="@Model.Description"> </span>
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" rows="4" class="form-control" id="exampleInputname1"></textarea>
+                    <span class="text-danger" asp-validation-for="Description" />
                 </div>
+                <div class="form-group">
+                    <label asp-for="isVideo">Video Checked</label>
+                    <input asp-for="isVideo" type="checkbox"  id="exampleInputname1"/>
+                        <span class="text-danger" asp-validation-for="isVideo" />
+                </div>
+               
+                        <div class="form-group">
+                            <label asp-for="FormFile">File</label>
+                    <input asp-for="FormFile" type="file" class="form-control">
+                            <span class="text-danger" asp-validation-for="FormFile" />
+
+                        </div>
+                    <div class="form-group">
+                            <label asp-for="Video"></label>
+                            <input asp-for="Video" type="file" class="form-control">
+                            <span class="text-danger" asp-validation-for="Video" />
+
+                        </div>
+                  
+
+
+
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>
             </form>
@@ -40,7 +57,6 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidatorForm")
-
 
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 

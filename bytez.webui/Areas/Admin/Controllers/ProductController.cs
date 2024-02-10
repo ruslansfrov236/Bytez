@@ -60,7 +60,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(ProductCreateVM model)
         {
-            
+            if (!ModelState.IsValid) return View(model);
             await _productService.Create(model);
 
             return RedirectToAction(nameof(Index));
@@ -83,7 +83,7 @@ namespace bytez.webui.Areas.Admin.Controllers
                 CategoryId=product.CategoryId,
                 ColorId=product.ColorId,
                 ProfileProduct=product.ProfileProduct,
-                IsProductLike=product.isProductLike,
+               
                 Price=product.Price,
                 Stock=product.Stock,
                 Higlist=product.Higlist,
@@ -106,6 +106,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(ProductUpdateVM model)
         {
+            if (!ModelState.IsValid) return View(model);
             await _productService.Update(model);
             return RedirectToAction(nameof(Index));
         }

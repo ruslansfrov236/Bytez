@@ -23,3 +23,16 @@ C:\Users\Асер\Downloads\Bytez\Bytez\bytez.entity\obj\Debug\net6.0\bytez.enti
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.entity\obj\Debug\net6.0\refint\bytez.entity.dll
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.pdb
 C:\Users\Асер\Downloads\Bytez\Bytez\bytez.entity\obj\Debug\net6.0\ref\bytez.entity.dll
+C:\Users\Асер\Desktop\Bytez\bytez.entity\bin\Debug\net6.0\bytez.entity.deps.json
+C:\Users\Асер\Desktop\Bytez\bytez.entity\bin\Debug\net6.0\bytez.entity.dll
+C:\Users\Асер\Desktop\Bytez\bytez.entity\bin\Debug\net6.0\bytez.entity.pdb
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.csproj.AssemblyReference.cache
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.AssemblyInfoInputs.cache
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.AssemblyInfo.cs
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.csproj.CoreCompileInputs.cache
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.sourcelink.json
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.dll
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\refint\bytez.entity.dll
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.pdb
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\ref\bytez.entity.dll

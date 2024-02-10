@@ -1,0 +1,36 @@
+﻿@using bytez.business.Dto.ContactWall
+@model CreateContactWallDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.Title" for="exampleInputTitle">Title</label>
+                    <input asp-for="@Model.Title" class="form-control" id="exampleInputTitle">
+                    <span class="text-danger" asp-validation-for="@Model.Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description" for="exampleInputDescription">Description</label>
+                    <textarea asp-for="@Model.Description" class="form-control" id="exampleInputDescription"></textarea>
+                    <span class="text-danger" asp-validation-for="@Model.Description"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('Description');
+    </script>
+}

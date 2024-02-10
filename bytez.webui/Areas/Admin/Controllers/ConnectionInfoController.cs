@@ -37,6 +37,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Create(CreateConnectionInfoDto model)
         {
+            if (!ModelState.IsValid) return View(model);
             await _connectionInfoService.Create(model);
 
             return RedirectToAction(nameof(Index));
@@ -62,7 +63,8 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateConnectionInfoDto model)
         {
-            
+            if (!ModelState.IsValid) return View(model);
+
             await _connectionInfoService.Update(model);
             return RedirectToAction(nameof(Index));
         }

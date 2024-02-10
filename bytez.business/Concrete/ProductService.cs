@@ -5,6 +5,7 @@ using bytez.business.ViewModels.StockVM;
 using bytez.data.Abstract;
 using bytez.data.Context;
 using bytez.entity.Entities;
+using bytez.entity.Entities.Enum;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,7 @@ namespace bytez.business.Concrete
         readonly private AppDbContext _context;
         public ProductService(IProductReadRepository productReadRepository
                             , IProductWriteRepository productWriteRepository,
-                              IProductImageService productImageService, 
+                              IProductImageService productImageService,
                               IProductImageWriteRepository productImageWriteRepository,
                               IProductImageReadRepository productImageReadRepository)
         {
@@ -130,14 +131,7 @@ namespace bytez.business.Concrete
         public async Task<Product> GetByIdAsync(string id)
          => await _productReadRepository.GetByIdAsync(id);
 
-        public async Task<Product> GetLikesProduct(string id)
-        {
-            var product = await _productReadRepository.GetByIdAsync(id);
-            if (product != null)
-                product.isProductLike = true;
-            await _productWriteRepository.SaveAsync();
-            return product;
-        }
+
 
         public async Task<List<Product>> GetProductsAsync()
         {
@@ -145,31 +139,24 @@ namespace bytez.business.Concrete
                 .Include(p => p.Color)
                 .Include(a => a.Brands)
                 .Include(t => t.Category)
-                .Include(pi => pi.ProductImages)
+                  .Include(p => p.Wishlist)
                 .ToListAsync();
 
             return products;
         }
 
-        public async Task<List<Product>> GetWhereProduct(StockIndexVM model)
+        public async Task<List<Product>> GetWhereProduct(ProductWhereDto model)
         {
-            if (model.ProductWhereDto == null)
-            {
-                return await _productReadRepository.GetAll()
-                                                    .Include(p=>p.Brands)
-                                                    .Include(p=>p.Category)
-                                                    .Include(p=>p.Color)
-                                                    .ToListAsync();
-            }
+       
 
             return await _productReadRepository.GetAll().Include(p => p.Brands)
                                                     .Include(p => p.Category)
-                                                    .Include(p => p.Color).Where(pr=>
-                    ((model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
-                    (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue)) &&
-                    (model.ProductWhereDto.BrandsId == null || pr.BrandsId == Guid.Parse(model.ProductWhereDto.BrandsId)) &&
-                    (model.ProductWhereDto.ColorId == null || pr.ColorId == Guid.Parse(model.ProductWhereDto.ColorId)) &&
-                    (model.ProductWhereDto.CategoryId == null || pr.CategoryId == Guid.Parse(model.ProductWhereDto.CategoryId))
+                                                    .Include(p => p.Color).Where(pr => model!=null ?
+                  (((model.minValue == null || pr.Price >= model.minValue) &&
+                    (model.maxValue == null || pr.Price <= model.maxValue)) &&
+                    (model.BrandsId == null || pr.BrandsId == Guid.Parse(model.BrandsId)) &&
+                    (model.ColorId == null || pr.ColorId == Guid.Parse(model.ColorId)) &&
+                    (model.CategoryId == null || pr.CategoryId == Guid.Parse(model.CategoryId))):true
                 )
                 .ToListAsync();
         }

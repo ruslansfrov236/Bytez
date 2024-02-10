@@ -1,11 +1,11 @@
-﻿using W=bytez.entity.Entities;
+﻿using W = bytez.entity.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bytez.entity.Entities;
+using bytez.entity.Entities.Enum;
 
 namespace bytez.business.Dto.Product
 {

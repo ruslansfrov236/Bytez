@@ -42,7 +42,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         public async Task<IActionResult> Create(CreateAboutDto model)
         {
 
-            if(!ModelState.IsValid) return NotFound();
+            if(!ModelState.IsValid) return View(model);
                 await _aboutService.Create(model);
 
                 return RedirectToAction(nameof(Index));
@@ -67,6 +67,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin ")]
         public async Task<IActionResult> Update(UpdateAboutDto model)
         {
+            if (!ModelState.IsValid) return View(model);
             await _aboutService.Update(model);
             return RedirectToAction(nameof(Index));
         }

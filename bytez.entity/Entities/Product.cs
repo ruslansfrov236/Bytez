@@ -1,4 +1,5 @@
 ﻿using bytez.entity.Entities.Customer;
+using bytez.entity.Entities.Enum;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,10 +28,11 @@ namespace bytez.entity.Entities
          public string  ProfileProduct { get; set; }
         public string? FilePath { get; set; }
         public Category? Category { get; set; }
-        public bool isProductLike { get; set; }
         public int Stock { get; set; }
         public Discount Discount { get; set; }   
         public float Avg { get; set; }
+
+        public Wishlist? Wishlist { get; set; }
         public ICollection<BrandModel>? Brands { get; set; } 
         public ICollection<ProductImage>? ProductImages { get; set; }
         public ICollection<ProductColor>? Color { get; set; }

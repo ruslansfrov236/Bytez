@@ -1,11 +1,11 @@
 ﻿using bytez.entity.Entities.Identity;
-using bytez.entity.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bytez.entity.Entities.Enum;
 
 namespace bytez.data
 {

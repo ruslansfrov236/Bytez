@@ -24,9 +24,18 @@ namespace bytez.business
             service.AddScoped<IHeaderService, HeaderService>();
             service.AddScoped<IConnectionInfoService, ConnectionInfoService>();
             service.AddScoped<IBlogService, BlogService>();
+            service.AddScoped<IVideoService, VideoService>();
+            service.AddScoped<IEmailService, EmailService>();
+            service.AddScoped<IMessageService, MessageService>();
+            service.AddScoped<IContactCallService, ContactCallService>();
+            service.AddScoped<IContactWallService, ContactWallService>();
+            service.AddScoped<IWishlistService, WishlistService>();
+
 
             service.AddScoped<IAppUserService, AppUserService>();
-       
+ 
+
+
 
 
         }

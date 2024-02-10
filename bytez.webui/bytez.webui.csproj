@@ -36,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="wwwroot\ui\assets\video\" />
   </ItemGroup>
 
 </Project>

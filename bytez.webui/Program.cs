@@ -4,6 +4,7 @@ using bytez.data;
 using bytez.entity.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using static bytez.data.ServiceRegistration;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataRegistration();
 builder.Services.AddBusinessRegistration();
 builder.Services.AddCookieRegistration();
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+      policy.WithOrigins("https://localhost:7225", "http://localhost:5166").AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +35,120 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 #region Admin Controller
+#region Message
+
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/message/create",
+    defaults: new { Controller = "Message", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/message/details/{id}",
+    defaults: new { Controller = "Message", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/message",
+    defaults: new { Controller = "Message", Action = "Index" }
+    );
+#endregion
+#region Email
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/email/update/{id}",
+    defaults: new { Controller = "Email", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/email/create",
+    defaults: new { Controller = "Email", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/email/details/{id}",
+    defaults: new { Controller = "Email", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/email",
+    defaults: new { Controller = "Email", Action = "Index" }
+    );
+#endregion
+#region Contact Wall 
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactWall/update/{id}",
+    defaults: new { Controller = "ContactWall", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactWall/create",
+    defaults: new { Controller = "ContactWall", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactWall/details/{id}",
+    defaults: new { Controller = "ContactWall", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactWall",
+    defaults: new { Controller = "ContactWall", Action = "Index" }
+    );
+#endregion
+#region Contact Call 
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactCall/update/{id}",
+    defaults: new { Controller = "ContactCall", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactCall/create",
+    defaults: new { Controller = "ContactCall", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactCall/details/{id}",
+    defaults: new { Controller = "ContactCall", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactCall",
+    defaults: new { Controller = "ContactCall", Action = "Index" }
+    );
+#endregion
 #region  Color
 app.MapAreaControllerRoute(
 

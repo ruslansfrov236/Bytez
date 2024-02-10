@@ -1,0 +1,55 @@
+﻿@using bytez.webui.ViewModel
+@model ContactIndexVM
+
+<div class="container-contact">
+    <div class="contact-row">
+        <div class="contact-info">
+            <div class="call-us">
+                <h2 class="call-us-title">@Model.ContactCall.Title</h2>
+                <div class="call-us-body">
+                    @Html.Raw(@Model.ContactCall.Description)
+                    <p class="call-us-phone">Phone:<a href="tel:@Model.ContactCall.Phone">@Model.ContactCall.Phone</a></p>
+                </div>
+            </div>
+            <div class="call-wall">
+                <h2 class="call-wall-title">@Model.ContactWall.Title</h2>
+                <div class="call-wall-body">
+                    @Html.Raw(@Model.ContactWall.Description)
+                    <div class="call-wall-email">
+
+                   
+                        @foreach(var email in Model.Emails)
+                        {
+                            <p class="call-wall-email">Email <a href="mailto:@email.EmailAddress">@email.EmailAddress</a></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-message">
+            <form class="form-message" method="post" >
+                <div class=" input-message">
+                    <input type="text" id="name" placeholder="Your Name*"  required />
+                <span class="text-danger" asp-validation-for="@Model.CreateMessageDto.Name"></span>
+                </div>
+                <div class=" input-message">
+                    <input id="emails" input="email" placeholder="Your Email*" required />
+                <span class="text-danger" asp-validation-for="@Model.CreateMessageDto.Email"></span>
+                </div>
+                <div class=" input-message">
+                    <input id="phone" type="tel" placeholder="Your Phone*" required />
+                <span class="text-danger" asp-validation-for="@Model.CreateMessageDto.Phone"></span>
+                </div>
+                <div class=" textarea-message">
+                    <textarea id="message" placeholder="Your Message* " required></textarea>
+                <span class="text-danger" asp-validation-for="@Model.CreateMessageDto.MessageInfo"></span>
+
+             
+                </div>
+                <div class="contact-btn">
+                    <button class="btn-message" type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
