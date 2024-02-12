@@ -46,7 +46,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log(response);
-                button.prop('disabled', false);
+                
             },
             error: function (error) {
                 console.error(error);
@@ -58,13 +58,14 @@ $(document).ready(function () {
     $(".btn-heart-active").click(function () {
         let id = $(this).data('Wishlistid');
         console.log(id)
-        let button = $(this);
 
-        button.prop('disabled', true);
+
+
+      
 
         $.ajax({
             url: 'Wishlist/Delete',
-            type: 'POST',
+            type: 'Delete',
             data: {
                 id: id
             },
@@ -78,4 +79,33 @@ $(document).ready(function () {
             }
         });
     })
+
+    $('.btn-dark-shop').click(function () {
+        const id = $(this).data('id');
+        const quantity = $(this).data('quantity');
+
+        console.log(`id:${id}` +`quantity:${quantity}`)
+        $.ajax({
+            url: "Basket/AddBasket",
+            type: 'POST',
+            data: {
+                id: id,
+                quantity:quantity
+            },
+            success: function (response) {
+                console.log(response);
+                
+            },
+            error: function (error) {
+                console.error(error);
+                
+            }
+        })
+
+    })
 });
+$(document).ready(function () {
+    $('.btn-minus').onclick(function () {
+        var quantity= $('.')
+    })
+})

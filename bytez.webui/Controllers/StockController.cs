@@ -1,10 +1,10 @@
 ﻿
 
 using bytez.business.Abstract;
-using bytez.business.Dto.Product;
 using bytez.business.ViewModels.StockVM;
 using bytez.entity.Entities;
 using bytez.entity.Entities.Identity;
+using bytez.webui.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,7 @@ namespace bytez.webui.Controllers
         readonly private UserManager<AppUser> _userManager;
         readonly private IWishlistService _wishlistService;
         readonly private IHttpContextAccessor _httpContextAccessor;
-        public StockController(IProductService productService, IProductColorService productColorService, ICategoryService categoryService, IBrandModelService brandModelService, IProductImageService productImageService , UserManager<AppUser> userManager , IWishlistService wishlistService  )
+        public StockController(IProductService productService, IProductColorService productColorService, ICategoryService categoryService, IBrandModelService brandModelService, IProductImageService productImageService , UserManager<AppUser> userManager , IWishlistService wishlistService , IHttpContextAccessor httpContextAccessor  )
         {
             _productService = productService;
             _productColorService = productColorService;
@@ -32,12 +32,12 @@ namespace bytez.webui.Controllers
             _productImageService = productImageService;
             _userManager=userManager;
             _wishlistService=wishlistService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<IActionResult> Index(ProductWhereDto model)
+        public async Task<IActionResult> Index(StockIndexVM model)
         {
-            try
-            {
+          
                 var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
 
                 // Retrieve user information
@@ -45,7 +45,6 @@ namespace bytez.webui.Controllers
                     .Include(u => u.Wishlists)
                     .FirstOrDefaultAsync(u => u.UserName == username);
 
-                // Retrieve products and other related data
                 var product = await _productService.GetWhereProduct(model);
                 var products = await _productService.GetProductsAsync();
                 var category = await _categoryService.GetCategoryAsync();
@@ -53,23 +52,20 @@ namespace bytez.webui.Controllers
                 var color = await _productColorService.GetProductColorsAsync();
                 List<Wishlist> wishlists = await _wishlistService.GetWishlistsAllAsync();
 
-                // Create the view model
+              
                 StockIndexVM stockIndex = new()
                 {
-                    Products = product ?? products,
+                    Products = product,
                     Category = category,
                     BrandModel = brandModel,
                     Color = color,
-                    Wishlists = wishlists.FirstOrDefault(),
+                    Wishlists = wishlists,
                     AppUser = user
                 };
 
                 return View(stockIndex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception();
-            }
+            
+          
         }
 
 

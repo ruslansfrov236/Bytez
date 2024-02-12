@@ -86,6 +86,8 @@ namespace bytez.data
                     HttpOnly = true,
                     Name = ".Bytez.Security.Cookie",
                     SameSite = SameSiteMode.Strict,
+                    SecurePolicy= CookieSecurePolicy.Always,
+                   
 
                 };
             });

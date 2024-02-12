@@ -19,8 +19,4 @@
 	  <ProjectReference Include="..\bytez.data\bytez.data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\StockVM\" />
-  </ItemGroup>
-
 </Project>

@@ -51,26 +51,26 @@
                         <span>@discountValue% off</span>
                     </p>
                     <a href="/store/details/@content.Id"><img src="~/ui/assets/image/@content.ProfileProduct" alt="Product Image" /> </a>
-                   @{
-                        @if (Model.Wishlists != null &&  Model.AppUser != null && Model.AppUser.Id==Model.Wishlists.AppUserId)
-                        {
-                            @if (Model.Wishlists.isWishlist)
-                            {
-                                <button type="submit" data-Wishlistid="@Model.Wishlists.Id" class="btn-heart-active"><i class="fa-solid fa-heart"></i></button>
-                            }
-                            else
-                            {
-                                <button type="submit" data-id="@content.Id" class="btn-heart"><i class="fa-regular fa-heart"></i></button>
-                            }
+                    @{
+                        @if (Model.Wishlists.ToList().Count() != null && Model.AppUser != null && Model.Wishlists.Any(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id) ){
+
+                            <button type="submit" data-Wishlistid="@Model.Wishlists.Where(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id).Select(a => new Wishlist() { Id = a.Id }).ToList()" class="btn-heart-active">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+
+
+
+
+
                         }
                         else
                         {
-                            <button type="submit" data-id="@content.Id" class="btn-heart"><i class="fa-regular fa-heart"></i></button>
+                            <button type="submit" data-id="@content.Id" class="btn-heart">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
                         }
-
-
-
                     }
+
                            
                       
                 </div>
@@ -105,25 +105,26 @@
                     <a href="/store/details/@content.Id"><img src="~/ui/assets/image/@content.ProfileProduct" alt="Product Image" /> </a>
 
                     @{
-                        @if (Model.Wishlists != null && Model.AppUser != null && Model.AppUser.Id == Model.Wishlists.AppUserId)
-                     
+                        @if (Model.Wishlists.ToList().Count() != null && Model.AppUser != null && Model.Wishlists.Any(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id))
                         {
-                            @if (Model.Wishlists.isWishlist)
-                            {
-                                <button type="submit" data-Wishlistid="@Model.Wishlists.Id" class="btn-heart-active"><i class="fa-solid fa-heart"></i></button>
-                            }
-                            else
-                            {
-                                <button type="submit" data-id="@content.Id" class="btn-heart"><i class="fa-regular fa-heart"></i></button>
-                            }
+
+                            <button type="submit" data-Wishlistid="@Model.Wishlists.Where(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id).Select(a => new Wishlist() { Id = a.Id }).ToList()" class="btn-heart-active">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+
+
+
+
+
                         }
                         else
                         {
-                            <button type="submit" data-id="@content.Id" class="btn-heart"><i class="fa-solid fa-heart"></i></button>
+                            <button type="submit" data-id="@content.Id" class="btn-heart">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
                         }
-
-
                     }
+
                      
                    </div>
                     <div class="recommended-card-body">

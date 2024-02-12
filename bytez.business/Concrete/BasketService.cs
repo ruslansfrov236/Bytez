@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using bytez.entity.Entities;
+using System.Linq.Expressions;
 
 namespace bytez.business.Concrete
 {
@@ -41,10 +42,49 @@ namespace bytez.business.Concrete
             _productBasketWrite = productBasketWrite;
             _productReadRepository = productReadRepository;
             _productWriteRepository = productWriteRepository;
+            _httpContextAccessor = httpContextAccessor;
+
             _userManager = userManager;
         }
 
-        public async Task<bool> Add(string id , int quantity)
+        public async Task<List<Basket>> GetBasketAll()
+        {
+            var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
+
+           
+            
+                AppUser? user = await _userManager.Users
+                    .Include(u => u.Baskets)
+                    .FirstOrDefaultAsync(u => u.UserName == username);
+            
+                var basket = await _basketReadRepository.GetAll()
+                .Include(a => a.User)
+                .Include(a => a.ProductBaskets)
+                .Include(a => a.Orders)
+                .Where(a => a.UserId == user.Id)
+                .Select(a => new Basket()
+                {
+                    Id = a.Id,
+                    CreatedDate = a.CreatedDate,
+                    UpdatedDate = a.UpdatedDate,
+                    UserId = a.UserId,
+                    User = a.User,
+                    ProductBaskets = a.ProductBaskets
+                        .Select(pr => new ProductBasket()
+                        {
+                            Id = pr.Id,
+                            Quantity = pr.Quantity,
+                            Product = pr.Product,
+                            ProductId = pr.ProductId,
+                            BasketId = pr.BasketId
+                        }).ToList()
+                })
+                .ToListAsync();
+            
+            return basket;
+        }
+
+        public async Task<bool> Add(string id, int quantity)
         {
             var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
 
@@ -58,23 +98,20 @@ namespace bytez.business.Concrete
 
                 if (product != null)
                 {
-                    var order = await _orderReadRepository.GetSingleAsync(or => or.Name == username);
 
-                    if (order != null)
+                    var userBasket = await _basketReadRepository.GetSingleAsync(b => b.UserId == user.Id);
+
+                    if (userBasket == null)
                     {
-                        var userBasket = await _basketReadRepository.GetSingleAsync(b => b.UserId == user.Id && b.OrdersId == order.Id);
-
-                        if (userBasket == null)
+                        userBasket = new Basket
                         {
-                            userBasket = new Basket
-                            {
-                                UserId = user.Id,
-                                OrdersId = order.Id
-                            };
+                            UserId = user.Id,
 
-                            await _basketWriteRepository.AddAsync(userBasket);
-                            await _basketWriteRepository.SaveAsync();
-                        }
+                        };
+
+                        await _basketWriteRepository.AddAsync(userBasket);
+                        await _basketWriteRepository.SaveAsync();
+
 
                         var productBasket = await _productBasketRead.GetSingleAsync(c => c.ProductId.ToString() == id);
 
@@ -88,13 +125,13 @@ namespace bytez.business.Concrete
                             };
                         }
 
-                       
+
                         if (product.Stock != null && product.Stock >= productBasket.Quantity)
                         {
                             productBasket.Quantity++;
                             product.Stock--;
-                          
-                           
+
+
                             await _productWriteRepository.SaveAsync();
                         }
 
@@ -108,9 +145,33 @@ namespace bytez.business.Concrete
             return true;
         }
 
-        public Task Remove(string id)
+        public async Task Remove(string id)
         {
-            throw new NotImplementedException();
+            var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                AppUser user = await _userManager.Users
+                    .Include(u => u.Baskets)
+                    .FirstOrDefaultAsync(u => u.UserName == username);
+
+                var product = await _productReadRepository.GetByIdAsync(id);
+
+                if (product != null)
+                {
+
+                    var userBasket = await _basketReadRepository.GetSingleAsync(b => b.UserId == user.Id);
+
+                    if (userBasket != null)
+                    {
+                    
+
+                        _basketWriteRepository.Remove(userBasket);
+                        await _basketWriteRepository.SaveAsync();
+
+                    }
+                }
+            }
         }
     }
 }

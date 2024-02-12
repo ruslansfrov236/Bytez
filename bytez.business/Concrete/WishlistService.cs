@@ -85,6 +85,7 @@ namespace bytez.business.Concrete
                                                                         Product= a.Product,
                                                                         AppUserId=a.AppUserId,
                                                                         isWishlist=a.isWishlist,
+                                                                        ProductId=a.ProductId,
                                                                         Id=a.Id
 
                                                                     })

@@ -8,7 +8,7 @@ namespace bytez.entity.Entities
         public string? Description { get; set; }
         public string? Address { get; set; }
         public string? OrderCode { get; set; }
-
+        public Guid BasketId { get; set; }
         public Basket? Basket { get; set; }
       
           

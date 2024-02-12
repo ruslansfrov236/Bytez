@@ -10,7 +10,7 @@ namespace bytez.webui.ViewModel
         public List<c::ConnectionInfo> ConnectionInfos { get; set; }
         public List<Product> Products { get; set; }
 
-        public Wishlist Wishlists { get; set; }
+        public List<Wishlist> Wishlists { get; set; }
         public AppUser AppUser { get; set; }
 
     }

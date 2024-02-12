@@ -6,7 +6,7 @@ using bytez.data.Abstract;
 using bytez.data.Context;
 using bytez.entity.Entities;
 using bytez.entity.Entities.Enum;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace bytez.business.Concrete
@@ -145,21 +145,28 @@ namespace bytez.business.Concrete
             return products;
         }
 
-        public async Task<List<Product>> GetWhereProduct(ProductWhereDto model)
+        public async Task<List<Product>> GetWhereProduct(StockIndexVM model)
         {
-       
+            IQueryable<Product> query = _productReadRepository.GetAll().Include(p => p.Brands)
+                                                                      
+                                                                     .Include(p => p.Category)
+                                                                     .Include(p => p.Color)
+                                                                     .Include(p=>p.Wishlist);
 
-            return await _productReadRepository.GetAll().Include(p => p.Brands)
-                                                    .Include(p => p.Category)
-                                                    .Include(p => p.Color).Where(pr => model!=null ?
-                  (((model.minValue == null || pr.Price >= model.minValue) &&
-                    (model.maxValue == null || pr.Price <= model.maxValue)) &&
-                    (model.BrandsId == null || pr.BrandsId == Guid.Parse(model.BrandsId)) &&
-                    (model.ColorId == null || pr.ColorId == Guid.Parse(model.ColorId)) &&
-                    (model.CategoryId == null || pr.CategoryId == Guid.Parse(model.CategoryId))):true
-                )
-                .ToListAsync();
+            if (model.ProductWhereDto != null)
+            {
+                query = query.Where(pr =>
+                    (model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
+                    (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue) &&
+                    (model.ProductWhereDto.BrandsId == null || pr.BrandsId == Guid.Parse(model.ProductWhereDto.BrandsId)) &&
+                    (model.ProductWhereDto.ColorId == null || pr.ColorId == Guid.Parse(model.ProductWhereDto.ColorId)) &&
+                    (model.ProductWhereDto.CategoryId == null || pr.CategoryId == Guid.Parse(model.ProductWhereDto.CategoryId))
+                );
+            }
+
+            return await query.ToListAsync();
         }
+
 
 
 

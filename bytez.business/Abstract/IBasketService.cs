@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bytez.entity.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace bytez.business.Abstract
 {
     public interface IBasketService
     {
+        Task<List<Basket>> GetBasketAll();
         Task<bool> Add(string id , int quantity);
         Task Remove(string id);
     }

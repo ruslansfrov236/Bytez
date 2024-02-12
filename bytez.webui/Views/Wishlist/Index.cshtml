@@ -1,0 +1,60 @@
+﻿@model List<Wishlist>
+
+
+<div class="container-wishlist">
+
+    @{
+        int quantity = 0;
+
+      
+        @if (Model.Count() != null)
+        {
+            <div class="wishlist-content">
+                <p class="wishlist-content-title">Wish List <span>@Model.Count() Items </span> </p>
+            </div>
+        <div class="row-wishlist">
+
+          
+                @foreach (var wishlist in Model)
+                {
+                    <div class="card-wishlist">
+                    <img src="~/ui/assets/image/@wishlist.Product.ProfileProduct" />
+                        <div class="card-wishlist-body">
+                            <h2 class="card-wishlist-title">@wishlist.Product.Title</h2>
+
+                            @Html.Raw(wishlist.Product.Description.Length > 30 ? wishlist.Product.Description.Substring(0, 30) : wishlist.Product.Description)
+                            <p class="stock-@(wishlist.Product.Stock != null ? "success" : "danger")">
+                                @if (wishlist.Product.Stock != null)
+                                {
+                                    <span>In Stock</span>
+                                }
+                                else
+                                {
+                                    <span>Not in Stock</span>
+                                }
+                            </p>
+
+                            <div class="card-wishlist-content">
+                                <div class="card-wishlist-button">
+                                    <button type="submit" data-id="@wishlist.ProductId" data-quantity="@quantity" class="btn-dark-shop"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button type="submit" class="btn-delete" data-id="@wishlist.Id"><i class="fa-solid fa-trash-can"></i></button>
+                              </div>
+                                <p class="card-wishlist-price"> $ @wishlist.Product.Price</p>
+                             </div>
+                        </div>
+                    </div>
+                }
+
+          
+            </div>
+
+        }
+        else
+        {
+            <div>
+                   <img src="~/ui/assets/image/default-product-image-big.png" />
+            </div>
+        }
+    }
+
+</div>

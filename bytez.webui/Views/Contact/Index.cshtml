@@ -5,14 +5,14 @@
     <div class="contact-row">
         <div class="contact-info">
             <div class="call-us">
-                <h2 class="call-us-title">@Model.ContactCall.Title</h2>
+                <h2 class="call-us-title"> <span><i class="fa-solid fa-phone"></i></span> @Model.ContactCall.Title</h2>
                 <div class="call-us-body">
                     @Html.Raw(@Model.ContactCall.Description)
                     <p class="call-us-phone">Phone:<a href="tel:@Model.ContactCall.Phone">@Model.ContactCall.Phone</a></p>
                 </div>
             </div>
             <div class="call-wall">
-                <h2 class="call-wall-title">@Model.ContactWall.Title</h2>
+                <h2 class="call-wall-title"><span><i class="fa-solid fa-envelope"></i></span> @Model.ContactWall.Title</h2>
                 <div class="call-wall-body">
                     @Html.Raw(@Model.ContactWall.Description)
                     <div class="call-wall-email">

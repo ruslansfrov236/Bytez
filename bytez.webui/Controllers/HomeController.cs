@@ -41,7 +41,7 @@ namespace bytez.webui.Controllers
                 Headers = header,
                 ConnectionInfos = connectionInfos,
                 Products = products,
-                Wishlists = wishlists.FirstOrDefault(),
+                Wishlists = wishlists.Where(a => a.isWishlist == true).ToList(),
                 AppUser=user
                 
 

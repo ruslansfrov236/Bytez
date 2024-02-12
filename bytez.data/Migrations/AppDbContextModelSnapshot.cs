@@ -54,9 +54,6 @@ namespace bytez.data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -65,9 +62,6 @@ namespace bytez.data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrdersId")
-                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -433,6 +427,9 @@ namespace bytez.data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -449,6 +446,9 @@ namespace bytez.data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BasketId")
+                        .IsUnique();
 
                     b.ToTable("Order");
                 });
@@ -765,19 +765,11 @@ namespace bytez.data.Migrations
 
             modelBuilder.Entity("bytez.entity.Entities.Basket", b =>
                 {
-                    b.HasOne("bytez.entity.Entities.Order", "Orders")
-                        .WithOne("Basket")
-                        .HasForeignKey("bytez.entity.Entities.Basket", "OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("bytez.entity.Entities.Identity.AppUser", "User")
                         .WithMany("Baskets")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Orders");
 
                     b.Navigation("User");
                 });
@@ -806,6 +798,17 @@ namespace bytez.data.Migrations
                     b.Navigation("AppUser");
 
                     b.Navigation("Blog");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Order", b =>
+                {
+                    b.HasOne("bytez.entity.Entities.Basket", "Basket")
+                        .WithOne("Orders")
+                        .HasForeignKey("bytez.entity.Entities.Order", "BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>
@@ -928,6 +931,8 @@ namespace bytez.data.Migrations
 
             modelBuilder.Entity("bytez.entity.Entities.Basket", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("ProductBaskets");
                 });
 
@@ -943,11 +948,6 @@ namespace bytez.data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Wishlists");
-                });
-
-            modelBuilder.Entity("bytez.entity.Entities.Order", b =>
-                {
-                    b.Navigation("Basket");
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>
