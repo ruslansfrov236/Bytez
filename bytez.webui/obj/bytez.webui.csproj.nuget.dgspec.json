@@ -67,6 +67,10 @@
             "Nobly.Extensions.ModelStateDictionary": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.2, )"
             }
           },
           "imports": [

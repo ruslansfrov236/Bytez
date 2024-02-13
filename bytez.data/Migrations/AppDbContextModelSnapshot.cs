@@ -269,6 +269,53 @@ namespace bytez.data.Migrations
                     b.ToTable("ContactWalls");
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Cupon", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CuponTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cupons");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Delivery", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Deliveries");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Email", b =>
                 {
                     b.Property<Guid>("Id")
@@ -451,6 +498,42 @@ namespace bytez.data.Migrations
                         .IsUnique();
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.OrderComponent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CuponId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DeliveryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CuponId");
+
+                    b.HasIndex("DeliveryId");
+
+                    b.HasIndex("OrderId")
+                        .IsUnique();
+
+                    b.ToTable("OrderComponents");
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>
@@ -811,6 +894,33 @@ namespace bytez.data.Migrations
                     b.Navigation("Basket");
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.OrderComponent", b =>
+                {
+                    b.HasOne("bytez.entity.Entities.Cupon", "Cupon")
+                        .WithMany()
+                        .HasForeignKey("CuponId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bytez.entity.Entities.Delivery", "Delivery")
+                        .WithMany()
+                        .HasForeignKey("DeliveryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bytez.entity.Entities.Order", "Order")
+                        .WithOne("OrderComponent")
+                        .HasForeignKey("bytez.entity.Entities.OrderComponent", "OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cupon");
+
+                    b.Navigation("Delivery");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>
                 {
                     b.HasOne("bytez.entity.Entities.Category", "Category")
@@ -948,6 +1058,12 @@ namespace bytez.data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Wishlists");
+                });
+
+            modelBuilder.Entity("bytez.entity.Entities.Order", b =>
+                {
+                    b.Navigation("OrderComponent")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("bytez.entity.Entities.Product", b =>

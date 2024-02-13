@@ -9,6 +9,7 @@ namespace bytez.business.Abstract
 {
     public interface IBasketService
     {
+        Task<List<ProductBasket>> GetProductBasketAll();
         Task<List<Basket>> GetBasketAll();
         Task<bool> Add(string id , int quantity);
         Task Remove(string id);

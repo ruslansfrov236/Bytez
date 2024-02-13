@@ -10,7 +10,8 @@ namespace bytez.entity.Entities
         public string? OrderCode { get; set; }
         public Guid BasketId { get; set; }
         public Basket? Basket { get; set; }
-      
+        
+        public OrderComponent OrderComponent {  get; set; }
           
     }
 }

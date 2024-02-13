@@ -155,13 +155,11 @@ namespace bytez.business.Concrete
 
             if (model.ProductWhereDto != null)
             {
-                query = query.Where(pr =>
-                    (model.ProductWhereDto.minValue == null || pr.Price >= model.ProductWhereDto.minValue) &&
-                    (model.ProductWhereDto.maxValue == null || pr.Price <= model.ProductWhereDto.maxValue) &&
-                    (model.ProductWhereDto.BrandsId == null || pr.BrandsId == Guid.Parse(model.ProductWhereDto.BrandsId)) &&
-                    (model.ProductWhereDto.ColorId == null || pr.ColorId == Guid.Parse(model.ProductWhereDto.ColorId)) &&
-                    (model.ProductWhereDto.CategoryId == null || pr.CategoryId == Guid.Parse(model.ProductWhereDto.CategoryId))
-                );
+               
+                query = query.Where(pr => (model.ProductWhereDto.CategoryId != null ? pr.CategoryId == Guid.Parse(model.ProductWhereDto.CategoryId) : true));
+                query = query.Where(pr => (model.ProductWhereDto.minValue != null ? pr.Price >= model.ProductWhereDto.minValue : true) && (model.ProductWhereDto.maxValue != null ? pr.Price <= model.ProductWhereDto.maxValue : true));
+                query = query.Where(pr => (model.ProductWhereDto.BrandsId != null ? pr.BrandsId == Guid.Parse(model.ProductWhereDto.BrandsId):true));
+                query = query.Where(pr => (model.ProductWhereDto.ColorId != null ? pr.ColorId==Guid.Parse(model.ProductWhereDto.ColorId):true)) ;
             }
 
             return await query.ToListAsync();

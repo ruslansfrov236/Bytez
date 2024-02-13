@@ -12,8 +12,8 @@ namespace bytez.business.Dto.Product
     public  class ProductWhereDto
     {
         public List<W::Product> Products { get; set; }
-        public int minValue {  get; set; }  
-        public int maxValue {  get; set; }
+        public int? minValue {  get; set; }  
+        public int? maxValue {  get; set; }
        
         public string? CategoryId { get; set; }  
         public string? ColorId { get; set; }  

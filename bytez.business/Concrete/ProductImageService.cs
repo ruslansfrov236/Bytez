@@ -1,11 +1,10 @@
 ﻿using bytez.business.Abstract;
-using bytez.business.Dto.ProductImage;
 using bytez.data.Abstract;
 using bytez.entity.Entities;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 
 namespace bytez.business.Concrete
 {
@@ -86,12 +85,22 @@ namespace bytez.business.Concrete
             var filename = $"{Guid.NewGuid()}_{file.FileName}";
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ui/assets/image/", filename);
-
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ui/assets/image/", filename);
+            var pngPath = Path.ChangeExtension(imagePath, "png");
             using (FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite))
             {
                 await file.CopyToAsync(fileStream);
             }
-            return filename;
+            using (var image = Image.Load(imagePath))
+            {
+                image.Save(pngPath, new PngEncoder());
+            }
+
+       
+            File.Delete(imagePath);
+
+            return Path.GetFileName(pngPath);
+           
         }
     }
 }

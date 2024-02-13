@@ -29,6 +29,9 @@ namespace bytez.data.Context
         public DbSet<Message>? Messages { get; set; } 
         public DbSet<ContactCall>? ContactCalls { get; set; }
 
+        public DbSet<OrderComponent>? OrderComponents { get; set; }
+        public DbSet<Delivery>? Deliveries { get; set; }
+        public DbSet<Cupon>? Cupons { get; set; }
         public DbSet<Wishlist>? Wishlists { get; set; }
         public DbSet<ContactWall>? ContactWalls { get; set; }    
         public DbSet<Blog>? Blogs { get; set; }

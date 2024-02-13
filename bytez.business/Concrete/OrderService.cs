@@ -30,6 +30,7 @@ namespace bytez.business.Concrete
                 OrderCode = orderCode,
                 
                 
+                
             };
 
             await _orderWriteRepository.AddAsync(order);

@@ -1,16 +1,57 @@
-﻿
-@model List<Basket> 
+﻿@using bytez.webui.ViewModel
+@model BasketIndexVM
+@{
+    var user = User.Identity.Name;
 
+}
 <div class="container-basket">
     <div class="row-basket">
         <div class="basket">
-          @{
-              foreach(var basket in @Model){
-                  <div class="card-basket">
+            @{
+
+                if (Model.Baskets != null && Model.Baskets.User.NameSurname == user &&Model.ProductBaskets.BasketId==Model.Baskets.Id  )
+                {
+                   
+                            <div class="card-basket">
+                                <img src="~/ui/assets/image/@Model.Products.ProfileProduct" />
+                                <div class="card-basket-body">
+                                    <h2 class="card-basket-title">@Model.Products.Title</h2>
+                                    @Html.Raw( Model.Products.Description)
+                                    <p class="stock-@(Model.Products.Stock != null ? "success" : "danger")">
+                                        @if (Model.Products.Stock != null)
+                                        {
+                                            <span>In Stock</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Not in Stock</span>
+                                        }
+                                        <div class="card-quantity">
+                                            <div class="card-quantity-form">
+                                        <div class="card-quantity-body">
+                                            <button class="btn-minus" type="button">-</button>
+                                            <input type="text" inputmode="numeric" data-stock="@Model.Products.Stock" value="1" placeholder="1" min="1" max="@Model.Products.Stock" id="quantity" />
+                                            <button class="btn-pilus" type="button">+</button>
+                                              </div>
+                                              <button>zibi;</button>
+                                            </div>
+
+                                            <div class="card-basket-price">
+                                                <ul>
+                                                    <li> <span>Sub Total</span> (@Model.ProductBaskets.Quantity Items)</li>
+                                            <li> $ @(Model.Products.Price*Model.ProductBaskets.Quantity)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        }
+                     
+                        
+                      
+                    }
                 
-                  </div>
-              }
-          }
+           
         </div>
         <div class="order"></div>
     </div>

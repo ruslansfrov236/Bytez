@@ -439,7 +439,13 @@ app.MapControllerRoute(
     defaults: new { Controller = "Stock", Action = "Details" }
     );
 #endregion
-
+#region Cart 
+app.MapControllerRoute(
+    name: "cart",
+    pattern: "cart",
+    defaults: new { Controller = "Basket", Action = "Index" }
+    );
+#endregion
 #region Account 
 app.MapControllerRoute(
     name: "register",

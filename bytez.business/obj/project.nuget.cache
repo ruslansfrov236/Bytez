@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4n7y700ievl5yl0Mks9I6yNV0e9FLW3MHgxkzBUbdhvj3+zYTj/IiYIeIG1NnrcXfU3LLtZ1pO63g7sJcjkkzA==",
+  "dgSpecHash": "kgIRvBgPNA+J/mFL/Yi4CoV6ndHbH2m/EkT09KHNSd3oGI7b2p6VlNDMn1frQ3bP0LGl6A1ym5es6acw8JzzoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.business\\bytez.business.csproj",
   "expectedPackageFiles": [
@@ -120,6 +120,7 @@
     "C:\\Users\\Асер\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\Асер\\.nuget\\packages\\sixlabors.imagesharp\\3.1.2\\sixlabors.imagesharp.3.1.2.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

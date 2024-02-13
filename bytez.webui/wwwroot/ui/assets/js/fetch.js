@@ -105,7 +105,48 @@ $(document).ready(function () {
     })
 });
 $(document).ready(function () {
-    $('.btn-minus').onclick(function () {
-        var quantity= $('.')
+  
+    
+    var stock = +$('#quantity').data('stock');
+    var quantity = +$('#quantity').val();
+    $('.btn-minus').click(function () {
+     
+
+       
+        if (quantity >0) {
+            +quantity--;
+        }
+         if (quantity == 0) {
+            quantity = 1;
+        }
+        $('#quantity').val(quantity);
+      
+    });
+
+    $('.btn-pilus').click(function () {
+      
+        if (+quantity <stock) {
+            +quantity++;
+        }
+     
+        $('#quantity').val(quantity);
+    });
+
+    $.ajax({
+        url: "Basket/AddBasket",
+        type: 'POST',
+        data: {
+            id: id,
+            quantity: quantity
+        },
+        success: function (response) {
+            console.log(response);
+
+        },
+        error: function (error) {
+            console.error(error);
+
+        }
     })
-})
+});
+

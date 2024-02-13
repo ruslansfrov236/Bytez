@@ -66,7 +66,12 @@ namespace bytez.data
             service.AddScoped<IContactWallWriteRepository, ContactWallWriteRepository>();
             service.AddScoped<IWishlistWriteRepository, WishlistWriteRepository>();
             service.AddScoped<IWishlistReadRepository, WishlistReadRepository>();
-
+            service.AddScoped<IOrderComponentReadRepository, OrderComponentReadRepository>();
+            service.AddScoped<IOrderComponentWriteRepository, OrderComponentWriteRepository>();
+            service.AddScoped<ICuponReadRepository, CuponReadRepository>();
+            service.AddScoped<ICuponWriteRepository, CuponWriteRepository>();
+            service.AddScoped<IDeliveryReadRepository, DeliveryReadRepository>();
+            service.AddScoped<IDeliveryWriteRepository, DeliveryWriteRepository>();
 
         }
         public static void AddCookieRegistration(this IServiceCollection service)

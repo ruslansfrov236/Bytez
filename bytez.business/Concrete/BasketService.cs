@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using bytez.entity.Entities;
 using System.Linq.Expressions;
+using System.Security.AccessControl;
 
 namespace bytez.business.Concrete
 {
@@ -47,6 +48,23 @@ namespace bytez.business.Concrete
             _userManager = userManager;
         }
 
+        public async Task<List<ProductBasket>> GetProductBasketAll()
+        {
+            var productBasket = await _productBasketRead.GetAll()
+                                                        .Select(pr => new ProductBasket()
+                                                        {
+                                                            Id = pr.Id,
+                                                            Basket = pr.Basket,
+                                                            Product = pr.Product,
+                                                            BasketId = pr.BasketId,
+                                                            CreatedDate = pr.CreatedDate,
+                                                            Quantity = pr.Quantity,
+                                                            ProductId = pr.ProductId,
+                                                            UpdatedDate = pr.UpdatedDate
+                                                        }).ToListAsync();
+
+            return productBasket;
+        }
         public async Task<List<Basket>> GetBasketAll()
         {
             var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
@@ -115,21 +133,23 @@ namespace bytez.business.Concrete
 
                         var productBasket = await _productBasketRead.GetSingleAsync(c => c.ProductId.ToString() == id);
 
-                        if (productBasket == null)
+                        if (productBasket == null && product.Stock != null&& product.Stock >= productBasket.Quantity)
                         {
+                        
                             productBasket = new ProductBasket
                             {
                                 BasketId = userBasket.Id,
                                 ProductId = product.Id,
                                 Quantity = quantity
                             };
+                            product.Stock -= quantity;
                         }
 
 
-                        if (product.Stock != null && product.Stock >= productBasket.Quantity)
+                        if (productBasket!=null &&   product.Stock != null && product.Stock >= productBasket.Quantity)
                         {
                             productBasket.Quantity++;
-                            product.Stock--;
+                            product.Stock-=quantity;
 
 
                             await _productWriteRepository.SaveAsync();

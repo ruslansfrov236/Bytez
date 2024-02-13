@@ -71,9 +71,15 @@
             </div>
 
             <div class="purchase-info">
-                <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
-                <input type="s" type="number" id="quantity" min="0" value="1">
-                <button class="btn-pilus"><i class="fa-solid fa-pilus"></i></button>
+                <div class="card-quantity-body">
+                    <button type="button" class="btn-minus"><i class="fa-solid fa-minus"></i></button>
+                    <input type="text" inputmode="numeric"  data-stock="@Model.Product.Stock" value="1" placeholder="1" min="1" max="@Model.Product.Stock" id="quantity" />
+
+                    <button type="button" class="btn-pilus">
+                        +
+                    </button>
+                </div>
+               
                 <div class="purchase-info-body">
                     <button type="button" class="btn">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
