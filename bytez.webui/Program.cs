@@ -35,6 +35,98 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 #region Admin Controller
+#region Cupon 
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/cupon/create",
+    defaults: new { Controller = "Cupon", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/cupon/details/{id}",
+    defaults: new { Controller = "Cupon", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/cupon/update/{id}",
+    defaults: new { Controller = "Cupon", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/cupon",
+    defaults: new { Controller = "Cupon", Action = "Index" }
+    );
+#endregion
+#region Delivery
+
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/delivery/create",
+    defaults: new { Controller = "Delivery", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/delivery/details/{id}",
+    defaults: new { Controller = "Delivery", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/delivery/update/{id}",
+    defaults: new { Controller = "Delivery", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/delivery",
+    defaults: new { Controller = "Delivery", Action = "Index" }
+    );
+#endregion
+#region Order 
+
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/order/create",
+    defaults: new { Controller = "Order", Action = "Create" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/order/details/{id}",
+    defaults: new { Controller = "Order", Action = "Details" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/order/update/{id}",
+    defaults: new { Controller = "Order", Action = "Update" }
+    );
+app.MapAreaControllerRoute(
+
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/order",
+    defaults: new { Controller = "Order", Action = "Index" }
+    );
+#endregion
 #region Message
 
 app.MapAreaControllerRoute(

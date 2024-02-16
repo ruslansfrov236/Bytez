@@ -13,7 +13,7 @@ namespace bytez.business.ViewModels.StockVM
         public List<Category>? Category { get; set; }
         public List<BrandModel>? BrandModel { get; set; }
         public List<ProductColor>? Color { get; set; }
-        public List<Wishlist> Wishlists { get; set; }
+        public List< Wishlist> Wishlists { get; set; }
         public AppUser AppUser { get; set; }
 
     }

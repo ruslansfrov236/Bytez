@@ -54,9 +54,16 @@
                     @{
                         @if (Model.Wishlists.ToList().Count() != null && Model.AppUser != null && Model.Wishlists.Any(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id) ){
 
-                            <button type="submit" data-Wishlistid="@Model.Wishlists.Where(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id).Select(a => new Wishlist() { Id = a.Id }).ToList()" class="btn-heart-active">
-                                <i class="fa-solid fa-heart"></i>
-                            </button>
+                            @foreach(var wi in Model.Wishlists)
+                            {
+                                if (wi.ProductId == content.Id)
+                                {
+                                    <button type="submit" data-wishlistid="@wi.Id" class="btn-heart-active">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                }
+                            }
+                         
 
 
 
@@ -108,9 +115,15 @@
                         @if (Model.Wishlists.ToList().Count() != null && Model.AppUser != null && Model.Wishlists.Any(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id))
                         {
 
-                            <button type="submit" data-Wishlistid="@Model.Wishlists.Where(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id).Select(a => new Wishlist() { Id = a.Id }).ToList()" class="btn-heart-active">
-                                <i class="fa-solid fa-heart"></i>
-                            </button>
+                            @foreach (var wi in Model.Wishlists)
+                            {
+                                if (wi.ProductId == content.Id)
+                                {
+                                    <button type="submit" data-wishlistid="@wi.Id" class="btn-heart-active">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                }
+                            }
 
 
 

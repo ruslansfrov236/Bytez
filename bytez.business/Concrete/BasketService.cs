@@ -193,5 +193,8 @@ namespace bytez.business.Concrete
                 }
             }
         }
+
+        public async Task<Basket> GetBasketByid(string id)
+        => await _basketReadRepository.GetByIdAsync(id);
     }
 }

@@ -67,8 +67,7 @@ namespace bytez.webui.Controllers
             
           
         }
-
-
+      
         public async Task<IActionResult> Details(string id)
         {
             var product = await _productService.GetByIdAsync(id);

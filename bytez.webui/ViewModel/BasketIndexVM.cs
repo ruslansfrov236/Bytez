@@ -10,5 +10,9 @@ namespace bytez.webui.ViewModel
  
     public ProductBasket ProductBaskets { get; set; }
 
+    public List<Order> Order { get; set; }
+
+    public Delivery Delivery { get; set; }
+    public List<Cupon> Cupons { get; set; }
     }
 }

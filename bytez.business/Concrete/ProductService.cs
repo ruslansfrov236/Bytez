@@ -63,21 +63,26 @@ namespace bytez.business.Concrete
             };
 
             await _productWriteRepository.AddAsync(product);
-            foreach (var files in model.CreateProductDto.Images)
+
+            if (model.CreateProductDto.Images != null)
             {
-                _productImageService.CheckSize(files, 250);
-                _productImageService.IsImage(files);
-                var newFile = await _productImageService.UploadAsync(files);
-
-
-
-
-                await _productImageWriteRepository.AddAsync(new ProductImage
+                foreach (var files in model.CreateProductDto.Images)
                 {
-                    FilePath = newFile,
-                    ProductsId = product.Id
+                    _productImageService.CheckSize(files, 250);
+                    _productImageService.IsImage(files);
+                    var newFile = await _productImageService.UploadAsync(files);
 
-                });
+
+
+
+                    await _productImageWriteRepository.AddAsync(new ProductImage
+                    {
+                        FilePath = newFile,
+                        ProductsId = product.Id
+
+                    });
+
+                }
 
             }
 

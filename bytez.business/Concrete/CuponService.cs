@@ -34,7 +34,7 @@ namespace bytez.business.Concrete
         public async Task<bool>  CuponDeleteTime(string id)
         {
             var cupon = await _cuponReadRepository.GetByIdAsync(id);
-            if (cupon.CuponTime == DateTime.UtcNow)
+            if (cupon.CuponTime <= DateTime.UtcNow)
             {
                 _cuponWriteRepository.Remove(cupon);
                 await _cuponWriteRepository.SaveAsync();
@@ -61,6 +61,13 @@ namespace bytez.business.Concrete
             List<Cupon> cupons = await _cuponReadRepository.GetAll().ToListAsync();
 
             return cupons;
+        }
+
+        public async Task<List<Cupon>> GetWhereCupon(string name)
+        {
+            var cupon = await _cuponReadRepository.GetWhere(a=>a.Name==name).ToListAsync();
+
+            return cupon;
         }
 
         public async Task<bool> Update(UpdateCuponDto model)

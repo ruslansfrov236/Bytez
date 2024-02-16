@@ -8,10 +8,19 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/ui/assets/css/style.css" />
     <link rel="stylesheet" href="path/to/fontawesome/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <title>@ViewBag.Title</title>
 </head>
 <body>
+
     <nav>
         <div class="navbar">
             <a href="#"><img src="~/ui/assets/image/logo.png" alt="logo" /></a>
@@ -68,64 +77,68 @@
             }
         </ul>
 
-        </nav>
+    </nav>
 
-        <main>
-            <div class="container">
+    <main>
+        <div class="containers">
 
-                        @RenderBody()
+            @RenderBody()
+        </div>
+    </main>
+    <footer>
+        <section id="about">
+            <div class="about-item">
+                <h2 class="about-item-title">quick links</h2>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Contact us</a></li>
+                    <li><a href="">Faq</a></li>
+                </ul>
             </div>
-        </main>
-        <footer>
-            <section id="about">
-                <div class="about-item">
-                    <h2 class="about-item-title">quick links</h2>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Contact us</a></li>
-                        <li><a href="">Faq</a></li>
-                    </ul>
-                </div>
-                <div class="about-item">
-                    <h2 class="about-item-title">important policies</h2>
-                    <ul>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Service</a></li>
-                        <li><a href="">Returns & Refunds</a></li>
-                        <li><a href="">Shipping Policy</a></li>
-                    </ul>
-                </div>
-                <div class="about-item">
-                    <h2 class="about-item-title">let us help you</h2>
-                    <ul>
-                        <li><a href="">Customer Support</a></li>
-                        <li><a href="">Live Chat</a></li>
-                        <li><a href="">Help Center</a></li>
+            <div class="about-item">
+                <h2 class="about-item-title">important policies</h2>
+                <ul>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Terms of Service</a></li>
+                    <li><a href="">Returns & Refunds</a></li>
+                    <li><a href="">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div class="about-item">
+                <h2 class="about-item-title">let us help you</h2>
+                <ul>
+                    <li><a href="">Customer Support</a></li>
+                    <li><a href="">Live Chat</a></li>
+                    <li><a href="">Help Center</a></li>
 
-                    </ul>
-                </div>
-                <div class="about-item">
-                    <h2 class="about-item-title">connect with us</h2>
-                    <ul>
-                        <li><a href="">facebook</a></li>
-                        <li><a href="">twitter</a></li>
-                        <li><a href="">instagram</a></li>
+                </ul>
+            </div>
+            <div class="about-item">
+                <h2 class="about-item-title">connect with us</h2>
+                <ul>
+                    <li><a href="">facebook</a></li>
+                    <li><a href="">twitter</a></li>
+                    <li><a href="">instagram</a></li>
 
-                    </ul>
-                </div>
-                <div class="about-item">
-                    <h2 class="about-item-title">Subscribe for updates and exclusive offers. *</h2>
-                    <form class="about-form">
-                        <input type="email" id="email" autocomplete="on" placeholder="Enter the Email" />
-                        <button class="btn-dark">subscribe</button>
-                    </form>
-                </div>
-            </section>
-        </footer>
+                </ul>
+            </div>
+            <div class="about-item">
+                <h2 class="about-item-title">Subscribe for updates and exclusive offers. *</h2>
+                <form class="about-form">
+                    <input type="email" id="email" autocomplete="on" placeholder="Enter the Email" />
+                    <button class="btn-dark">subscribe</button>
+                </form>
+            </div>
+        </section>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="~/ui/assets/js/fetch.js"></script>
-        <script src="~/ui/assets/js/add.js"></script>
-        <script src="https://kit.fontawesome.com/9df1d44044.js" crossorigin="anonymous"></script>
-    </body>
-    </html>
+   
+    <script src="https://kit.fontawesome.com/9df1d44044.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/ui/assets/js/fetch.js"></script>
+    <script src="~/ui/assets/js/add.js"></script>
+</body>
+</html>

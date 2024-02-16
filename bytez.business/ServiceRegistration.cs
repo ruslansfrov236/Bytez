@@ -30,6 +30,10 @@ namespace bytez.business
             service.AddScoped<IContactCallService, ContactCallService>();
             service.AddScoped<IContactWallService, ContactWallService>();
             service.AddScoped<IWishlistService, WishlistService>();
+            service.AddScoped<IDeliveryService, DeliveryService>();
+            service.AddScoped<ICuponService, CuponService>();
+            service.AddScoped<IOrderComponentService, OrderComponentService>();
+
 
 
             service.AddScoped<IAppUserService, AppUserService>();

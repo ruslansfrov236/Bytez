@@ -31,11 +31,11 @@ namespace bytez.webui.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl });
             }
             var wishlist = await _wishlistService.Add(model);
-            return Ok(wishlist);
+            return StatusCode((int)HttpStatusCode.Created);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromRoute] string id)
+        public async Task<IActionResult> Delete( string id)
         {
             if (!User.Identity.IsAuthenticated)
             {

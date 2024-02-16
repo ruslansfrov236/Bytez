@@ -36,6 +36,7 @@ namespace bytez.data.Context
         public DbSet<ContactWall>? ContactWalls { get; set; }    
         public DbSet<Blog>? Blogs { get; set; }
 
+        
         public DbSet<Comment>? Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -11,6 +11,7 @@ namespace bytez.business.Abstract
     {
         Task<List<ProductBasket>> GetProductBasketAll();
         Task<List<Basket>> GetBasketAll();
+        Task<Basket> GetBasketByid(string id);
         Task<bool> Add(string id , int quantity);
         Task Remove(string id);
     }

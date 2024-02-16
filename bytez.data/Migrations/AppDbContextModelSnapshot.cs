@@ -432,6 +432,40 @@ namespace bytez.data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Location", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("LocalTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId1");
+
+                    b.ToTable("Locations");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Message", b =>
                 {
                     b.Property<Guid>("Id")
@@ -883,6 +917,15 @@ namespace bytez.data.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("bytez.entity.Entities.Location", b =>
+                {
+                    b.HasOne("bytez.entity.Entities.Identity.AppUser", "AppUser")
+                        .WithMany("Locations")
+                        .HasForeignKey("AppUserId1");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("bytez.entity.Entities.Order", b =>
                 {
                     b.HasOne("bytez.entity.Entities.Basket", "Basket")
@@ -1056,6 +1099,8 @@ namespace bytez.data.Migrations
                     b.Navigation("Baskets");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Locations");
 
                     b.Navigation("Wishlists");
                 });

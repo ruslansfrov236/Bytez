@@ -1,0 +1,60 @@
+﻿@model List<Delivery>
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create delivery</h4>
+            <a class="card-description" style="display:block;  margin:20px 0" href="/admin/delivery/create">
+                Add delivery
+            </a>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+
+                        <th> Name </th>
+
+                        <th> Create Date </th>
+                        <th> Update Date </th>
+                       
+                        <th> Update  </th>
+
+                        <th> Delete  </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var delivery in Model)
+                        {
+                            <tr>
+
+
+                                <td> @delivery.Price  </td>
+
+                                <td> @delivery.CreatedDate</td>
+                                <td> @delivery.UpdatedDate</td>
+
+                               
+                                <td>
+                                    <a href="/admin/delivery/update/@delivery.Id">
+                                        Update
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <form method="post" asp-controller="delivery" asp-action="Delete" asp-area="Admin" asp-route-id="@delivery.Id">
+
+                                        <button type="submit" class="btn btn-link"> Delete</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

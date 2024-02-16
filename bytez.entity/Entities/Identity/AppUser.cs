@@ -20,6 +20,8 @@ namespace bytez.entity.Entities.Identity
         public ICollection<Basket> Baskets { get; set; }
         public ICollection<Wishlist> Wishlists { get; set; }
 
+        
+     
         public ICollection<Comment> Comments { get; set; }
     }
 }

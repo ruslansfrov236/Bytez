@@ -1,0 +1,30 @@
+﻿@using bytez.business.Dto.Delivery
+
+
+@model CreateDeliveryDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <p class="card-description">Create elements</p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidatorForm")
+
+
+}

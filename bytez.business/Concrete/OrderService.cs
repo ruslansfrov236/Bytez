@@ -9,11 +9,17 @@ namespace bytez.business.Concrete
     {
         readonly private IOrderReadRepository _orderReadRepository;
         readonly private IOrderWriteRepository _orderWriteRepository;
-
-        public OrderService(IOrderReadRepository orderReadRepository, IOrderWriteRepository orderWriteRepository)
+        readonly private IOrderComponentReadRepository _orderComponentReadRepository;
+        readonly private IOrderComponentWriteRepository _orderComponentWriteRepository;
+        public OrderService(IOrderReadRepository orderReadRepository,
+                            IOrderWriteRepository orderWriteRepository,
+                            IOrderComponentReadRepository orderComponentReadRepository,
+                            IOrderComponentWriteRepository orderComponentWriteRepository)
         {
             _orderReadRepository = orderReadRepository;
             _orderWriteRepository = orderWriteRepository;
+            _orderComponentReadRepository = orderComponentReadRepository;
+            _orderComponentWriteRepository=orderComponentWriteRepository;
         }
 
 
@@ -28,13 +34,14 @@ namespace bytez.business.Concrete
                 Address = model.Address,
                 Description = model.Description,
                 OrderCode = orderCode,
-                
-                
-                
-            };
+                OrderComponent = model.OrderComponent
 
+
+            };
             await _orderWriteRepository.AddAsync(order);
             await _orderWriteRepository.SaveAsync();
+           
+
 
             return true;
         }
@@ -48,7 +55,7 @@ namespace bytez.business.Concrete
             return true;
         }
 
-    
+
 
 
 
@@ -59,13 +66,13 @@ namespace bytez.business.Concrete
 
         public async Task<List<Order>> GetOrderAsync()
         {
-            var  orders = await  _orderReadRepository.GetAll()
+            var orders = await _orderReadRepository.GetAll()
                                             .Include(o => o.Basket)
                                             .ThenInclude(b => b.User)
                                             .Include(o => o.Basket)
                                             .ThenInclude(b => b.ProductBaskets)
                                             .ThenInclude(bi => bi.Product)
-                                        
+
                                              .ToListAsync();
 
 
@@ -82,6 +89,6 @@ namespace bytez.business.Concrete
             return orders;
         }
 
-        
+
     }
 }

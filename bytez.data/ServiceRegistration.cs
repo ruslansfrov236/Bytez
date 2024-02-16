@@ -72,7 +72,7 @@ namespace bytez.data
             service.AddScoped<ICuponWriteRepository, CuponWriteRepository>();
             service.AddScoped<IDeliveryReadRepository, DeliveryReadRepository>();
             service.AddScoped<IDeliveryWriteRepository, DeliveryWriteRepository>();
-
+           
         }
         public static void AddCookieRegistration(this IServiceCollection service)
         {

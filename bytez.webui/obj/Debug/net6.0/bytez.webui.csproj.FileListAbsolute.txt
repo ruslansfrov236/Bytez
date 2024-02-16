@@ -263,3 +263,5 @@ C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.pdb
 C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.genruntimeconfig.cache
 C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\ref\bytez.webui.dll
 C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\GeoCoordinate.NetCore.dll

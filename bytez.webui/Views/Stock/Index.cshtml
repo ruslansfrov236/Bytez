@@ -14,15 +14,15 @@
 
                         <div class="filter-category">
                             <label asp-for="@Model.ProductWhereDto.CategoryId">Category</label>
-                            <select asp-for="@Model.ProductWhereDto.CategoryId" class="form-category" asp-items="@Model.Category.Select(a=> new SelectListItem(){Text=a.Name , Value=a.Id.ToString()})">
+                            <select asp-for="@Model.ProductWhereDto.CategoryId" id="category" class="form-category" asp-items="@Model.Category.Select(a=> new SelectListItem(){Text=a.Name , Value=a.Id.ToString()})">
                                 <option value="">Category</option>
                             </select>
                         </div>
                         <div class="filter-price">
                             <label>Price</label>
                             <div class="filterPrice">
-                                <input asp-for="@Model.ProductWhereDto.minValue" id="minValue" class="form-price" placeholder="From" />
-                                <input asp-for="@Model.ProductWhereDto.maxValue" id="maxValue" class="form-price" placeholder="To" />
+                                <input asp-for="@Model.ProductWhereDto.minValue" min="0"  id="minValue" class="form-price" placeholder="From" />
+                                <input asp-for="@Model.ProductWhereDto.maxValue" min="0" id="maxValue" class="form-price" placeholder="To" />
                             </div>
 
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="filter-color">
                             <label asp-for="@Model.ProductWhereDto.ColorId">Color</label>
-                            <select asp-for="@Model.ProductWhereDto.ColorId" class="form-category" id="brand" asp-items="@Model.Color.Select(a=> new SelectListItem(){Text=a.ColorName , Value=a.Id.ToString()})">
+                            <select asp-for="@Model.ProductWhereDto.ColorId" class="form-category" id="" asp-items="@Model.Color.Select(a=> new SelectListItem(){Text=a.ColorName , Value=a.Id.ToString()})">
                                 <option value="">Color</option>
                             </select>
                         </div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn-dark">Filter</button>
-                <button type="reset" class="btn-dark">Reset</button>
+            
             </form>
         </div>
         <div class="row-stock">
@@ -61,10 +61,16 @@
                         @{
                             @if (Model.Wishlists.ToList().Count() != null && Model.AppUser != null && Model.Wishlists.Any(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id))
                             {
-
-                                <button type="submit" data-Wishlistid="@Model.Wishlists.Where(a => a.isWishlist == true && a.AppUserId == Model.AppUser.Id && a.ProductId == content.Id).Select(a => new Wishlist() { Id = a.Id }).ToList()" class="btn-heart-active">
-                                    <i class="fa-solid fa-heart"></i>
-                                </button>
+                                foreach(var wi in Model.Wishlists)
+                                {
+                                    if (wi.isWishlist && wi.ProductId==content.Id)
+                                    {
+                                        <button type="submit" data-Wishlistid="@wi.Id" class="btn-heart-active">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </button>
+                                    }
+                                }
+                              
 
 
 

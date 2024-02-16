@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JcyuBy1c3enIGOe9gv/kQymitEmeDxfdO34LhK/gKJ9GfcNZUj+6Jv7tiG5daBa4c/zY2m2xsH1BxSY4bLuLdg==",
+  "dgSpecHash": "rksRxbhxAHSzWkTz4hviL7yFk4RTgh6S5Wu4ekmwKFvkDneiqSHbwFFtmImipwIeTW9UsVU3d9NZQg2BD8vRCA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Асер\\Desktop\\Bytez\\bytez.webui\\bytez.webui.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\Асер\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\Асер\\.nuget\\packages\\geocoordinate\\2.0.1\\geocoordinate.2.0.1.nupkg.sha512",
+    "C:\\Users\\Асер\\.nuget\\packages\\geocoordinate.netcore\\1.0.0.1\\geocoordinate.netcore.1.0.0.1.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -32,7 +34,7 @@
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.25\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.25.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.2.0\\microsoft.aspnetcore.jsonpatch.2.2.0.nupkg.sha512",
-    "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.localization\\2.0.3\\microsoft.aspnetcore.localization.2.0.3.nupkg.sha512",
+    "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.localization\\2.2.0\\microsoft.aspnetcore.localization.2.2.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.mvc\\2.0.4\\microsoft.aspnetcore.mvc.2.0.4.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Асер\\.nuget\\packages\\microsoft.aspnetcore.mvc.apiexplorer\\2.0.4\\microsoft.aspnetcore.mvc.apiexplorer.2.0.4.nupkg.sha512",

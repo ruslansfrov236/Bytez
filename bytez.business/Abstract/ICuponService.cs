@@ -16,6 +16,7 @@ namespace bytez.business.Abstract
         Task<bool> Update(UpdateCuponDto model);
         Task<bool> CuponDeleteTime(string id);
         Task<bool> Delete(string id);
+        Task<List<Cupon>> GetWhereCupon(string name);
 
     }
 }
