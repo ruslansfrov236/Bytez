@@ -57,8 +57,8 @@ namespace bytez.webui.Controllers
             BasketIndexVM basketIndex = new BasketIndexVM()
             {
                 Baskets = basket.FirstOrDefault(),
-                Products = product.FirstOrDefault(),
-                ProductBaskets = productBasket.FirstOrDefault()
+                Products = product,
+                ProductBaskets = productBasket
                
             };
 

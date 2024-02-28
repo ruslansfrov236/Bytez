@@ -432,40 +432,6 @@ namespace bytez.data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("bytez.entity.Entities.Location", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AppUserId1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("LocalTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId1");
-
-                    b.ToTable("Locations");
-                });
-
             modelBuilder.Entity("bytez.entity.Entities.Message", b =>
                 {
                     b.Property<Guid>("Id")
@@ -540,6 +506,12 @@ namespace bytez.data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -559,6 +531,8 @@ namespace bytez.data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId1");
 
                     b.HasIndex("CuponId");
 
@@ -917,15 +891,6 @@ namespace bytez.data.Migrations
                     b.Navigation("Blog");
                 });
 
-            modelBuilder.Entity("bytez.entity.Entities.Location", b =>
-                {
-                    b.HasOne("bytez.entity.Entities.Identity.AppUser", "AppUser")
-                        .WithMany("Locations")
-                        .HasForeignKey("AppUserId1");
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("bytez.entity.Entities.Order", b =>
                 {
                     b.HasOne("bytez.entity.Entities.Basket", "Basket")
@@ -939,6 +904,10 @@ namespace bytez.data.Migrations
 
             modelBuilder.Entity("bytez.entity.Entities.OrderComponent", b =>
                 {
+                    b.HasOne("bytez.entity.Entities.Identity.AppUser", "AppUser")
+                        .WithMany("OrderComponents")
+                        .HasForeignKey("AppUserId1");
+
                     b.HasOne("bytez.entity.Entities.Cupon", "Cupon")
                         .WithMany()
                         .HasForeignKey("CuponId")
@@ -956,6 +925,8 @@ namespace bytez.data.Migrations
                         .HasForeignKey("bytez.entity.Entities.OrderComponent", "OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Cupon");
 
@@ -1100,7 +1071,7 @@ namespace bytez.data.Migrations
 
                     b.Navigation("Comments");
 
-                    b.Navigation("Locations");
+                    b.Navigation("OrderComponents");
 
                     b.Navigation("Wishlists");
                 });

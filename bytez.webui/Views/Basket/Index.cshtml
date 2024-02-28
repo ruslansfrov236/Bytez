@@ -5,20 +5,24 @@
 
 }
 <div class="container-basket">
-    <div class="row-basket">
-        <div class="basket">
-            @{
+    @foreach(var pb in Model.ProductBaskets)
+    {
+        
+            <div class="row-basket">
+                <div class="basket">
+                @{
+                    foreach(var product in Model.Products)
+                    {
+                        if (Model.Baskets != null && Model.Baskets.User.NameSurname == user && pb.BasketId == Model.Baskets.Id && product.Id==pb.ProductId)
+                        {
 
-                if (Model.Baskets != null && Model.Baskets.User.NameSurname == user &&Model.ProductBaskets.BasketId==Model.Baskets.Id  )
-                {
-                   
                             <div class="card-basket">
-                                <img src="~/ui/assets/image/@Model.Products.ProfileProduct" />
+                                <img src="~/ui/assets/image/@product.ProfileProduct" />
                                 <div class="card-basket-body">
-                                    <h2 class="card-basket-title">@Model.Products.Title</h2>
-                                    @Html.Raw( Model.Products.Description)
-                                    <p class="stock-@(Model.Products.Stock != null ? "success" : "danger")">
-                                        @if (Model.Products.Stock != null)
+                                    <h2 class="card-basket-title">@product.Title</h2>
+                                    @Html.Raw(product.Description)
+                                    <p class="stock-@(product.Stock != null ? "success" : "danger")">
+                                        @if (product.Stock != null)
                                         {
                                             <span>In Stock</span>
                                         }
@@ -28,31 +32,38 @@
                                         }
                                         <div class="card-quantity">
                                             <div class="card-quantity-form">
-                                        <div class="card-quantity-body">
-                                            <button class="btn-minus" type="button">-</button>
-                                            <input type="text" inputmode="numeric" data-stock="@Model.Products.Stock" value="1" placeholder="1" min="1" max="@Model.Products.Stock" id="quantity" />
-                                            <button class="btn-pilus" type="button">+</button>
-                                              </div>
-                                              <button>zibi;</button>
+                                                <div class="card-quantity-body">
+                                                    <button class="btn-minus" type="button">-</button>
+                                                    <input type="text" inputmode="numeric" data-stock="@product.Stock" data-id="@product.Id" value="1" placeholder="1" min="1" max="@product.Stock" id="quantity" />
+                                                    <button class="btn-plus" type="button">+</button>
+                                                </div>
+                                                <button class="basket-delete" data-id="@Model.Baskets.Id">zibi;</button>
                                             </div>
 
                                             <div class="card-basket-price">
                                                 <ul>
-                                                    <li> <span>Sub Total</span> (@Model.ProductBaskets.Quantity Items)</li>
-                                            <li> $ @(Model.Products.Price*Model.ProductBaskets.Quantity)</li>
+                                                    <li> <span>Sub Total</span> (@pb.Quantity Items)</li>
+                                                    <li> $ @(product.Price * pb.Quantity)</li>
                                                 </ul>
                                             </div>
                                         </div>
                                 </div>
                             </div>
                         }
-                     
-                        
-                      
                     }
-                
-           
-        </div>
-        <div class="order"></div>
-    </div>
+                   
+
+
+
+                    }
+
+
+                </div>
+                <div class="order"></div>
+            </div>
+        }
+
+        
+    }
+   
 </div>

@@ -12,7 +12,7 @@
 			<div class="col-md-6">
 				<div id="slider" class="owl-carousel product-slider" style="margin:20px 0;">
 					<div class="item">
-						<img src="~/ui/assets/image/@Model.Product.ProfileProduct" />
+						<img class="bg-slider-img" src="~/ui/assets/image/@Model.Product.ProfileProduct" />
 					</div>
 					
 					@{
@@ -21,7 +21,7 @@
 							@foreach(var image in Model.ProductImages)
 							{
 								<div class="item">
-									<img src="~/ui/assets/image/@image.FilePath" />
+									<img class="bg-slider-img" src="~/ui/assets/image/@image.FilePath" />
 								</div>
 							}
 						}
@@ -38,7 +38,7 @@
 							@foreach(var image in Model.ProductImages)
 							{
 								<div class="item">
-									<img src="~/ui/assets/image/@image.FilePath" />
+									<img class="radio-img" src="~/ui/assets/image/@image.FilePath" />
 								</div>
 							}
 						}
@@ -48,7 +48,7 @@
 			<div class="col-md-6">
 				<div class="product-dtl">
 					<div class="product-info">
-						<div class="product-name">Variable Product</div>
+						<div class="product-name">@Model.Product.Title</div>
 						<div class="reviews-counter">
 							<div class="rate">
 								<input type="radio" id="star5" name="rate" value="5" checked />
@@ -70,11 +70,11 @@
 					<div class="product-count">
 						<label for="size">Quantity</label>
 						<form action="#" class="display-flex">
-							<div class="qtyminus btn-minus">-</div>
-							<input type="text" id="quantity" data-stock="@Model.Product.Stock" name="quantity" MIN value="1" max="@Model.Product.Stock" class="qty">
-							<div class="qtyplus btn-minus">+</div>
+							<div class="qtyminus ">-</div>
+							<input type="text" id="quantity" data-id ="@Model.Product.Id" data-stock="@Model.Product.Stock" name="quantity" min="1" value="1" max="@Model.Product.Stock" class="qty">
+							<div class="qtyplus ">+</div>
 						</form>
-						<a href="#" class="round-black-btn">Add to Cart</a>
+						<button type="submit" class="round-black-btn">Add to Cart</button>
 					</div>
 				</div>
 			</div>

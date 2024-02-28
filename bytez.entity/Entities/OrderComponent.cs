@@ -1,4 +1,5 @@
 ﻿using bytez.entity.Entities.Customer;
+using bytez.entity.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,12 @@ namespace bytez.entity.Entities
 
         public decimal TotalPrice { get; set; }
 
+        public Guid AppUserId { get; set; }
+
+        public AppUser AppUser { get; set; }
         public Guid OrderId { get; set; }
 
         public Order Order { get; set; }
     }
 }
+    

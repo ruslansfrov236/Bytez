@@ -35,9 +35,7 @@
     $(".btn-heart").click(function () {
         let id = $(this).data('id');
         console.log(id)
-        let button = $(this);
-
-        button.prop('disabled', true);
+        
 
         $.ajax({
             url: 'Wishlist/Create',
@@ -52,7 +50,7 @@
             },
             error: function (error) {
                 console.error(error);
-                button.prop('disabled', false);
+                
             }
         });
     });
@@ -107,51 +105,85 @@
     })
 });
 $(document).ready(function () {
-  
-    
     var stock = +$('#quantity').data('stock');
-    var quantity = +$('#quantity').val();
-    $('.btn-minus').click(function () {
-     
+    var id = $('#quantity').data('id');
 
+    $('.btn-minus').on("click" , function (e) {
+        var quantity = +$('#quantity').val();
+        if (quantity > 1) {
+            quantity--;
+        } else {
+            e.preventDefault();
+        }
        
-        if (quantity >0) {
-            +quantity--;
-        }
-         if (quantity == 0) {
-            quantity = 1;
-        }
-        $('#quantity').val(quantity);
       
+       
     });
 
-    $('.btn-pilus').click(function () {
-      
-        if (+quantity <stock) {
-            +quantity++;
+    $('.btn-plus').on("click" , function (e) {
+        var quantity = +$('#quantity').val();
+        if (quantity < stock) {
+            quantity++;
+        } else {
+            alert(`mehsul sayi:${stock}`)
         }
-     
+       
         $('#quantity').val(quantity);
+                
     });
 
-    $.ajax({
-        url: "Basket/AddBasket",
-        type: 'POST',
-        data: {
-            id: id,
-            quantity: quantity
-        },
-        success: function (response) {
-           
-            location.reload();
+    $('.btn-plus , .btn-minus').on("click", function (e) {
+        var quantity = +$('#quantity').val();
+        $('#quantity').val(quantity);
+        e.preventDefault();
+        updateBasket(id, quantity); 
 
-        },
-        error: function (error) {
-            console.error(error);
-
-        }
     })
+
+    function updateBasket(id, quantity) {
+        $.ajax({
+            url: "Basket/AddBasket",
+            type: 'POST',
+            data: {
+                id: id,
+                quantity: quantity,
+            },
+            success: function (response) {
+                location.reload();
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
 });
+
+$(document).ready(function () {
+    $("#wishlist-remove").click(function () {
+        let id = $(this).data('id');
+        console.log(id)
+
+
+
+
+
+        $.ajax({
+            url: 'Wishlist/Delete',
+            type: 'Delete',
+            data: {
+                id: id
+            },
+            success: function (response) {
+
+                location.reload();
+            },
+            error: function (error) {
+                console.error(error);
+                button.prop('disabled', false);
+            }
+        });
+    })
+})
 $(document).ready(function () {
     var slider = $("#slider");
     var thumb = $("#thumb");
@@ -221,7 +253,58 @@ $(document).ready(function () {
 
 });
 
+$(document).ready(() => {
+    var stock = +$('#quantity').data('stock');
+    var id = $('#quantity').data('id');
 
+    $('.qtyplus').on("click", () => {
+        var quantity = +$('#quantity').val();
+        if (quantity < stock) {
+            quantity++;
+        } else {
+            alert(`Mehsul sayi: ${stock}`);
+        }
 
+        $('#quantity').val(quantity);
+    });
+
+    $('.qtyminus').on("click", (e) => {
+        var quantity = +$('#quantity').val();
+        if (quantity > 1) {
+            quantity--;
+        } else {
+            e.preventDefault(); 
+        }
+        $('#quantity').val(quantity);
+    });
+
+    $('.round-black-btn').on("click", function (e) {
+        var quantity = +$('#quantity').val();
+        $('#quantity').val(quantity);
+       
+        updateBasket(id, quantity); 
+     
+    });
+
+     function updateBasket(id, quantity) {
+        $.ajax({
+            url: "/Basket/AddBasket",
+            type: 'POST',
+            data: {
+                id: id,
+                quantity: quantity,
+            },
+            success: function (response) {
+                location.href = "https://localhost:7225/cart";
+               
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+       
+
+    }
+});
 
 

@@ -265,3 +265,7 @@ C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\ref\bytez.webui.dll
 C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\SixLabors.ImageSharp.dll
 C:\Users\Асер\Desktop\Bytez\bytez.webui\obj\Debug\net6.0\bytez.webui.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\GeoCoordinate.NetCore.dll
+C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\MediatR.dll
+C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Асер\Desktop\Bytez\bytez.webui\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

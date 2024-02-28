@@ -1,5 +1,6 @@
 ﻿using bytez.business.Abstract;
 using bytez.business.Concrete;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace bytez.business
@@ -9,8 +10,8 @@ namespace bytez.business
 
         public static void AddBusinessRegistration(this IServiceCollection service)
         {
-       
 
+            service.AddMediatR(typeof(ServiceRegistration));
 
             service.AddScoped<IProductService, ProductService>();
             service.AddScoped<IOrderService, OrderService>();

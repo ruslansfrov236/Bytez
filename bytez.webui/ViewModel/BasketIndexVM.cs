@@ -6,9 +6,9 @@ namespace bytez.webui.ViewModel
     {
      public   Basket Baskets { get; set; }  
 
-    public Product Products { get; set; }
+    public List<Product> Products { get; set; }
  
-    public ProductBasket ProductBaskets { get; set; }
+    public List<ProductBasket> ProductBaskets { get; set; }
 
     public List<Order> Order { get; set; }
 

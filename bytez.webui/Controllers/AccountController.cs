@@ -4,6 +4,7 @@ using bytez.business.Dto.Login;
 using bytez.entity.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace bytez.webui.Controllers
 {
@@ -12,19 +13,38 @@ namespace bytez.webui.Controllers
         readonly private IAppUserService _appUserService;
         readonly private UserManager<AppUser> _userManager;
         readonly private SignInManager<AppUser> _signInManager;
-        public AccountController(IAppUserService appUserService , UserManager<AppUser> userManager , SignInManager<AppUser> signInManager  )
+       readonly private IHttpContextAccessor _httpContextAccessor;
+		public AccountController(IAppUserService appUserService , UserManager<AppUser> userManager , SignInManager<AppUser> signInManager , IHttpContextAccessor httpContextAccessor)
         {
             _appUserService = appUserService;
             _userManager=userManager;
             _signInManager=signInManager;
+            _httpContextAccessor = httpContextAccessor;
         }
         [HttpGet]
-        public IActionResult Login ()
-       => View( new LoginDto() );
+        public async Task< IActionResult> Login()
+        {
+			var username = _httpContextAccessor?.HttpContext?.User?.Identity?.Name;
+
+
+
+			AppUser? user = await _userManager.Users.FirstOrDefaultAsync
+		   (u => u.UserName == username);
+            if (user != null)
+            {
+				await _appUserService.LogOutAsync();
+				
+			}
+			return View(new LoginDto());
+
+
+		}
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginDto model )
      {
+
            
             if (!ModelState.IsValid)
             {

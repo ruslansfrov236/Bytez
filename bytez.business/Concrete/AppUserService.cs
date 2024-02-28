@@ -79,14 +79,14 @@ namespace bytez.business.Concrete
                 Email = model.Email
             };
 
-            await _userManager.AddToRoleAsync(user, RoleModel.User.ToString());
+           
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
                 return default;
             }
-            
+            await _userManager.AddToRoleAsync(user, RoleModel.User.ToString());
             return user;
           
 
