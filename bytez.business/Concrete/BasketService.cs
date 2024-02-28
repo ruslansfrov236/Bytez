@@ -194,23 +194,22 @@ namespace bytez.business.Concrete
                     .Include(u => u.Baskets)
                     .FirstOrDefaultAsync(u => u.UserName == username);
 
-                var product = await _productReadRepository.GetByIdAsync(id);
+               
 
-                if (product != null)
-                {
+                  
 
-                    var userBasket = await _basketReadRepository.GetSingleAsync(b => b.UserId == user.Id);
 
-                    if (userBasket != null)
-                    {
+                 var  pb =  await  _productBasketReadRepository.GetByIdAsync(id);
+                var product = await _productReadRepository.GetByIdAsync(pb.ProductId.ToString());
+
+                      product.Stock += pb.Quantity;
+                await _productWriteRepository.SaveAsync();
+                        _productBasketWriteRepository.Remove(pb);
+                     await  _productBasketWriteRepository.SaveAsync();
+
                     
-
-                        _basketWriteRepository.Remove(userBasket);
-                        await _basketWriteRepository.SaveAsync();
-
-                    }
                 }
-            }
+            
         }
 
         public async Task<Basket> GetBasketByid(string id)

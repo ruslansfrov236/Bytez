@@ -78,21 +78,15 @@ namespace bytez.webui.Controllers
              await _basketService.Add(id, quantity);
             return StatusCode((int)HttpStatusCode.Created);
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute] string id)
+        [HttpDelete]
+        public async Task<IActionResult> Delete( string id)
         {
-            var basket = await _basketService.GetBasketByid(id);
+            
 
-            if (basket == null)
-            {
-                
-                return NotFound($"Basket with ID {id} not found.");
-            }
-
-            await _basketService.Remove(id);
+           await  _basketService.Remove(id);
 
             
-            return Ok($"Basket with ID {id} has been deleted.");
+            return Ok();
         }
 
     }

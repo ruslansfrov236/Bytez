@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bytez.webui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9a01ab2b53a367855b36a95d8967c3195710f37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9cf261e2874a29c039453a3b917f77d5b669734")]
 [assembly: System.Reflection.AssemblyProductAttribute("bytez.webui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bytez.webui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

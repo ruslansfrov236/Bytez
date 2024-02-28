@@ -157,7 +157,27 @@ $(document).ready(function () {
         });
     }
 });
+$(document).ready(() => {
+    const id = $('.basket-delete').data('id');
+    $('.basket-delete').on("click", () => {
+      
+        $.ajax({
+            url: '/Basket/Delete',
+            type: 'DELETE',
+            data: {
+                id: id
+            },
+            success: function (response) {
 
+                location.reload();
+            },
+            error: function (error) {
+                console.error(error);
+                button.prop('disabled', false);
+            }
+        });
+    })
+})
 $(document).ready(function () {
     $("#wishlist-remove").click(function () {
         let id = $(this).data('id');
