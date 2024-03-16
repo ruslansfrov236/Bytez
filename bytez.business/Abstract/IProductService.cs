@@ -13,8 +13,8 @@ namespace bytez.business.Abstract
         Task<List<Product>> GetWhereProduct(StockIndexVM model );
 
       
-        Task<bool> Create(ProductCreateVM model);
-        Task<bool> Update(ProductUpdateVM model);
+        Task<bool> Create(CreateProductDto model);
+        Task<bool> Update(UpdateProductDto model);
         Task<bool> Delete(string id);
 
         Task<List<Product>> FilterRecomneyeProduct();

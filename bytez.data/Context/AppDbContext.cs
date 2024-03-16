@@ -38,11 +38,7 @@ namespace bytez.data.Context
 
         
         public DbSet<Comment>? Comments { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.EnableSensitiveDataLogging();
-           
-        }
+      
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
 

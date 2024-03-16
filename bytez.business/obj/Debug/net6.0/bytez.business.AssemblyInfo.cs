@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bytez.business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9cf261e2874a29c039453a3b917f77d5b669734")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f234f2cf4cadb4b3206507553a16d02277bdf2ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("bytez.business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bytez.business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

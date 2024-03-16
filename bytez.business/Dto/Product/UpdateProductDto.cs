@@ -17,16 +17,16 @@ namespace bytez.business.Dto.Product
         public decimal Price { get; set; }
         [Required]
 
-        [ForeignKey("ColorId")]
+       
         public Guid ColorId { get; set; }
         [Required]
 
-        [ForeignKey("CategoryId")]
+      
         public Guid CategoryId { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Required]
-        [ForeignKey("BrandsId")]
+       
         public Guid BrandsId { get; set; }
         [Required]
         public ProductRam ProductRam { get; set; }
@@ -37,19 +37,19 @@ namespace bytez.business.Dto.Product
 
         public string? FilePath { get; set; }
 
-        public ICollection<SelectListItem>? Category { get; set; } // This should be singular
+        public List<SelectListItem>? Category { get; set; } 
        
-        public bool IsProductLike { get; set; }
+   
         [Required]
         public int Stock { get; set; }
         [Required]
         public Discount Discount { get; set; }
 
-        public float Avg { get; set; }
-        [NotMapped]
+      
+        
         public IFormFile? ProductFile { get; set; }
 
-        public string ProfileProduct { get; set; }
+        public string? ProfileProduct { get; set; }
 
 
         public ICollection<SelectListItem>? Color { get; set; }

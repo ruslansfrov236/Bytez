@@ -550,9 +550,6 @@ namespace bytez.data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("Avg")
-                        .HasColumnType("real");
-
                     b.Property<Guid>("BrandsId")
                         .HasColumnType("uniqueidentifier");
 
@@ -587,7 +584,6 @@ namespace bytez.data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProfileProduct")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Stock")

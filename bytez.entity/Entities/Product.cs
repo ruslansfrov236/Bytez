@@ -25,12 +25,12 @@ namespace bytez.entity.Entities
         [NotMapped]
         public IFormFile?  ProductFile { get; set; }
 
-         public string  ProfileProduct { get; set; }
+         public string?  ProfileProduct { get; set; }
         public string? FilePath { get; set; }
         public Category? Category { get; set; }
         public int Stock { get; set; }
         public Discount Discount { get; set; }   
-        public float Avg { get; set; }
+     
 
         public Wishlist? Wishlist { get; set; }
         public ICollection<BrandModel>? Brands { get; set; } 

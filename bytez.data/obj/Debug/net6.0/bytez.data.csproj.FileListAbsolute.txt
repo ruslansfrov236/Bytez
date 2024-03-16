@@ -44,10 +44,10 @@ C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.Generated
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.AssemblyInfoInputs.cache
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.AssemblyInfo.cs
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.csproj.CoreCompileInputs.cache
-C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.sourcelink.json
-C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.csproj.CopyComplete
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.dll
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\refint\bytez.data.dll
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.pdb
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.genruntimeconfig.cache
 C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\ref\bytez.data.dll
+C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.sourcelink.json
+C:\Users\Асер\Desktop\Bytez\bytez.data\obj\Debug\net6.0\bytez.data.csproj.Up2Date

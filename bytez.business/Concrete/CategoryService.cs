@@ -49,6 +49,7 @@ namespace bytez.business.Concrete
                                         { Id = a.Id,
                                          Name = a.Name,
                                          Count = a.Product.Where(p => p.CategoryId == a.Id).Count(), 
+                                         Product=a.Product,
                                          CreatedDate = a.CreatedDate,
                                          UpdatedDate = a.UpdatedDate })
                 .ToListAsync();

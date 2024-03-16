@@ -31,8 +31,8 @@ C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.Gener
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.AssemblyInfoInputs.cache
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.AssemblyInfo.cs
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.csproj.CoreCompileInputs.cache
-C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.sourcelink.json
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.dll
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\refint\bytez.entity.dll
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.pdb
 C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\ref\bytez.entity.dll
+C:\Users\Асер\Desktop\Bytez\bytez.entity\obj\Debug\net6.0\bytez.entity.sourcelink.json

@@ -4,6 +4,7 @@ using bytez.business.ViewModels.ProductVM;
 using bytez.entity.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace bytez.webui.Areas.Admin.Controllers
@@ -26,7 +27,7 @@ namespace bytez.webui.Areas.Admin.Controllers
         [Authorize(Roles = "Admin , Manager")]
         public async Task<IActionResult> Index()
         {
-           
+
             List<Product> products = await _productService.GetProductsAsync();
             return View(products);
         }
@@ -43,71 +44,68 @@ namespace bytez.webui.Areas.Admin.Controllers
             var category = await _categoryService.GetCategoryAsync();
             var brandModel = await _brandModelService.GetBrandsAsync();
             var color = await _colorService.GetProductColorsAsync();
-            var product = new CreateProductDto();
-            ProductCreateVM productCreateVM = new ProductCreateVM()
-            {
-                CreateProductDto = product,
-                Category = category,
-                BrandModel = brandModel,
-                Color = color
 
-            };
-
-            return View(productCreateVM);
+            ViewBag.Category = category.Select(a => new SelectListItem() { Text = a.Name, Value = a.Id.ToString() }).ToList();
+            ViewBag.Brands = brandModel.Select(a => new SelectListItem() { Text = a.Name, Value = a.Id.ToString() }).ToList();
+            ViewBag.Color = color.Select(a => new SelectListItem() { Text = a.ColorName, Value = a.Id.ToString() }).ToList();
+            
+            return View(new CreateProductDto());
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin ")]
-        public async Task<IActionResult> Create(ProductCreateVM model)
+        public async Task<IActionResult> Create(CreateProductDto model)
         {
             if (!ModelState.IsValid) return View(model);
             await _productService.Create(model);
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
         [Authorize(Roles = "Admin ")]
+
         public async Task<IActionResult> Update(string id)
         {
             var product = await _productService.GetByIdAsync(id);
-            var category = await _categoryService.GetCategoryAsync();
-            var brandModel = await _brandModelService.GetBrandsAsync();
-            var color = await _colorService.GetProductColorsAsync();
             if (product == null) return NotFound();
+
+            var category = await _categoryService.GetCategoryAsync() ;
+            var brandModel = await _brandModelService.GetBrandsAsync();
+            var color = await _colorService.GetProductColorsAsync() ;
+
             UpdateProductDto productDto = new UpdateProductDto()
             {
-                id=product.Id.ToString(),
-                Title=product.Title,
-                FilePath=product.FilePath,
-                Avg=product.Avg,
-                BrandsId=product.BrandsId, 
-                CategoryId=product.CategoryId,
-                ColorId=product.ColorId,
-                ProfileProduct=product.ProfileProduct,
-               
-                Price=product.Price,
-                Stock=product.Stock,
-                Higlist=product.Higlist,
-                Description=product.Description
-
+                id = product.Id.ToString(),
+                Title = product.Title,
+                FilePath = product.FilePath,
+                BrandsId = product.BrandsId,
+                CategoryId = product.CategoryId,
+                ColorId = product.ColorId,
+                Category= category.Select(a=> new SelectListItem() { Text=a.Name , Value=a.Id.ToString()}).ToList(),
+                Brands= brandModel.Select(a => new SelectListItem() { Text = a.Name, Value = a.Id.ToString() }).ToList(),
+                Color= color.Select(a => new SelectListItem() { Text = a.ColorName, Value = a.Id.ToString() }).ToList(),
+                ProfileProduct = product.ProfileProduct,
+                Price = product.Price,
+                Stock = product.Stock,
+                Higlist = product.Higlist,
+                Description = product.Description
             };
 
-            ProductUpdateVM productUpdateVM = new ProductUpdateVM()
-            {
-                UpdateProductDto = productDto,
-                Category = category,
-                BrandModel = brandModel,
-                Color = color
+           
 
-            };
-            return View(productUpdateVM);
-
+            return View(productDto);
         }
+
         [HttpPost]
         [Authorize(Roles = "Admin ")]
-        public async Task<IActionResult> Update(ProductUpdateVM model)
+        public async Task<IActionResult> Update(UpdateProductDto model)
         {
-            if (!ModelState.IsValid) return View(model);
-            await _productService.Update(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+                await _productService.Update(model);
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]

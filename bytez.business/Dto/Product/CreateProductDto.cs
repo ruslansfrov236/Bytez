@@ -39,13 +39,13 @@ namespace bytez.business.Dto.Product
 
         public ICollection<SelectListItem>? Category { get; set; } // This should be singular
 
-        public bool IsProductLike { get; set; }
+      
         [Required]
         public int Stock { get; set; }
         [Required]
         public Discount Discount { get; set; }
 
-        public float Avg { get; set; }
+       
         [Required]
         [NotMapped]
         public IFormFile? ProductFile { get; set; }

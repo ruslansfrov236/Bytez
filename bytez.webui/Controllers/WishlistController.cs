@@ -44,13 +44,8 @@ namespace bytez.webui.Controllers
         [HttpPost]
         public async Task<IActionResult> Create (CreateWishlistDto model)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-               
-                string returnUrl = Request.Path + Request.QueryString;
-                return RedirectToAction("Login", "Account", new { returnUrl });
-            }
-            var wishlist = await _wishlistService.Add(model);
+          
+            await _wishlistService.Add(model);
             return StatusCode((int)HttpStatusCode.Created);
         }
 

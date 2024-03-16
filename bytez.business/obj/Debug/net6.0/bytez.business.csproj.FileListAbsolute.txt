@@ -45,9 +45,9 @@ C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.G
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.AssemblyInfoInputs.cache
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.AssemblyInfo.cs
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.csproj.CoreCompileInputs.cache
-C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.sourcelink.json
-C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.csproj.CopyComplete
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.dll
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\refint\bytez.business.dll
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.pdb
 C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\ref\bytez.business.dll
+C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.business.sourcelink.json
+C:\Users\Асер\Desktop\Bytez\bytez.business\obj\Debug\net6.0\bytez.bu.216B0368.Up2Date

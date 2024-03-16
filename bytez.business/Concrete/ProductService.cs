@@ -15,6 +15,8 @@ namespace bytez.business.Concrete
     {
 
         readonly private IProductReadRepository _productReadRepository;
+
+        readonly private ICategoryService _categoryService;
         readonly private IProductWriteRepository _productWriteRepository;
         readonly private IProductImageService _productImageService;
         readonly private IProductImageReadRepository _productImageReadRepository;
@@ -24,49 +26,52 @@ namespace bytez.business.Concrete
                             , IProductWriteRepository productWriteRepository,
                               IProductImageService productImageService,
                               IProductImageWriteRepository productImageWriteRepository,
-                              IProductImageReadRepository productImageReadRepository)
+                              IProductImageReadRepository productImageReadRepository,
+                              ICategoryService categoryService)
         {
             _productImageService = productImageService;
             _productReadRepository = productReadRepository;
             _productWriteRepository = productWriteRepository;
             _productImageWriteRepository = productImageWriteRepository;
             _productImageReadRepository = productImageReadRepository;
+            _categoryService=categoryService;
 
         }
-        public async Task<bool> Create(ProductCreateVM model)
+        public async Task<bool> Create(CreateProductDto model)
         {
             var uplaodFile = await _productImageReadRepository.GetAll()
                                                                 .Include(p => p.Products)
                                                                .ToListAsync();
 
-            _productImageService.IsImage(model.CreateProductDto.ProductFile);
-            _productImageService.CheckSize(model.CreateProductDto.ProductFile, 250);
-            var newProductImage = await _productImageService.UploadAsync(model.CreateProductDto.ProductFile);
+            _productImageService.IsImage(model.ProductFile);
+            _productImageService.CheckSize(model.ProductFile, 250);
+            var newProductImage = await _productImageService.UploadAsync(model.ProductFile);
 
             Product product = new Product()
             {
 
-                Title = model.CreateProductDto.Title,
-                Avg = model.CreateProductDto.Avg,
-                BrandsId = model.CreateProductDto.BrandsId,
-                CategoryId = model.CreateProductDto.CategoryId,
-                Discount = model.CreateProductDto.Discount,
-                ProductMemory = model.CreateProductDto.ProductMemory,
-                ProductRam = model.CreateProductDto.ProductRam,
+                Title = model.Title,
+               
+                BrandsId = model.BrandsId,
+                CategoryId = model.CategoryId,
+                Discount = model.Discount,
+                
+                ProductMemory = model.ProductMemory,
+                ProductRam = model.ProductRam,
                 ProfileProduct = newProductImage,
-                Higlist = model.CreateProductDto.Higlist,
-                ColorId = model.CreateProductDto.ColorId,
-                Description = model.CreateProductDto.Description,
-                Stock = model.CreateProductDto.Stock,
+                Higlist = model.Higlist,
+                ColorId = model.ColorId,
+                Description = model.Description,
+                Stock = model.Stock,
                 FilePath = uplaodFile.FirstOrDefault()?.FilePath,
-                Price = model.CreateProductDto.Price
+                Price = model.Price
             };
 
             await _productWriteRepository.AddAsync(product);
 
-            if (model.CreateProductDto.Images != null)
+            if (model.Images != null)
             {
-                foreach (var files in model.CreateProductDto.Images)
+                foreach (var files in model.Images)
                 {
                     _productImageService.CheckSize(files, 250);
                     _productImageService.IsImage(files);
@@ -141,9 +146,10 @@ namespace bytez.business.Concrete
         public async Task<List<Product>> GetProductsAsync()
         {
             var products = await _productReadRepository.GetAll()
+                 .Include(t => t.Category)
                 .Include(p => p.Color)
                 .Include(a => a.Brands)
-                .Include(t => t.Category)
+               
                   .Include(p => p.Wishlist)
                 .ToListAsync();
 
@@ -178,11 +184,11 @@ namespace bytez.business.Concrete
 
 
 
-        public async Task<bool> Update(ProductUpdateVM model)
+        public async Task<bool> Update(UpdateProductDto model)
         {
-            var product = await _productReadRepository.GetByIdAsync(model.UpdateProductDto.id);
+            var product = await _productReadRepository.GetByIdAsync(model.id);
             var extension = "\\wwwroot\\ui\\assets\\image\\";
-
+             
             var path2 = Path.Combine(Directory.GetCurrentDirectory(), extension, product.ProfileProduct);
             var images = _productImageReadRepository.GetAll();
             if (product != null)
@@ -190,17 +196,17 @@ namespace bytez.business.Concrete
 
                 _productImageService.Delete(path2);
 
-            if (model.UpdateProductDto.ProductFile != null)
+            if (model.ProductFile != null)
             {
-                _productImageService.CheckSize(model.UpdateProductDto.ProductFile, 250);
-                _productImageService.IsImage(model.UpdateProductDto.ProductFile);
-                var newProductImage = await _productImageService.UploadAsync(model.UpdateProductDto.ProductFile);
+                _productImageService.CheckSize(model.ProductFile, 250);
+                _productImageService.IsImage(model.ProductFile);
+                var newProductImage = await _productImageService.UploadAsync(model.ProductFile);
                 product.ProfileProduct = newProductImage;
             }
 
-            if (model.UpdateProductDto.Images != null)
+            if (model.Images != null)
             {
-                foreach (var file in model.UpdateProductDto.Images)
+                foreach (var file in model.Images)
                 {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), extension, file.Name);
                     _productImageService.Delete(path);
@@ -212,20 +218,20 @@ namespace bytez.business.Concrete
                 }
                 product.FilePath = images.FirstOrDefault()?.FilePath;
             }
-
-            product.Title = model.UpdateProductDto.Title;
-            product.Avg = model.UpdateProductDto.Avg;
-            product.BrandsId = model.UpdateProductDto.BrandsId;
-            product.CategoryId = model.UpdateProductDto.CategoryId;
-            product.ColorId = model.UpdateProductDto.ColorId;
-            product.Discount = model.UpdateProductDto.Discount;
-            product.Stock = model.UpdateProductDto.Stock;
-            product.Price = model.UpdateProductDto.Price;
-            product.Description = model.UpdateProductDto.Description;
-            product.ProductMemory = model.UpdateProductDto.ProductMemory;
-            product.ProductRam = model.UpdateProductDto.ProductRam;
-            product.Higlist = model.UpdateProductDto.Higlist;
-
+            
+            product.Title = model.Title;
+       
+            product.BrandsId = model.BrandsId;
+            product.CategoryId = model.CategoryId;
+            product.ColorId = model.ColorId;
+            product.Discount = model.Discount;
+            product.Stock = model.Stock;
+            product.Price = model.Price;
+            product.Description = model.Description;
+            product.ProductMemory = model.ProductMemory;
+            product.ProductRam = model.ProductRam;
+            product.Higlist = model.Higlist;
+            
             _productWriteRepository.Update(product);
             await _productWriteRepository.SaveAsync();
             return true;
